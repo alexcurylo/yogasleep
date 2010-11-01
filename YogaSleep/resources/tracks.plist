@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>A1</string>
+		<key>name</key>
+		<string>Intro</string>
+		<key>time</key>
+		<integer>58</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string>Intro..</string>
+		<key>file</key>
+		<string>A1- Intro.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>A2</string>
+		<key>name</key>
+		<string>End to sleep</string>
+		<key>time</key>
+		<integer>90</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string>End yo sleep.....</string>
+		<key>file</key>
+		<string>A2-end to sleep.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>B1</string>
+		<key>name</key>
+		<string>Resolve Sleep</string>
+		<key>time</key>
+		<integer>56</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string>Resolve to sleep.....</string>
+		<key>file</key>
+		<string>B1-Resolve sleep.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>C1</string>
+		<key>name</key>
+		<string>Healing breath</string>
+		<key>time</key>
+		<integer>235</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string>The healing breath is an ancient easter breathing technique where the breath is retained and exhale lengthened to a specific ratio etc</string>
+		<key>file</key>
+		<string>C1- healing breath.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>D1</string>
+		<key>name</key>
+		<string>ROC</string>
+		<key>time</key>
+		<integer>248</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Rotation of consciousness</string>
+		<key>file</key>
+		<string>D1- ROC.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>E1</string>
+		<key>name</key>
+		<string>Images</string>
+		<key>time</key>
+		<integer>188</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>memory images</string>
+		<key>file</key>
+		<string>E1- images.caf</string>
+	</dict>
+</array>
+</plist>
