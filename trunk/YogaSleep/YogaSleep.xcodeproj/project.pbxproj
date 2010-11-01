@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		FA30DCF8127A4F6300F8E042 /* TWBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */; };
+		FA30DCFA127A4F8200F8E042 /* TWBlankView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */; };
+		FA30DD02127A520200F8E042 /* YSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DD01127A520200F8E042 /* YSMainViewController.m */; };
+		FA30DD09127A54F000F8E042 /* YSMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD08127A54F000F8E042 /* YSMainView.xib */; };
+		FA30DD12127A561200F8E042 /* button_active.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD11127A561200F8E042 /* button_active.png */; };
+		FA30DD19127A59C200F8E042 /* YSIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DD18127A59C200F8E042 /* YSIntroViewController.m */; };
+		FA30DD89127A5D2300F8E042 /* introduction.html in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD87127A5D2300F8E042 /* introduction.html */; };
+		FA30DD8A127A5D2300F8E042 /* moreinfo.html in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD88127A5D2300F8E042 /* moreinfo.html */; };
+		FA30DD91127A5E0B00F8E042 /* YSIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD90127A5E0B00F8E042 /* YSIntroView.xib */; };
+		FA30DDAA127A5FD600F8E042 /* YSMoreInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DDA9127A5FD600F8E042 /* YSMoreInfoView.xib */; };
+		FA30DDAD127A5FF700F8E042 /* YSMoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DDAC127A5FF700F8E042 /* YSMoreInfoViewController.m */; };
+		FA30DDE3127A654900F8E042 /* YSCreateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DDE1127A654900F8E042 /* YSCreateView.xib */; };
+		FA30DDE4127A654900F8E042 /* YSRecordingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DDE2127A654900F8E042 /* YSRecordingsView.xib */; };
+		FA30DDE9127A656F00F8E042 /* YSCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DDE8127A656F00F8E042 /* YSCreateViewController.m */; };
+		FA30DDED127A65A500F8E042 /* YSRecordingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DDEC127A65A500F8E042 /* YSRecordingsViewController.m */; };
+		FA30DE0D127A80F400F8E042 /* YSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DE0C127A80F400F8E042 /* YSDataModel.m */; };
+		FA30DE14127A84C000F8E042 /* playlists.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA30DE12127A84C000F8E042 /* playlists.plist */; };
+		FA30DE15127A84C000F8E042 /* tracks.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA30DE13127A84C000F8E042 /* tracks.plist */; };
+		FA30DE47127A8B4A00F8E042 /* tracks in Resources */ = {isa = PBXBuildFile; fileRef = FA30DE3F127A8B4A00F8E042 /* tracks */; };
+		FA30E124127CA12F00F8E042 /* YSRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E123127CA12F00F8E042 /* YSRecordingViewController.m */; };
+		FA30E126127CA15400F8E042 /* YSRecordingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E125127CA15400F8E042 /* YSRecordingView.xib */; };
+		FA30E195127D0C3500F8E042 /* YSRecordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E194127D0C3500F8E042 /* YSRecordingCell.xib */; };
+		FA30E199127D0C6700F8E042 /* YSRecordingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E198127D0C6700F8E042 /* YSRecordingTableViewCell.m */; };
+		FA30E1E6127D13A400F8E042 /* YSTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E1E5127D13A400F8E042 /* YSTrackCell.xib */; };
+		FA30E244127D1CD500F8E042 /* Pause 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30E241127D1CD500F8E042 /* Pause 32x32.png */; };
+		FA30E245127D1CD500F8E042 /* Play 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30E242127D1CD500F8E042 /* Play 32x32.png */; };
+		FA30E246127D1CD500F8E042 /* Stop 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30E243127D1CD500F8E042 /* Stop 32x32.png */; };
+		FA30E275127D2D8E00F8E042 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E26D127D2D8E00F8E042 /* CDAudioManager.m */; };
+		FA30E276127D2D8E00F8E042 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E270127D2D8E00F8E042 /* CDOpenALSupport.m */; };
+		FA30E277127D2D8E00F8E042 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E272127D2D8E00F8E042 /* CocosDenshion.m */; };
+		FA30E278127D2D8E00F8E042 /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E274127D2D8E00F8E042 /* SimpleAudioEngine.m */; };
+		FA30E2CF127D3A8F00F8E042 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */; };
+		FA30E2D4127D3AAD00F8E042 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */; };
+		FA30E2DC127D3AB700F8E042 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */; };
+		FA30E38A127DE55C00F8E042 /* YSCreateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E389127DE55C00F8E042 /* YSCreateCell.xib */; };
+		FAB7D16C0FA6BF1800CBDED9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1670FA6BF1800CBDED9 /* Default.png */; };
+		FAB7D16D0FA6BF1800CBDED9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1680FA6BF1800CBDED9 /* Icon.png */; };
+		FAB7D16E0FA6BF1800CBDED9 /* TWNavigationMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */; };
+		FAB7D16F0FA6BF1800CBDED9 /* TWRootTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D16A0FA6BF1800CBDED9 /* TWRootTableView.xib */; };
+		FAB7D17D0FA6BF1F00CBDED9 /* TWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */; };
+		FAB7D17E0FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */; };
+		FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */; };
+		FAB7D1800FA6BF1F00CBDED9 /* TWRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */; };
+		FAD98BE1108A19CE00963F89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAD98BE0108A19CE00963F89 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* Yoga Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yoga Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA30DCF6127A4F6300F8E042 /* TWBlankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBlankViewController.h; sourceTree = "<group>"; };
+		FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBlankViewController.m; sourceTree = "<group>"; };
+		FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWBlankView.xib; sourceTree = "<group>"; };
+		FA30DD00127A520200F8E042 /* YSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMainViewController.h; sourceTree = "<group>"; };
+		FA30DD01127A520200F8E042 /* YSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMainViewController.m; sourceTree = "<group>"; };
+		FA30DD08127A54F000F8E042 /* YSMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSMainView.xib; sourceTree = "<group>"; };
+		FA30DD11127A561200F8E042 /* button_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_active.png; sourceTree = "<group>"; };
+		FA30DD17127A59C200F8E042 /* YSIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSIntroViewController.h; sourceTree = "<group>"; };
+		FA30DD18127A59C200F8E042 /* YSIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSIntroViewController.m; sourceTree = "<group>"; };
+		FA30DD87127A5D2300F8E042 /* introduction.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = introduction.html; sourceTree = "<group>"; };
+		FA30DD88127A5D2300F8E042 /* moreinfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = moreinfo.html; sourceTree = "<group>"; };
+		FA30DD90127A5E0B00F8E042 /* YSIntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSIntroView.xib; sourceTree = "<group>"; };
+		FA30DDA9127A5FD600F8E042 /* YSMoreInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSMoreInfoView.xib; sourceTree = "<group>"; };
+		FA30DDAB127A5FF700F8E042 /* YSMoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMoreInfoViewController.h; sourceTree = "<group>"; };
+		FA30DDAC127A5FF700F8E042 /* YSMoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMoreInfoViewController.m; sourceTree = "<group>"; };
+		FA30DDE1127A654900F8E042 /* YSCreateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSCreateView.xib; sourceTree = "<group>"; };
+		FA30DDE2127A654900F8E042 /* YSRecordingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSRecordingsView.xib; sourceTree = "<group>"; };
+		FA30DDE7127A656F00F8E042 /* YSCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCreateViewController.h; sourceTree = "<group>"; };
+		FA30DDE8127A656F00F8E042 /* YSCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCreateViewController.m; sourceTree = "<group>"; };
+		FA30DDEB127A65A500F8E042 /* YSRecordingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRecordingsViewController.h; sourceTree = "<group>"; };
+		FA30DDEC127A65A500F8E042 /* YSRecordingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRecordingsViewController.m; sourceTree = "<group>"; };
+		FA30DE0B127A80F400F8E042 /* YSDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDataModel.h; sourceTree = "<group>"; };
+		FA30DE0C127A80F400F8E042 /* YSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDataModel.m; sourceTree = "<group>"; };
+		FA30DE12127A84C000F8E042 /* playlists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playlists.plist; sourceTree = "<group>"; };
+		FA30DE13127A84C000F8E042 /* tracks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tracks.plist; sourceTree = "<group>"; };
+		FA30DE3F127A8B4A00F8E042 /* tracks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tracks; sourceTree = "<group>"; };
+		FA30E122127CA12F00F8E042 /* YSRecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRecordingViewController.h; sourceTree = "<group>"; };
+		FA30E123127CA12F00F8E042 /* YSRecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRecordingViewController.m; sourceTree = "<group>"; };
+		FA30E125127CA15400F8E042 /* YSRecordingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSRecordingView.xib; sourceTree = "<group>"; };
+		FA30E194127D0C3500F8E042 /* YSRecordingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSRecordingCell.xib; sourceTree = "<group>"; };
+		FA30E197127D0C6700F8E042 /* YSRecordingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRecordingTableViewCell.h; sourceTree = "<group>"; };
+		FA30E198127D0C6700F8E042 /* YSRecordingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRecordingTableViewCell.m; sourceTree = "<group>"; };
+		FA30E1E5127D13A400F8E042 /* YSTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSTrackCell.xib; sourceTree = "<group>"; };
+		FA30E241127D1CD500F8E042 /* Pause 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pause 32x32.png"; sourceTree = "<group>"; };
+		FA30E242127D1CD500F8E042 /* Play 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play 32x32.png"; sourceTree = "<group>"; };
+		FA30E243127D1CD500F8E042 /* Stop 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop 32x32.png"; sourceTree = "<group>"; };
+		FA30E26C127D2D8E00F8E042 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		FA30E26D127D2D8E00F8E042 /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		FA30E26E127D2D8E00F8E042 /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		FA30E26F127D2D8E00F8E042 /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		FA30E270127D2D8E00F8E042 /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		FA30E271127D2D8E00F8E042 /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		FA30E272127D2D8E00F8E042 /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		FA30E273127D2D8E00F8E042 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
+		FA30E274127D2D8E00F8E042 /* SimpleAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine.m; sourceTree = "<group>"; };
+		FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FA30E310127D3C7100F8E042 /* TWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWGeometry.h; path = "../../../../../../Volumes/Coding/Trollwerks/YogaSleep/svn.alexcurylo.com-yogasleep/trunk/YogaSleep/source/twlib/TWGeometry.h"; sourceTree = SDKROOT; };
+		FA30E389127DE55C00F8E042 /* YSCreateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = YSCreateCell.xib; path = "../../../../../../Volumes/Coding/Trollwerks/YogaSleep/svn.alexcurylo.com-yogasleep/trunk/YogaSleep/resources/YSCreateCell.xib"; sourceTree = SDKROOT; };
+		FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectAdHoc.xcconfig; sourceTree = "<group>"; };
+		FA8C2D9D11E8E1CF009E3D00 /* TWProjectAppStore.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectAppStore.xcconfig; sourceTree = "<group>"; };
+		FA8C2D9E11E8E1CF009E3D00 /* TWProjectBase.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectBase.xcconfig; sourceTree = "<group>"; };
+		FA8C2D9F11E8E1CF009E3D00 /* TWProjectDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectDebug.xcconfig; sourceTree = "<group>"; };
+		FA8C2DA011E8E1CF009E3D00 /* TWProjectPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWProjectPrefix.h; sourceTree = "<group>"; };
+		FA8C2DA111E8E1CF009E3D00 /* TWProjectRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectRelease.xcconfig; sourceTree = "<group>"; };
+		FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWTarget.xcconfig; sourceTree = "<group>"; };
+		FAB7D15E0FA6BEFF00CBDED9 /* notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = notes.rtf; sourceTree = "<group>"; };
+		FAB7D1670FA6BF1800CBDED9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FAB7D1680FA6BF1800CBDED9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWNavigationMainWindow.xib; sourceTree = "<group>"; };
+		FAB7D16A0FA6BF1800CBDED9 /* TWRootTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWRootTableView.xib; sourceTree = "<group>"; };
+		FAB7D16B0FA6BF1800CBDED9 /* TWApplicationInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWApplicationInfo.plist; sourceTree = "<group>"; };
+		FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMain.m; sourceTree = "<group>"; };
+		FAB7D1740FA6BF1F00CBDED9 /* TWNavigationAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWNavigationAppDelegate.h; sourceTree = "<group>"; };
+		FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWNavigationAppDelegate.m; sourceTree = "<group>"; };
+		FAB7D1770FA6BF1F00CBDED9 /* TWDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWDebugging.h; sourceTree = "<group>"; };
+		FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDebugging.m; sourceTree = "<group>"; };
+		FAB7D17B0FA6BF1F00CBDED9 /* TWRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRootTableViewController.h; sourceTree = "<group>"; };
+		FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRootTableViewController.m; sourceTree = "<group>"; };
+		FAD98BE0108A19CE00963F89 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				FA30E2CF127D3A8F00F8E042 /* OpenAL.framework in Frameworks */,
+				FA30E2D4127D3AAD00F8E042 /* AVFoundation.framework in Frameworks */,
+				FA30E2DC127D3AB700F8E042 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Yoga Sleep.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7D15D0FA6BEFF00CBDED9 /* notes */,
+				FAB7D1710FA6BF1F00CBDED9 /* source */,
+				FAB7D1660FA6BF1800CBDED9 /* resources */,
+				FA8C2D9B11E8E1CF009E3D00 /* config */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */,
+				FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA30DD0F127A561200F8E042 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				FA30E240127D1CD500F8E042 /* controls */,
+				FA30DD10127A561200F8E042 /* main */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		FA30DD10127A561200F8E042 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				FA30DD11127A561200F8E042 /* button_active.png */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		FA30DD86127A5D2300F8E042 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				FA30DD87127A5D2300F8E042 /* introduction.html */,
+				FA30DD88127A5D2300F8E042 /* moreinfo.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		FA30E240127D1CD500F8E042 /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				FA30E241127D1CD500F8E042 /* Pause 32x32.png */,
+				FA30E242127D1CD500F8E042 /* Play 32x32.png */,
+				FA30E243127D1CD500F8E042 /* Stop 32x32.png */,
+			);
+			path = controls;
+			sourceTree = "<group>";
+		};
+		FA30E26A127D2D8E00F8E042 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				FA30E26B127D2D8E00F8E042 /* CocosDenshion */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
+		FA30E26B127D2D8E00F8E042 /* CocosDenshion */ = {
+			isa = PBXGroup;
+			children = (
+				FA30E26C127D2D8E00F8E042 /* CDAudioManager.h */,
+				FA30E26D127D2D8E00F8E042 /* CDAudioManager.m */,
+				FA30E26E127D2D8E00F8E042 /* CDConfig.h */,
+				FA30E26F127D2D8E00F8E042 /* CDOpenALSupport.h */,
+				FA30E270127D2D8E00F8E042 /* CDOpenALSupport.m */,
+				FA30E271127D2D8E00F8E042 /* CocosDenshion.h */,
+				FA30E272127D2D8E00F8E042 /* CocosDenshion.m */,
+				FA30E273127D2D8E00F8E042 /* SimpleAudioEngine.h */,
+				FA30E274127D2D8E00F8E042 /* SimpleAudioEngine.m */,
+			);
+			path = CocosDenshion;
+			sourceTree = "<group>";
+		};
+		FA8C2D9B11E8E1CF009E3D00 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */,
+				FA8C2D9D11E8E1CF009E3D00 /* TWProjectAppStore.xcconfig */,
+				FA8C2D9E11E8E1CF009E3D00 /* TWProjectBase.xcconfig */,
+				FA8C2D9F11E8E1CF009E3D00 /* TWProjectDebug.xcconfig */,
+				FA8C2DA011E8E1CF009E3D00 /* TWProjectPrefix.h */,
+				FA8C2DA111E8E1CF009E3D00 /* TWProjectRelease.xcconfig */,
+				FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		FAB7D15D0FA6BEFF00CBDED9 /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7D15E0FA6BEFF00CBDED9 /* notes.rtf */,
+			);
+			path = notes;
+			sourceTree = "<group>";
+		};
+		FAB7D1660FA6BF1800CBDED9 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7D16B0FA6BF1800CBDED9 /* TWApplicationInfo.plist */,
+				FAD98BE0108A19CE00963F89 /* Localizable.strings */,
+				FA30DD08127A54F000F8E042 /* YSMainView.xib */,
+				FA30DD90127A5E0B00F8E042 /* YSIntroView.xib */,
+				FA30DDE2127A654900F8E042 /* YSRecordingsView.xib */,
+				FA30E194127D0C3500F8E042 /* YSRecordingCell.xib */,
+				FA30E125127CA15400F8E042 /* YSRecordingView.xib */,
+				FA30E1E5127D13A400F8E042 /* YSTrackCell.xib */,
+				FA30DDE1127A654900F8E042 /* YSCreateView.xib */,
+				FA30E389127DE55C00F8E042 /* YSCreateCell.xib */,
+				FA30DDA9127A5FD600F8E042 /* YSMoreInfoView.xib */,
+				FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */,
+				FAB7D16A0FA6BF1800CBDED9 /* TWRootTableView.xib */,
+				FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */,
+				FA30DD0F127A561200F8E042 /* images */,
+				FA30DD86127A5D2300F8E042 /* html */,
+				FA30DE12127A84C000F8E042 /* playlists.plist */,
+				FA30DE13127A84C000F8E042 /* tracks.plist */,
+				FA30DE3F127A8B4A00F8E042 /* tracks */,
+				FAB7D1670FA6BF1800CBDED9 /* Default.png */,
+				FAB7D1680FA6BF1800CBDED9 /* Icon.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		FAB7D1710FA6BF1F00CBDED9 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7D1720FA6BF1F00CBDED9 /* application */,
+				FAB7D17A0FA6BF1F00CBDED9 /* views */,
+				FA30E26A127D2D8E00F8E042 /* support */,
+				FAB7D1760FA6BF1F00CBDED9 /* twlib */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		FAB7D1720FA6BF1F00CBDED9 /* application */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */,
+				FAB7D1740FA6BF1F00CBDED9 /* TWNavigationAppDelegate.h */,
+				FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */,
+				FA30DE0B127A80F400F8E042 /* YSDataModel.h */,
+				FA30DE0C127A80F400F8E042 /* YSDataModel.m */,
+			);
+			path = application;
+			sourceTree = "<group>";
+		};
+		FAB7D1760FA6BF1F00CBDED9 /* twlib */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7D1770FA6BF1F00CBDED9 /* TWDebugging.h */,
+				FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */,
+				FA30E310127D3C7100F8E042 /* TWGeometry.h */,
+			);
+			path = twlib;
+			sourceTree = "<group>";
+		};
+		FAB7D17A0FA6BF1F00CBDED9 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FA30DD00127A520200F8E042 /* YSMainViewController.h */,
+				FA30DD01127A520200F8E042 /* YSMainViewController.m */,
+				FA30DD17127A59C200F8E042 /* YSIntroViewController.h */,
+				FA30DD18127A59C200F8E042 /* YSIntroViewController.m */,
+				FA30DDEB127A65A500F8E042 /* YSRecordingsViewController.h */,
+				FA30DDEC127A65A500F8E042 /* YSRecordingsViewController.m */,
+				FA30E197127D0C6700F8E042 /* YSRecordingTableViewCell.h */,
+				FA30E198127D0C6700F8E042 /* YSRecordingTableViewCell.m */,
+				FA30E122127CA12F00F8E042 /* YSRecordingViewController.h */,
+				FA30E123127CA12F00F8E042 /* YSRecordingViewController.m */,
+				FA30DDE7127A656F00F8E042 /* YSCreateViewController.h */,
+				FA30DDE8127A656F00F8E042 /* YSCreateViewController.m */,
+				FA30DDAB127A5FF700F8E042 /* YSMoreInfoViewController.h */,
+				FA30DDAC127A5FF700F8E042 /* YSMoreInfoViewController.m */,
+				FAB7D17B0FA6BF1F00CBDED9 /* TWRootTableViewController.h */,
+				FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */,
+				FA30DCF6127A4F6300F8E042 /* TWBlankViewController.h */,
+				FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* YogaSleep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "YogaSleep" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YogaSleep;
+			productName = Navigation;
+			productReference = 1D6058910D05DD3D006BFB54 /* Yoga Sleep.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Trollwerks Inc.";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "YogaSleep" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* YogaSleep */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB7D16C0FA6BF1800CBDED9 /* Default.png in Resources */,
+				FAB7D16D0FA6BF1800CBDED9 /* Icon.png in Resources */,
+				FAB7D16E0FA6BF1800CBDED9 /* TWNavigationMainWindow.xib in Resources */,
+				FAB7D16F0FA6BF1800CBDED9 /* TWRootTableView.xib in Resources */,
+				FAD98BE1108A19CE00963F89 /* Localizable.strings in Resources */,
+				FA30DCFA127A4F8200F8E042 /* TWBlankView.xib in Resources */,
+				FA30DD09127A54F000F8E042 /* YSMainView.xib in Resources */,
+				FA30DD12127A561200F8E042 /* button_active.png in Resources */,
+				FA30DD89127A5D2300F8E042 /* introduction.html in Resources */,
+				FA30DD8A127A5D2300F8E042 /* moreinfo.html in Resources */,
+				FA30DD91127A5E0B00F8E042 /* YSIntroView.xib in Resources */,
+				FA30DDAA127A5FD600F8E042 /* YSMoreInfoView.xib in Resources */,
+				FA30DDE3127A654900F8E042 /* YSCreateView.xib in Resources */,
+				FA30DDE4127A654900F8E042 /* YSRecordingsView.xib in Resources */,
+				FA30DE14127A84C000F8E042 /* playlists.plist in Resources */,
+				FA30DE15127A84C000F8E042 /* tracks.plist in Resources */,
+				FA30DE47127A8B4A00F8E042 /* tracks in Resources */,
+				FA30E126127CA15400F8E042 /* YSRecordingView.xib in Resources */,
+				FA30E195127D0C3500F8E042 /* YSRecordingCell.xib in Resources */,
+				FA30E1E6127D13A400F8E042 /* YSTrackCell.xib in Resources */,
+				FA30E244127D1CD500F8E042 /* Pause 32x32.png in Resources */,
+				FA30E245127D1CD500F8E042 /* Play 32x32.png in Resources */,
+				FA30E246127D1CD500F8E042 /* Stop 32x32.png in Resources */,
+				FA30E38A127DE55C00F8E042 /* YSCreateCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB7D17D0FA6BF1F00CBDED9 /* TWMain.m in Sources */,
+				FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */,
+				FAB7D17E0FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m in Sources */,
+				FAB7D1800FA6BF1F00CBDED9 /* TWRootTableViewController.m in Sources */,
+				FA30DCF8127A4F6300F8E042 /* TWBlankViewController.m in Sources */,
+				FA30DD02127A520200F8E042 /* YSMainViewController.m in Sources */,
+				FA30DD19127A59C200F8E042 /* YSIntroViewController.m in Sources */,
+				FA30DDAD127A5FF700F8E042 /* YSMoreInfoViewController.m in Sources */,
+				FA30DDE9127A656F00F8E042 /* YSCreateViewController.m in Sources */,
+				FA30DDED127A65A500F8E042 /* YSRecordingsViewController.m in Sources */,
+				FA30DE0D127A80F400F8E042 /* YSDataModel.m in Sources */,
+				FA30E124127CA12F00F8E042 /* YSRecordingViewController.m in Sources */,
+				FA30E199127D0C6700F8E042 /* YSRecordingTableViewCell.m in Sources */,
+				FA30E275127D2D8E00F8E042 /* CDAudioManager.m in Sources */,
+				FA30E276127D2D8E00F8E042 /* CDOpenALSupport.m in Sources */,
+				FA30E277127D2D8E00F8E042 /* CocosDenshion.m in Sources */,
+				FA30E278127D2D8E00F8E042 /* SimpleAudioEngine.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release-AdHoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */;
+			buildSettings = {
+			};
+			name = "Release-AdHoc";
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8C2D9F11E8E1CF009E3D00 /* TWProjectDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release-AdHoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */;
+			buildSettings = {
+			};
+			name = "Release-AdHoc";
+		};
+		FA417B6D11176341008AC4E1 /* Release-AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8C2D9D11E8E1CF009E3D00 /* TWProjectAppStore.xcconfig */;
+			buildSettings = {
+			};
+			name = "Release-AppStore";
+		};
+		FA417B6E11176341008AC4E1 /* Release-AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */;
+			buildSettings = {
+			};
+			name = "Release-AppStore";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "YogaSleep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release-AdHoc */,
+				FA417B6E11176341008AC4E1 /* Release-AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release-AdHoc";
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "YogaSleep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release-AdHoc */,
+				FA417B6D11176341008AC4E1 /* Release-AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release-AdHoc";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
