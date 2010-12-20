@@ -488,6 +488,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
+				PROVISIONING_PROFILE = "78F21C3E-B6A8-4B13-A63C-3DDFC161D3BE";
 			};
 			name = "Release-AdHoc";
 		};

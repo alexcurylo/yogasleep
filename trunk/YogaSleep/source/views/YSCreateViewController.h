@@ -52,8 +52,8 @@ enum
 
 - (void)trackChanged:(NSNotification *)note;
 
-- (void)addTrack:(NSInteger)idx;
-- (void)removeTrack:(NSInteger)idx;
+- (void)addTrack:(NSIndexPath *)indexPath;
+- (void)removeTrack:(NSIndexPath *)indexPath;
 - (void)moveTrack:(NSInteger)idx to:(NSInteger)newIdx;
 
 #pragma mark -

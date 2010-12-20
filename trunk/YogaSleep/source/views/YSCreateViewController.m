@@ -151,9 +151,9 @@
    [self.createTable reloadData];
 }
 
-- (void)addTrack:(NSInteger)idx
+- (void)addTrack:(NSIndexPath *)indexPath
 {
-   NSDictionary *track = [TWDataModel().tracks objectAtIndex:idx];
+   NSDictionary *track = [TWDataModel().tracks objectAtIndex:indexPath.row];
 
    // add track ID to components
    NSString *trackID = [track objectForKey:kTrackID];
@@ -168,17 +168,22 @@
    
    // update model and UI
    [TWDataModel() setCustomPlaylist:self.playlist];
+   //[self.createTable reloadData];
+   // any call to the commented out bits crashes ... why?
+   //[self.createTable beginUpdates];
+   //[self.createTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
    [self.createTable reloadData];
+   //[self.createTable endUpdates];
 }
 
-- (void)removeTrack:(NSInteger)idx
+- (void)removeTrack:(NSIndexPath *)indexPath
 {
    // remove track from components, after we get its time
    NSMutableArray *components = [self.playlist objectForKey:kPlaylistComponents];
-   NSString *trackID = [components objectAtIndex:idx];
+   NSString *trackID = [components objectAtIndex:indexPath.row];
    NSDictionary *track = [TWDataModel() trackWithID:trackID];
    NSInteger trackSeconds = [[track objectForKey:kTrackTime] integerValue];
-   [components removeObjectAtIndex:idx];
+   [components removeObjectAtIndex:indexPath.row];
    
    // remove track time from playlist time
    NSInteger totalSeconds = [[self.playlist objectForKey:kPlaylistTime] integerValue];
@@ -187,7 +192,11 @@
    
    // update model and UI
    [TWDataModel() setCustomPlaylist:self.playlist];
+   //[self.createTable reloadData];
+   [self.createTable beginUpdates];
+   [self.createTable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
    [self.createTable reloadData];
+   [self.createTable endUpdates];
 }
 
 - (void)moveTrack:(NSInteger)idx to:(NSInteger)newIdx
@@ -346,10 +355,10 @@
       default:
          twlog("what section is %d?", indexPath.section);
       case kSectionCustomPlaylist:
-         [self removeTrack:indexPath.row];
+         [self removeTrack:indexPath];
          break;
       case kSectionAddableTracks:
-         [self addTrack:indexPath.row];
+         [self addTrack:indexPath];
          break;
    }
 }
