@@ -6,16 +6,23 @@
 
 #import "YSDataModel.h"
 
-@interface TWNavigationAppDelegate : NSObject <UIApplicationDelegate>
+@class YSMainViewController;
+
+@interface TWNavigationAppDelegate : NSObject <
+   UIApplicationDelegate,
+   UINavigationControllerDelegate
+>
 {
-    IBOutlet UIWindow *window;
-    IBOutlet UINavigationController *navigationController;
+   IBOutlet UIWindow *window;
+   IBOutlet UINavigationController *navigationController;
+   IBOutlet YSMainViewController *mainViewController;
 
    YSDataModel *dataModel;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) IBOutlet YSMainViewController *mainViewController;
 @property (nonatomic, retain) YSDataModel *dataModel;
 
 #pragma mark -
@@ -36,6 +43,10 @@
 #pragma mark -
 #pragma mark Application support
 
+#pragma mark -
+#pragma mark UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
 @end
 

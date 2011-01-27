@@ -7,6 +7,7 @@
 #import "YSRecordingViewController.h"
 #import "TWNavigationAppDelegate.h"
 #import "YSRecordingTableViewCell.h"
+#import "YSPlayerViewController.h"
 
 @implementation YSRecordingViewController
 
@@ -106,26 +107,49 @@
 
 - (void)fixPlayControls
 {
-   NSString *imageName = nil;
-   SEL action = nil;
+   UIBarButtonItem *barButtonItem = nil;
+   
    BOOL playing = [TWDataModel() isPlayingPlaylist:self.playlist];
    if (playing)
    {
+      /*
+      NSString *imageName = nil;
+      SEL action = nil;
       imageName = @"Pause 32x32.png";
       action = @selector(pause);
+      barButtonItem = [[[UIBarButtonItem alloc]
+         initWithImage:[UIImage imageNamed:imageName]
+         style:UIBarButtonItemStyleBordered
+         target:self
+         action:action
+      ] autorelease];
+       */
+      barButtonItem = [self playingBarButtonForTarget:self action:@selector(showPlayer)];
    }
    else
    {
-      imageName = @"Play 32x32.png"; 
-      action = @selector(play);
+      //NSString *imageName = @"Play 32x32.png"; 
+      SEL action = @selector(play);
+      barButtonItem = [[[UIBarButtonItem alloc]
+         //initWithImage:[UIImage imageNamed:imageName]
+         //style:UIBarButtonItemStyleBordered
+         initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+         target:self
+         action:action
+      ] autorelease];
    }
-   UIBarButtonItem *barButtonItem = [[[UIBarButtonItem alloc]
-      initWithImage:[UIImage imageNamed:imageName]
-      style:UIBarButtonItemStyleBordered
-      target:self
-      action:action
-   ] autorelease];
+
    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+- (UIBarButtonItem *)playingBarButtonForTarget:(id)target action:(SEL)action
+{
+	UIButton *nowPlayingButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 30)] autorelease];
+	[nowPlayingButton setBackgroundImage:[UIImage imageNamed:@"button_nowplaying.png"] forState:UIControlStateNormal];
+	[nowPlayingButton setBackgroundImage:[UIImage imageNamed:@"button_nowplaying-pressed.png"] forState:UIControlStateHighlighted];
+	[nowPlayingButton addTarget:target action:action forControlEvents:(UIControlEventTouchUpInside)];
+	UIBarButtonItem *result = [[[UIBarButtonItem alloc] initWithCustomView:nowPlayingButton] autorelease];
+   return result;
 }
 
 - (void)play
@@ -134,6 +158,8 @@
    
    [self fixPlayControls];
    [self.tracksTable reloadData];
+   
+   [self showPlayer];
 }
 
 - (void)pause
@@ -141,6 +167,12 @@
    [TWDataModel() pause:self.playlist];
 
    [self fixPlayControls];
+}
+
+- (void)showPlayer
+{
+	YSPlayerViewController *controller = [YSPlayerViewController controller];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)trackChanged:(NSNotification *)note

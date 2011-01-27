@@ -10,6 +10,24 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		FA16AA1912EE944D00AEE323 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AA1812EE944D00AEE323 /* Icon@2x.png */; };
+		FA16AA1E12EE963F00AEE323 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AA1D12EE963F00AEE323 /* Default@2x.png */; };
+		FA16AAA112EEA36100AEE323 /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AA9D12EEA36100AEE323 /* MOButton.m */; };
+		FA16AAA212EEA36100AEE323 /* MOGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AA9F12EEA36100AEE323 /* MOGlassButton.m */; };
+		FA16AAA312EEA36100AEE323 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA16AAA012EEA36100AEE323 /* README.md */; };
+		FA16AAB112EEA37B00AEE323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */; };
+		FA16AC4012EFEF0A00AEE323 /* button_nexttrack.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3C12EFEF0A00AEE323 /* button_nexttrack.png */; };
+		FA16AC4112EFEF0A00AEE323 /* button_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3D12EFEF0A00AEE323 /* button_pause.png */; };
+		FA16AC4212EFEF0A00AEE323 /* button_play.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3E12EFEF0A00AEE323 /* button_play.png */; };
+		FA16AC4312EFEF0A00AEE323 /* button_prevtrack.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3F12EFEF0A00AEE323 /* button_prevtrack.png */; };
+		FA16AC4612EFEF6700AEE323 /* button_nowplaying-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC4412EFEF6700AEE323 /* button_nowplaying-pressed.png */; };
+		FA16AC4712EFEF6700AEE323 /* button_nowplaying.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC4512EFEF6700AEE323 /* button_nowplaying.png */; };
+		FA16AC4912EFEF7200AEE323 /* YSPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC4812EFEF7200AEE323 /* YSPlayerView.xib */; };
+		FA16AC4C12EFEFC200AEE323 /* YSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AC4B12EFEFC200AEE323 /* YSPlayerViewController.m */; };
+		FA16AC5512EFF0ED00AEE323 /* TWSecondsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AC5412EFF0ED00AEE323 /* TWSecondsFormatter.m */; };
+		FA16AC7412EFFCE600AEE323 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */; };
+		FA16AE3612F0F8C000AEE323 /* YSAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA16AE3512F0F8C000AEE323 /* YSAddView.xib */; };
+		FA16AE3912F0F8E200AEE323 /* YSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AE3812F0F8E200AEE323 /* YSAddViewController.m */; };
 		FA30DCF8127A4F6300F8E042 /* TWBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */; };
 		FA30DCFA127A4F8200F8E042 /* TWBlankView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */; };
 		FA30DD02127A520200F8E042 /* YSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DD01127A520200F8E042 /* YSMainViewController.m */; };
@@ -61,6 +79,30 @@
 		1D6058910D05DD3D006BFB54 /* Yoga Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yoga Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA16AA1812EE944D00AEE323 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		FA16AA1D12EE963F00AEE323 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA16AA9B12EEA36100AEE323 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		FA16AA9C12EEA36100AEE323 /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOButton.h; sourceTree = "<group>"; };
+		FA16AA9D12EEA36100AEE323 /* MOButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOButton.m; sourceTree = "<group>"; };
+		FA16AA9E12EEA36100AEE323 /* MOGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOGlassButton.h; sourceTree = "<group>"; };
+		FA16AA9F12EEA36100AEE323 /* MOGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOGlassButton.m; sourceTree = "<group>"; };
+		FA16AAA012EEA36100AEE323 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FA16AC3C12EFEF0A00AEE323 /* button_nexttrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_nexttrack.png; sourceTree = "<group>"; };
+		FA16AC3D12EFEF0A00AEE323 /* button_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pause.png; sourceTree = "<group>"; };
+		FA16AC3E12EFEF0A00AEE323 /* button_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_play.png; sourceTree = "<group>"; };
+		FA16AC3F12EFEF0A00AEE323 /* button_prevtrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_prevtrack.png; sourceTree = "<group>"; };
+		FA16AC4412EFEF6700AEE323 /* button_nowplaying-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_nowplaying-pressed.png"; sourceTree = "<group>"; };
+		FA16AC4512EFEF6700AEE323 /* button_nowplaying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_nowplaying.png; sourceTree = "<group>"; };
+		FA16AC4812EFEF7200AEE323 /* YSPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSPlayerView.xib; sourceTree = "<group>"; };
+		FA16AC4A12EFEFC200AEE323 /* YSPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPlayerViewController.h; sourceTree = "<group>"; };
+		FA16AC4B12EFEFC200AEE323 /* YSPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPlayerViewController.m; sourceTree = "<group>"; };
+		FA16AC5312EFF0ED00AEE323 /* TWSecondsFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSecondsFormatter.h; sourceTree = "<group>"; };
+		FA16AC5412EFF0ED00AEE323 /* TWSecondsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSecondsFormatter.m; sourceTree = "<group>"; };
+		FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FA16AE3512F0F8C000AEE323 /* YSAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSAddView.xib; sourceTree = "<group>"; };
+		FA16AE3712F0F8E200AEE323 /* YSAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAddViewController.h; sourceTree = "<group>"; };
+		FA16AE3812F0F8E200AEE323 /* YSAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAddViewController.m; sourceTree = "<group>"; };
 		FA30DCF6127A4F6300F8E042 /* TWBlankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBlankViewController.h; sourceTree = "<group>"; };
 		FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBlankViewController.m; sourceTree = "<group>"; };
 		FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWBlankView.xib; sourceTree = "<group>"; };
@@ -145,6 +187,8 @@
 				FA30E2CF127D3A8F00F8E042 /* OpenAL.framework in Frameworks */,
 				FA30E2D4127D3AAD00F8E042 /* AVFoundation.framework in Frameworks */,
 				FA30E2DC127D3AB700F8E042 /* AudioToolbox.framework in Frameworks */,
+				FA16AAB112EEA37B00AEE323 /* QuartzCore.framework in Frameworks */,
+				FA16AC7412EFFCE600AEE323 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,10 +223,38 @@
 				FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */,
 				FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */,
+				FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA16AA9A12EEA36100AEE323 /* GlassButtons */ = {
+			isa = PBXGroup;
+			children = (
+				FA16AA9B12EEA36100AEE323 /* Global.h */,
+				FA16AA9C12EEA36100AEE323 /* MOButton.h */,
+				FA16AA9D12EEA36100AEE323 /* MOButton.m */,
+				FA16AA9E12EEA36100AEE323 /* MOGlassButton.h */,
+				FA16AA9F12EEA36100AEE323 /* MOGlassButton.m */,
+				FA16AAA012EEA36100AEE323 /* README.md */,
+			);
+			path = GlassButtons;
+			sourceTree = "<group>";
+		};
+		FA16AC3B12EFEF0A00AEE323 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				FA16AC3C12EFEF0A00AEE323 /* button_nexttrack.png */,
+				FA16AC4412EFEF6700AEE323 /* button_nowplaying-pressed.png */,
+				FA16AC4512EFEF6700AEE323 /* button_nowplaying.png */,
+				FA16AC3D12EFEF0A00AEE323 /* button_pause.png */,
+				FA16AC3E12EFEF0A00AEE323 /* button_play.png */,
+				FA16AC3F12EFEF0A00AEE323 /* button_prevtrack.png */,
+			);
+			path = player;
 			sourceTree = "<group>";
 		};
 		FA30DD0F127A561200F8E042 /* images */ = {
@@ -190,6 +262,7 @@
 			children = (
 				FA30E240127D1CD500F8E042 /* controls */,
 				FA30DD10127A561200F8E042 /* main */,
+				FA16AC3B12EFEF0A00AEE323 /* player */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -225,6 +298,9 @@
 			isa = PBXGroup;
 			children = (
 				FA30E26B127D2D8E00F8E042 /* CocosDenshion */,
+				FA16AA9A12EEA36100AEE323 /* GlassButtons */,
+				FA16AC5312EFF0ED00AEE323 /* TWSecondsFormatter.h */,
+				FA16AC5412EFF0ED00AEE323 /* TWSecondsFormatter.m */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -279,8 +355,10 @@
 				FA30E125127CA15400F8E042 /* YSRecordingView.xib */,
 				FA30E1E5127D13A400F8E042 /* YSTrackCell.xib */,
 				FA30DDE1127A654900F8E042 /* YSCreateView.xib */,
+				FA16AE3512F0F8C000AEE323 /* YSAddView.xib */,
 				FA30E389127DE55C00F8E042 /* YSCreateCell.xib */,
 				FA30DDA9127A5FD600F8E042 /* YSMoreInfoView.xib */,
+				FA16AC4812EFEF7200AEE323 /* YSPlayerView.xib */,
 				FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */,
 				FAB7D16A0FA6BF1800CBDED9 /* TWRootTableView.xib */,
 				FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */,
@@ -290,7 +368,9 @@
 				FA30DE13127A84C000F8E042 /* tracks.plist */,
 				FA30DE3F127A8B4A00F8E042 /* tracks */,
 				FAB7D1670FA6BF1800CBDED9 /* Default.png */,
+				FA16AA1D12EE963F00AEE323 /* Default@2x.png */,
 				FAB7D1680FA6BF1800CBDED9 /* Icon.png */,
+				FA16AA1812EE944D00AEE323 /* Icon@2x.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -343,8 +423,12 @@
 				FA30E123127CA12F00F8E042 /* YSRecordingViewController.m */,
 				FA30DDE7127A656F00F8E042 /* YSCreateViewController.h */,
 				FA30DDE8127A656F00F8E042 /* YSCreateViewController.m */,
+				FA16AE3712F0F8E200AEE323 /* YSAddViewController.h */,
+				FA16AE3812F0F8E200AEE323 /* YSAddViewController.m */,
 				FA30DDAB127A5FF700F8E042 /* YSMoreInfoViewController.h */,
 				FA30DDAC127A5FF700F8E042 /* YSMoreInfoViewController.m */,
+				FA16AC4A12EFEFC200AEE323 /* YSPlayerViewController.h */,
+				FA16AC4B12EFEFC200AEE323 /* YSPlayerViewController.m */,
 				FAB7D17B0FA6BF1F00CBDED9 /* TWRootTableViewController.h */,
 				FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */,
 				FA30DCF6127A4F6300F8E042 /* TWBlankViewController.h */,
@@ -430,6 +514,17 @@
 				FA30E245127D1CD500F8E042 /* Play 32x32.png in Resources */,
 				FA30E246127D1CD500F8E042 /* Stop 32x32.png in Resources */,
 				FA30E38A127DE55C00F8E042 /* YSCreateCell.xib in Resources */,
+				FA16AA1912EE944D00AEE323 /* Icon@2x.png in Resources */,
+				FA16AA1E12EE963F00AEE323 /* Default@2x.png in Resources */,
+				FA16AAA312EEA36100AEE323 /* README.md in Resources */,
+				FA16AC4012EFEF0A00AEE323 /* button_nexttrack.png in Resources */,
+				FA16AC4112EFEF0A00AEE323 /* button_pause.png in Resources */,
+				FA16AC4212EFEF0A00AEE323 /* button_play.png in Resources */,
+				FA16AC4312EFEF0A00AEE323 /* button_prevtrack.png in Resources */,
+				FA16AC4612EFEF6700AEE323 /* button_nowplaying-pressed.png in Resources */,
+				FA16AC4712EFEF6700AEE323 /* button_nowplaying.png in Resources */,
+				FA16AC4912EFEF7200AEE323 /* YSPlayerView.xib in Resources */,
+				FA16AE3612F0F8C000AEE323 /* YSAddView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +552,11 @@
 				FA30E276127D2D8E00F8E042 /* CDOpenALSupport.m in Sources */,
 				FA30E277127D2D8E00F8E042 /* CocosDenshion.m in Sources */,
 				FA30E278127D2D8E00F8E042 /* SimpleAudioEngine.m in Sources */,
+				FA16AAA112EEA36100AEE323 /* MOButton.m in Sources */,
+				FA16AAA212EEA36100AEE323 /* MOGlassButton.m in Sources */,
+				FA16AC4C12EFEFC200AEE323 /* YSPlayerViewController.m in Sources */,
+				FA16AC5512EFF0ED00AEE323 /* TWSecondsFormatter.m in Sources */,
+				FA16AE3912F0F8E200AEE323 /* YSAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +589,7 @@
 			baseConfigurationReference = FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
-				PROVISIONING_PROFILE = "78F21C3E-B6A8-4B13-A63C-3DDFC161D3BE";
+				PROVISIONING_PROFILE = "18C4A2CC-ACF7-45DE-A1FD-8614C1096D74";
 			};
 			name = "Release-AdHoc";
 		};

@@ -9,7 +9,7 @@
 enum
 {
    kSectionCustomPlaylist = 0,
-   kSectionAddableTracks,
+   //kSectionAddableTracks,
    kCreateSectionsCount,
 };
 
@@ -46,6 +46,8 @@ enum
 #pragma mark Actions
 
 - (void)fixPlayControls;
+
+- (IBAction)addTracks;
 
 - (void)play;
 - (void)pause;

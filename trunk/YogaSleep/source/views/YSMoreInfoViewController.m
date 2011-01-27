@@ -32,6 +32,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
    [super viewWillAppear:animated];
+   
+   //self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -49,7 +51,6 @@
 
 - (void)viewDidUnload
 {
-   twlog("YSMoreInfoViewController viewDidUnload");
 	[self clearOutlets];
 }
 

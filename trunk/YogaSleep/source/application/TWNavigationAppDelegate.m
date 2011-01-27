@@ -10,6 +10,7 @@
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize mainViewController;
 @synthesize dataModel;
 
 #pragma mark -
@@ -62,7 +63,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
    (void)application;
-   twlog("applicationDidBecomeActive");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -110,6 +110,7 @@
 - (void)dealloc
 {
 	twrelease(navigationController);
+	twrelease(mainViewController);
 	twrelease(window);
 	twrelease(dataModel);
 
@@ -119,6 +120,21 @@
 #pragma mark -
 #pragma mark Application support
 
+#pragma mark -
+#pragma mark UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+   if (viewController == (id)self.mainViewController)
+   {
+      //navController.navigationBar.hidden = YES;
+      [navController setNavigationBarHidden:YES animated:animated];
+   }
+   else
+   {
+      [navController setNavigationBarHidden:NO animated:animated];
+   }
+}
 
 @end
 
@@ -127,7 +143,7 @@
 
 TWNavigationAppDelegate *TWAppDelegate(void)
 {
-   return [[UIApplication sharedApplication] delegate];
+   return (TWNavigationAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 YSDataModel *TWDataModel(void)
