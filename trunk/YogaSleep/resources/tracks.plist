@@ -6,85 +6,407 @@
 		<key>id</key>
 		<string>A1</string>
 		<key>name</key>
-		<string>Intro</string>
+		<string>Introduction</string>
 		<key>time</key>
-		<integer>58</integer>
+		<integer>93</integer>
 		<key>category</key>
-		<string>Sleep</string>
+		<string>General</string>
 		<key>description</key>
-		<string>Intro..</string>
+		<string>General introduction to the practise</string>
 		<key>file</key>
-		<string>A1- Intro.caf</string>
+		<string>A1.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>A2</string>
 		<key>name</key>
-		<string>End to sleep</string>
+		<string>Intro Sleep</string>
 		<key>time</key>
-		<integer>90</integer>
+		<integer>39</integer>
 		<key>category</key>
 		<string>Sleep</string>
 		<key>description</key>
-		<string>End yo sleep.....</string>
+		<string>Introduction for a sleep practise. Use after Introduction.</string>
 		<key>file</key>
-		<string>A2-end to sleep.caf</string>
+		<string>A2.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>A3</string>
+		<key>name</key>
+		<string>Intro Alert</string>
+		<key>time</key>
+		<integer>33</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Introduction for an alert practise. Use after Introduction.</string>
+		<key>file</key>
+		<string>A3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>A4</string>
+		<key>name</key>
+		<string>Ending to Sleep</string>
+		<key>time</key>
+		<integer>50</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string>Use to flow into sleep at the end of the practise.</string>
+		<key>file</key>
+		<string>A4.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>A5</string>
+		<key>name</key>
+		<string>Ending to Wake</string>
+		<key>time</key>
+		<integer>88</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Use to wake up at the end of the practise.</string>
+		<key>file</key>
+		<string>A5.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>B1</string>
 		<key>name</key>
-		<string>Resolve Sleep</string>
+		<string>Rotation of Consciousness- Intro</string>
 		<key>time</key>
-		<integer>56</integer>
+		<integer>18</integer>
 		<key>category</key>
-		<string>Sleep</string>
+		<string>General</string>
 		<key>description</key>
-		<string>Resolve to sleep.....</string>
+		<string>An introduction to be used before Rotation of Consciousness. Does not have to be included once the listener understand the technique.</string>
 		<key>file</key>
-		<string>B1-Resolve sleep.caf</string>
+		<string>B1.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>B2</string>
+		<key>name</key>
+		<string>Rotation of Consciousness- Normal</string>
+		<key>time</key>
+		<integer>217</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A Yoga Nidra technique used to bring awareness to all parts of the body, keep the mind occupied, strengthen the mind body connection and relax the physical body. 2-3 Rotations of consciousness are advised in yoga nidra, decreasing the speed slowly. Can also be used in a sleep practise, although a conditioned association with staying alert can develop.							</string>
+		<key>file</key>
+		<string>B2.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>B3</string>
+		<key>name</key>
+		<string>Rotation of Consciousness- Slow</string>
+		<key>time</key>
+		<integer>292</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A slower version of Rotation of Consciousness. This version can be used to maximize feelings of relaxation and of progressing deeper.</string>
+		<key>file</key>
+		<string>B3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>B4</string>
+		<key>name</key>
+		<string>Tension Control- Intro</string>
+		<key>time</key>
+		<integer>62</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>An introduction to be used before Tension Control. Does not need to be included once the technique is understood.</string>
+		<key>file</key>
+		<string>B4.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>B5</string>
+		<key>name</key>
+		<string>Tension Control</string>
+		<key>time</key>
+		<integer>892</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A Behavioural therapy technique where muscle groups are tensed and then relaxed deeply. This method can deliver huge benefits including very deep awareness of muscular tension. Great to use on a regular basis.</string>
+		<key>file</key>
+		<string>B5.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>C1</string>
 		<key>name</key>
-		<string>Healing breath</string>
+		<string>Breath Awareness</string>
 		<key>time</key>
-		<integer>235</integer>
+		<integer>186</integer>
 		<key>category</key>
-		<string>Sleep</string>
+		<string>General</string>
 		<key>description</key>
-		<string>The healing breath is an ancient easter breathing technique where the breath is retained and exhale lengthened to a specific ratio etc</string>
+		<string>The breath is just observed and counted.</string>
 		<key>file</key>
-		<string>C1- healing breath.caf</string>
+		<string>C1.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>C2</string>
+		<key>name</key>
+		<string>Alternate Nostril Breathing</string>
+		<key>time</key>
+		<integer>187</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>Awareness is brought to the breath flowing through alternate nostrils and counted.</string>
+		<key>file</key>
+		<string>C2.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>C3</string>
+		<key>name</key>
+		<string>Belly Breathing</string>
+		<key>time</key>
+		<integer>174</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>This method brings air deep to the bottom of the lungs where it is absorbed more fully. Can greatly help in eliminating shallow chest breathing.</string>
+		<key>file</key>
+		<string>C3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>C4</string>
+		<key>name</key>
+		<string>Healing Breath</string>
+		<key>time</key>
+		<integer>180</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A short inhale is followed by holding the breath then a long exhale. This technique can help improve the breathing by extending the exhale generally.</string>
+		<key>file</key>
+		<string>C4.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>D1</string>
 		<key>name</key>
-		<string>ROC</string>
+		<string>Safe Place</string>
 		<key>time</key>
-		<integer>248</integer>
+		<integer>392</integer>
 		<key>category</key>
-		<string>Alert</string>
+		<string>General</string>
 		<key>description</key>
-		<string>Rotation of consciousness</string>
+		<string>Relaxing imagery of being on a deserted beach. </string>
 		<key>file</key>
-		<string>D1- ROC.caf</string>
+		<string>D1.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>D2</string>
+		<key>name</key>
+		<string>Meeting Your Guide</string>
+		<key>time</key>
+		<integer>273</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>Imagery of a journey up a mountain with a guide figure. The imagery has significance to our unconscious. This imagery is helpful with increasing motivation.</string>
+		<key>file</key>
+		<string>D2.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>D3</string>
+		<key>name</key>
+		<string>Quick Images</string>
+		<key>time</key>
+		<integer>193</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A yoga nidra technique of picturing a series of rapid images. This technique can greatly assist in developing the ability to vizualize. The images used can also have significant associations in our subconscious minds.</string>
+		<key>file</key>
+		<string>D3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>D4</string>
+		<key>name</key>
+		<string>Guru Merging</string>
+		<key>time</key>
+		<integer>191</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>Imagery of an individual of greatness involving absorbing all their qualities and identifying with them fully.</string>
+		<key>file</key>
+		<string>D4.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>D5</string>
+		<key>name</key>
+		<string>Ideal Self Image</string>
+		<key>time</key>
+		<integer>257</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>Imagery of an ideal future self and achievement of a goal. </string>
+		<key>file</key>
+		<string>D5.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>E1</string>
 		<key>name</key>
-		<string>Images</string>
+		<string>Deep Sleep</string>
 		<key>time</key>
-		<integer>188</integer>
+		<integer>286</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string>A deep sleep recording to be used at the end of a playlist.</string>
+		<key>file</key>
+		<string>E1.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>E2</string>
+		<key>name</key>
+		<string>Ego Strengthening</string>
+		<key>time</key>
+		<integer>364</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A cognitive therapy technique for building self esteem and general development.</string>
+		<key>file</key>
+		<string>E2.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>E3</string>
+		<key>name</key>
+		<string>Intention</string>
+		<key>time</key>
+		<integer>42</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>Used in Yoga Nidra and similar to an affirmation. It is used after the introduction and again just before the end of an alert practice The same intention should be used consistently.</string>
+		<key>file</key>
+		<string>E3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F1</string>
+		<key>name</key>
+		<string>1 Minute Space</string>
+		<key>time</key>
+		<integer>60</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>A period of 1 minute of silence. Use to enjoy the after effects of a particular component where you still want to have guidance later on. Eg. To continue deep breathing then </string>
+		<key>file</key>
+		<string>F1.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F2</string>
+		<key>name</key>
+		<string>Pairs Intro</string>
+		<key>time</key>
+		<integer>52</integer>
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>
-		<string>memory images</string>
+		<string>An introduction to opposite sensations. </string>
 		<key>file</key>
-		<string>E1- images.caf</string>
+		<string>F2.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F3</string>
+		<key>name</key>
+		<string>Pair- Heavy/Light</string>
+		<key>time</key>
+		<integer>166</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Opposite sensations of Heaviness and Lightness.</string>
+		<key>file</key>
+		<string>F3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F4</string>
+		<key>name</key>
+		<string>Pair- Hot/Cold</string>
+		<key>time</key>
+		<integer>147</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Opposite sensations of Hotness and Coldness.</string>
+		<key>file</key>
+		<string>F4.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F5</string>
+		<key>name</key>
+		<string>Pair- Pain/Pleasure</string>
+		<key>time</key>
+		<integer>145</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Opposite sensations of Pain and Pleasure.</string>
+		<key>file</key>
+		<string>F5.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F6</string>
+		<key>name</key>
+		<string>Pair- Tense/Relaxed</string>
+		<key>time</key>
+		<integer>142</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Opposite sensations of Tension and Relaxation</string>
+		<key>file</key>
+		<string>F6.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>F7</string>
+		<key>name</key>
+		<string>Pair- Fear/Confidence</string>
+		<key>time</key>
+		<integer>135</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string>Opposite sensations of Fear and Confidence.</string>
+		<key>file</key>
+		<string>F7.caf</string>
 	</dict>
 </array>
 </plist>
