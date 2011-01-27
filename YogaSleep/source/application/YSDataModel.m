@@ -60,6 +60,7 @@ NSString *kTrackChangeNotification = @"TrackChange";
 @synthesize documentDirectory;
 @synthesize playingPlaylist;
 //@synthesize currentTrackID;
+@synthesize playingIndex;
 
 #pragma mark -
 #pragma mark Life cycle
@@ -69,6 +70,8 @@ NSString *kTrackChangeNotification = @"TrackChange";
    self = [super init];
    if (self)
    {
+      self.playingIndex = kNoTrackPlaying;
+
       // maybe we want to use CDAudioEngine interface to set pause/resume behaviour?
       [SimpleAudioEngine sharedEngine];
       [[CDAudioManager sharedManager] setBackgroundMusicCompletionListener:self selector:@selector(trackFinished)];
@@ -268,16 +271,15 @@ NSString *kTrackChangeNotification = @"TrackChange";
 
 - (void)play:(NSDictionary *)playlist
 {
-   if ([playlist isEqual:self.playingPlaylist])
+   if ([playlist isEqual:self.playingPlaylist] && playingPaused)
    {
-      twcheck(playingPaused);
       [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
       playingPaused = NO;
       return;
    }
    
    //self.currentTrackID = nil;
-   playingIndex = -1;
+   self.playingIndex = kNoTrackPlaying;
    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
    
    NSArray *components = [playlist objectForKey:kPlaylistComponents];
@@ -286,15 +288,36 @@ NSString *kTrackChangeNotification = @"TrackChange";
    
    self.playingPlaylist = playlist;
    //self.currentTrackID = [components objectAtIndex:0];
-   playingIndex = 0;
+   self.playingIndex = 0;
    [self startAudio];
+}
+
+- (NSDictionary *)currentTrack
+{
+   if (!self.playingPlaylist)
+      return nil;
+   if (kNoTrackPlaying >= self.playingIndex)
+      return nil;
+   
+   NSArray *components = [self.playingPlaylist objectForKey:kPlaylistComponents];
+   NSString *trackID = [components objectAtIndex:self.playingIndex];
+   NSDictionary *track = [self trackWithID:trackID];
+   return track;
+}
+
+- (NSInteger)trackCount
+{
+   if (!self.playingPlaylist)
+      return 0;
+   NSArray *components = [self.playingPlaylist objectForKey:kPlaylistComponents];
+   return components.count;
 }
 
 - (void)startAudio
 {
    //NSString *filePath = [self pathForTrackID:self.currentTrackID];
    NSArray *components = [self.playingPlaylist objectForKey:kPlaylistComponents];
-   NSString *trackID = [components objectAtIndex:playingIndex];
+   NSString *trackID = [components objectAtIndex:self.playingIndex];
    NSString *filePath = [self pathForTrackID:trackID];
 
    twcheck(filePath.length);
@@ -312,50 +335,43 @@ NSString *kTrackChangeNotification = @"TrackChange";
    playingPaused = YES;
 }
 
+- (void)previousTrack
+{
+   // iPod app behaviour is to go to beginning after 3 seconds -- 
+   // we'll assume that's handled at a higher level if so
+   [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+   [self changeTrackBy:-1];
+}
+
+- (void)nextTrack
+{
+   [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+   [self changeTrackBy:1];
+}
+
 - (void)trackFinished
 {
-   twcheck(!playingPaused);
-   //twcheck(self.currentTrackID);
+   [self changeTrackBy:1];
+}
+
+- (void)changeTrackBy:(NSInteger)delta
+{
    twcheck(self.playingPlaylist);
 
    playingPaused = NO;
    
    NSArray *components = [self.playingPlaylist objectForKey:kPlaylistComponents];
-   /*
-   NSString *nextTrackID = nil;
-   BOOL foundThisTrack = NO;
-   for (NSString *component in components)
+   NSInteger nextIndex = self.playingIndex + delta;
+   if ((0 <= nextIndex) && (nextIndex < (NSInteger)components.count))
    {
-      if (foundThisTrack)
-      {
-         nextTrackID = component;
-         break;
-      }
-      if ([component isEqual:self.currentTrackID])
-         foundThisTrack = YES;
-   }
-   
-   if (nextTrackID.length)
-   {
-      self.currentTrackID = nextTrackID;
+      self.playingIndex = nextIndex;
       [self startAudio];
    }
    else
    {
-      self.currentTrackID = nil;
-      self.playingPlaylist = nil;
-   }
-    */
-   NSInteger nextIndex = playingIndex + 1;
-   if (nextIndex < (NSInteger)components.count)
-   {
-      playingIndex = nextIndex;
-      [self startAudio];
-   }
-   else
-   {
-      playingIndex = -1;
-      self.playingPlaylist = nil;
+      self.playingIndex = kNoTrackPlaying;
+      // no, we'll let it go back to playing screen
+      //self.playingPlaylist = nil;
    }
    
    [[NSNotificationCenter defaultCenter]

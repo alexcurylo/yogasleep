@@ -19,6 +19,11 @@ extern NSString *kPlaylistComponents; // = @"components";
 
 extern NSString *kTrackChangeNotification; // = @"TrackChange";
 
+enum
+{
+   kNoTrackPlaying = -1,
+};
+
 @interface YSDataModel : NSObject
 {
    NSArray *tracks;
@@ -35,6 +40,7 @@ extern NSString *kTrackChangeNotification; // = @"TrackChange";
 @property (nonatomic, retain) NSMutableArray *playlists;
 @property (nonatomic, copy) NSString *documentDirectory;
 @property (nonatomic, retain) NSDictionary *playingPlaylist;
+@property (nonatomic, assign) NSInteger playingIndex;
 //@property (nonatomic, copy) NSString *currentTrackID;
 
 #pragma mark -
@@ -61,11 +67,16 @@ extern NSString *kTrackChangeNotification; // = @"TrackChange";
 
 - (BOOL)isPlayingPlaylist:(NSDictionary *)playlist;
 //- (BOOL)isCurrentTrack:(NSString *)trackID;
+- (NSDictionary *)currentTrack;
+- (NSInteger)trackCount;
 
 - (void)play:(NSDictionary *)playlist;
 - (void)startAudio;
 - (void)pause:(NSDictionary *)playlist;
+- (void)previousTrack;
+- (void)nextTrack;
 
 - (void)trackFinished;
+- (void)changeTrackBy:(NSInteger)delta;
 
 @end

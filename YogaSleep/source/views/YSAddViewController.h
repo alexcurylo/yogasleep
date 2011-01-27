@@ -1,30 +1,37 @@
 //
-//  YSRecordingViewController.h
+//  YSAddViewController.h
 //
 //  Copyright Trollwerks Inc 2010. All rights reserved.
 //
 
 @class YSRecordingTableViewCell;
 
-@interface YSRecordingViewController : UIViewController
+enum
+{
+   //kSectionCustomPlaylist = 0,
+   kSectionAddableTracks = 0,
+   kAddSectionsCount,
+};
+
+@interface YSAddViewController : UIViewController
 {
    IBOutlet UITextView *moreInfo;
-   IBOutlet UITableView *tracksTable;
+   IBOutlet UITableView *createTable;
    
    IBOutlet YSRecordingTableViewCell *templateCell;
-
-   NSDictionary *playlist;
+   
+   NSMutableDictionary *playlist;
 }
 
 @property (nonatomic, retain) IBOutlet UITextView *moreInfo;
-@property (nonatomic, retain) IBOutlet UITableView *tracksTable;
+@property (nonatomic, retain) IBOutlet UITableView *createTable;
 @property (nonatomic, assign) IBOutlet YSRecordingTableViewCell *templateCell;
-@property (nonatomic, retain) NSDictionary *playlist;
+@property (nonatomic, retain) NSMutableDictionary *playlist;
 
 #pragma mark -
 #pragma mark Life cycle
 
-+ (YSRecordingViewController *)controllerForRecording:(NSInteger)idx;
++ (YSAddViewController *)controller;
 
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
@@ -39,18 +46,18 @@
 #pragma mark Actions
 
 - (void)fixPlayControls;
-- (UIBarButtonItem *)playingBarButtonForTarget:(id)target action:(SEL)action;
 
 - (void)play;
 - (void)pause;
-- (void)showPlayer;
 
 - (void)trackChanged:(NSNotification *)note;
 
+- (void)addTrack:(NSIndexPath *)indexPath;
+- (void)removeTrack:(NSIndexPath *)indexPath;
+- (void)moveTrack:(NSInteger)idx to:(NSInteger)newIdx;
+
 #pragma mark -
 #pragma mark Table support
-
-- (NSDictionary *)componentAtIndex:(NSInteger)idx;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
@@ -58,5 +65,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
 
 @end
