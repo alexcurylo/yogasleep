@@ -18,11 +18,14 @@
 @synthesize nameLabel;
 @synthesize timeLabel;
 @synthesize categoryLabel;
+@synthesize textColor;
 @synthesize trackID;
 
 - (void)awakeFromNib
 {
    [super awakeFromNib];
+   
+   self.textColor = [UIColor blackColor];
    
    // should never see this more than number of cells on screen at once
    // if you do, probably forgot to fix identifier in nib
@@ -57,9 +60,9 @@
 		//self.detailLabel.textColor = [UIColor darkGrayColor];
       // from Photoshop
 		//self.timeLabel.textColor = [UIColor colorFromHexValue:0x309BD2]; 
-		self.nameLabel.textColor = [UIColor blackColor]; 
-		self.timeLabel.textColor = [UIColor blackColor]; 
-		self.categoryLabel.textColor = [UIColor blackColor]; 
+		self.nameLabel.textColor = self.textColor; 
+		self.timeLabel.textColor = self.textColor; 
+		self.categoryLabel.textColor = self.textColor; 
    }
 }
 
@@ -72,9 +75,15 @@
    twrelease(nameLabel);
    twrelease(timeLabel);
    twrelease(categoryLabel);
+   twrelease(textColor);
    twrelease(trackID);
-   
+
    [super dealloc];
+}
+
+- (void)setStringsColor:(UIColor *)color
+{
+   self.textColor = color;
 }
 
 /*
@@ -115,12 +124,22 @@
 }
 */
 
-- (void)fillOutWithPlaylist:(NSInteger)idx
+- (void)fixNumberOfLines
 {
-   NSDictionary *playlist = [TWDataModel().playlists objectAtIndex:idx];
+   self.nameLabel.font = [UIFont boldSystemFontOfSize:kCellNameSize];
+   //self.nameLabel.numberOfLines = ceilf([self.nameLabel.text sizeWithFont:self.nameLabel.font constrainedToSize:CGSizeMake(kCellNameWidth, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap].height/20.0);
+   // looks like we can just make this a big number and it'll lay out correctly?
+   self.nameLabel.numberOfLines = 5;
+}
+
+//- (void)fillOutWithPlaylist:(NSInteger)idx
+- (void)fillOutWithPlaylist:(NSDictionary *)playlist
+{
+   //NSDictionary *playlist = [TWDataModel().playlists objectAtIndex:idx];
 
    NSString *name = [playlist objectForKey:kPlaylistName];
    self.nameLabel.text = name;
+   [self fixNumberOfLines];
 
    NSInteger seconds = [[playlist objectForKey:kPlaylistTime] integerValue];
    NSString *timeString = [NSString stringWithFormat:NSLocalizedString(@"TIMEFORMATMIN", nil),
@@ -133,11 +152,13 @@
    self.categoryLabel.text = category;
 }
 
+/*
 - (void)fillOutWithDataModelTrack:(NSInteger)idx
 {
    NSDictionary *track = [TWDataModel().tracks objectAtIndex:idx];
    [self fillOutWithTrackDictionary:track];
 }
+*/
 
 - (void)fillOutWithTrack:(NSInteger)idx fromPlaylist:(NSDictionary *)playlist
 {
@@ -151,6 +172,7 @@
 {
    NSString *name = [track objectForKey:kTrackName];
    self.nameLabel.text = name;
+   [self fixNumberOfLines];
 
    NSInteger seconds = [[track objectForKey:kTrackTime] integerValue];
    NSString *timeString = nil;

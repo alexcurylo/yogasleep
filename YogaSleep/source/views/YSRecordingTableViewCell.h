@@ -4,6 +4,15 @@
 //  Copyright Trollwerks Inc 2010. All rights reserved.
 //
 
+enum
+{
+   kCellNameSize = 15,
+   kCellNameStandardWidth = 158,
+   kCellNameEditingWidth = 100,
+   kStandardCellHeight = 44,
+   kExtraLineHeight = 20,
+};
+
 @interface YSRecordingTableViewCell : UITableViewCell
 {
 	//IBOutlet UILabel *headlineLabel;
@@ -12,6 +21,8 @@
 	IBOutlet UILabel *nameLabel;
 	IBOutlet UILabel *timeLabel;
 	IBOutlet UILabel *categoryLabel;
+   
+   UIColor *textColor;
    
    NSString *trackID;
 }
@@ -22,15 +33,20 @@
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *categoryLabel;
+@property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic, copy) NSString *trackID;
 
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (void)dealloc;
 
+- (void)setStringsColor:(UIColor *)color;
+
 //- (void)fillOutWith:(NSDictionary *)eventInfo andImage:(UIImage *)image;
-- (void)fillOutWithPlaylist:(NSInteger)idx;
-- (void)fillOutWithDataModelTrack:(NSInteger)idx;
+- (void)fixNumberOfLines;
+//- (void)fillOutWithPlaylist:(NSInteger)idx;
+- (void)fillOutWithPlaylist:(NSDictionary *)playlist;
+//- (void)fillOutWithDataModelTrack:(NSInteger)idx;
 - (void)fillOutWithTrack:(NSInteger)idx fromPlaylist:(NSDictionary *)playlist;
 - (void)fillOutWithTrackDictionary:(NSDictionary *)track;
 

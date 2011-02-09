@@ -11,6 +11,7 @@ extern NSString *kTrackCategory; // = @"category";
 extern NSString *kTrackDescription; // = @"description";
 extern NSString *kTrackFile; // = @"file";
 
+extern NSString *kPlaylistEditable; // = @"editable";
 extern NSString *kPlaylistName; // = @"name";
 extern NSString *kPlaylistTime; // = @"time";
 extern NSString *kPlaylistCategory; // = @"category";
@@ -52,6 +53,8 @@ enum
 #pragma mark -
 #pragma mark Application support
 
+- (UIBarButtonItem *)playingBarButtonForTarget:(id)target action:(SEL)action;
+
 - (NSString *)tracksPath;
 - (NSString *)pathForTrack:(NSString *)track;
 
@@ -62,14 +65,20 @@ enum
 - (void)savePlaylists;
 - (void)loadPlaylists;
 
-- (NSMutableDictionary *)customPlaylist;
+- (NSMutableDictionary *)customPlaylistNamed:(NSString *)name;
 - (void)setCustomPlaylist:(NSMutableDictionary *)customPlaylist;
+- (BOOL)hasCustomPlaylists;
+- (NSArray *)customPlaylists;
+
+//- (void)removePlaylist:(NSUInteger)idx;
+- (void)removePlaylist:(NSDictionary *)playlist;
 
 - (BOOL)isPlayingPlaylist:(NSDictionary *)playlist;
 //- (BOOL)isCurrentTrack:(NSString *)trackID;
 - (NSDictionary *)currentTrack;
 - (NSInteger)trackCount;
 
+- (void)togglePlayPause;
 - (void)play:(NSDictionary *)playlist;
 - (void)startAudio;
 - (void)pause:(NSDictionary *)playlist;

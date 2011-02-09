@@ -17,6 +17,7 @@ NSString *kTrackCategory = @"category";
 NSString *kTrackDescription = @"description";
 NSString *kTrackFile = @"file";
 
+NSString *kPlaylistEditable = @"editable";
 NSString *kPlaylistName = @"name";
 NSString *kPlaylistTime = @"time";
 NSString *kPlaylistCategory = @"category";
@@ -74,6 +75,7 @@ NSString *kTrackChangeNotification = @"TrackChange";
 
       // maybe we want to use CDAudioEngine interface to set pause/resume behaviour?
       [SimpleAudioEngine sharedEngine];
+      [[CDAudioManager sharedManager] setMode:kAMM_MediaPlayback]; // AVAudioSessionCategoryPlayback -- Use audio exclusively, ignore mute switch and sleep
       [[CDAudioManager sharedManager] setBackgroundMusicCompletionListener:self selector:@selector(trackFinished)];
             
       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -110,6 +112,16 @@ NSString *kTrackChangeNotification = @"TrackChange";
 
 #pragma mark -
 #pragma mark Application support
+
+- (UIBarButtonItem *)playingBarButtonForTarget:(id)target action:(SEL)action
+{
+	UIButton *nowPlayingButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 30)] autorelease];
+	[nowPlayingButton setBackgroundImage:[UIImage imageNamed:@"button_nowplaying.png"] forState:UIControlStateNormal];
+	[nowPlayingButton setBackgroundImage:[UIImage imageNamed:@"button_nowplaying-pressed.png"] forState:UIControlStateHighlighted];
+	[nowPlayingButton addTarget:target action:action forControlEvents:(UIControlEventTouchUpInside)];
+	UIBarButtonItem *result = [[[UIBarButtonItem alloc] initWithCustomView:nowPlayingButton] autorelease];
+   return result;
+}
 
 - (NSString *)tracksPath
 {
@@ -183,14 +195,14 @@ NSString *kTrackChangeNotification = @"TrackChange";
    twcheck(self.playlists);
 }
 
-- (NSMutableDictionary *)customPlaylist
+- (NSMutableDictionary *)customPlaylistNamed:(NSString *)name
 {
-   NSString *customName = NSLocalizedString(@"CUSTOMPLAYLIST", nil);
+   //NSString *name = NSLocalizedString(@"CUSTOMPLAYLIST", nil);
    NSMutableDictionary *customPlaylist = nil;
    for (NSMutableDictionary *playlist in self.playlists)
    {
       NSString *playlistName = [playlist objectForKey:kPlaylistName];
-      if ([playlistName isEqual:customName])
+      if ([playlistName isEqual:name])
       {
          customPlaylist = playlist;
          break;
@@ -200,7 +212,8 @@ NSString *kTrackChangeNotification = @"TrackChange";
    if (!customPlaylist)
    {
       customPlaylist = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-         customName, kPlaylistName,
+         [NSNumber numberWithBool:YES], kPlaylistEditable,
+         name, kPlaylistName,
          [NSNumber numberWithInteger:0], kPlaylistTime,
          NSLocalizedString(@"CUSTOMCATEGORY", nil), kPlaylistCategory,
          NSLocalizedString(@"CUSTOMDESCRIPTION", nil), kPlaylistDescription,
@@ -218,7 +231,8 @@ NSString *kTrackChangeNotification = @"TrackChange";
    
    // remove old one if any
 
-   NSString *customName = NSLocalizedString(@"CUSTOMPLAYLIST", nil);
+   //NSString *customName = NSLocalizedString(@"CUSTOMPLAYLIST", nil);
+   NSString *customName = [customPlaylist objectForKey:kPlaylistName];
    NSMutableDictionary *oldCustomPlaylist = nil;
    for (NSMutableDictionary *playlist in self.playlists)
    {
@@ -231,6 +245,7 @@ NSString *kTrackChangeNotification = @"TrackChange";
    }
    if (oldCustomPlaylist)
    {
+      [[oldCustomPlaylist retain] autorelease]; // in case it's the same one
       [self.playlists removeObject:oldCustomPlaylist];
       playlistsChanged = YES;
    }
@@ -248,6 +263,51 @@ NSString *kTrackChangeNotification = @"TrackChange";
    
    if (playlistsChanged)
       [self savePlaylists];
+}
+
+- (BOOL)hasCustomPlaylists
+{
+   BOOL hasCustomPlaylists = NO;
+   for (NSDictionary *playlist in self.playlists)
+   {
+      BOOL editable = [[playlist objectForKey:kPlaylistEditable] boolValue];
+      if (editable)
+      {
+         hasCustomPlaylists = YES;
+         break;
+      }
+   }
+   
+   return hasCustomPlaylists;
+}
+
+- (NSArray *)customPlaylists
+{
+   NSMutableArray *customPlaylists = [NSMutableArray array];
+   for (NSDictionary *playlist in self.playlists)
+   {
+      BOOL editable = [[playlist objectForKey:kPlaylistEditable] boolValue];
+      if (editable)
+         [customPlaylists addObject:playlist];
+   }
+   
+   return customPlaylists;
+}
+
+//- (void)removePlaylist:(NSUInteger)idx
+- (void)removePlaylist:(NSDictionary *)playlist
+{
+   //if (idx >= self.playlists.count)
+   if (!playlist)
+      return;
+   
+   //NSDictionary *playlist = [self.playlists objectAtIndex:idx];
+   if ([playlist isEqual:self.playingPlaylist])
+      [self play:nil];
+   
+   //[self.playlists removeObjectAtIndex:idx];
+   [self.playlists removeObject:playlist];
+   [self savePlaylists];
 }
 
 - (BOOL)isPlayingPlaylist:(NSDictionary *)playlist
@@ -269,6 +329,19 @@ NSString *kTrackChangeNotification = @"TrackChange";
 }
 */
 
+- (void)togglePlayPause
+{
+   twcheck(self.playingPlaylist);
+   // could happen from external controls, maybe
+   if (!self.playingPlaylist)
+      return;
+   
+   if (playingPaused)
+      [self play:self.playingPlaylist];
+   else
+      [self pause:self.playingPlaylist];
+}
+
 - (void)play:(NSDictionary *)playlist
 {
    if ([playlist isEqual:self.playingPlaylist] && playingPaused)
@@ -278,15 +351,16 @@ NSString *kTrackChangeNotification = @"TrackChange";
       return;
    }
    
-   //self.currentTrackID = nil;
-   self.playingIndex = kNoTrackPlaying;
    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+   self.playingIndex = kNoTrackPlaying;
+   self.playingPlaylist = playlist;
    
+   if (!playlist)
+      return;
    NSArray *components = [playlist objectForKey:kPlaylistComponents];
    if (!components.count)
       return;
    
-   self.playingPlaylist = playlist;
    //self.currentTrackID = [components objectAtIndex:0];
    self.playingIndex = 0;
    [self startAudio];
@@ -357,6 +431,9 @@ NSString *kTrackChangeNotification = @"TrackChange";
 - (void)changeTrackBy:(NSInteger)delta
 {
    twcheck(self.playingPlaylist);
+   // could happen from external controls, maybe
+   if (!self.playingPlaylist)
+      return;
 
    playingPaused = NO;
    

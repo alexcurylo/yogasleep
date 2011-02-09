@@ -8,7 +8,9 @@
 #import "YSIntroViewController.h"
 #import "YSMoreInfoViewController.h"
 #import "YSRecordingsViewController.h"
-#import "YSCreateViewController.h"
+//#import "YSCreateViewController.h"
+#import "YSCustomRecordingsViewController.h"
+#import "TWNavigationAppDelegate.h"
 
 @implementation YSMainViewController
 
@@ -25,11 +27,25 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
+
+   /*
+   // Handle Audio Remote Control events (only available under iOS 4)
+	if ([[UIApplication sharedApplication] respondsToSelector:@selector(beginReceivingRemoteControlEvents)])
+   {
+		[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+      // (NB. Controller will have to becomeFirstResponder and implement -remoteControlReceivedWithEvent)
+   }
+    */
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
    [super viewWillAppear:animated];
+   
+   /*
+   // This is necessary in order to get notified of the Audio Remote Control events
+   [self becomeFirstResponder];
+    */
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,6 +89,49 @@
 #pragma mark -
 #pragma mark Actions
 
+// control event handling
+/*
+- (BOOL)canBecomeFirstResponder
+{
+   return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+	twlog("UIEventTypeRemoteControl: %d - %d", event.type, event.subtype);
+	
+	if (event.subtype == UIEventSubtypeRemoteControlTogglePlayPause)
+   {
+		twlog("UIEventSubtypeRemoteControlTogglePlayPause");
+      [TWDataModel() togglePlayPause];
+	}
+	if (event.subtype == UIEventSubtypeRemoteControlPlay)
+   {
+		twlog("UIEventSubtypeRemoteControlPlay");
+      [TWDataModel() play:TWDataModel().playingPlaylist];
+	}
+	if (event.subtype == UIEventSubtypeRemoteControlPause)
+   {
+		twlog("UIEventSubtypeRemoteControlPause");
+      [TWDataModel() pause:TWDataModel().playingPlaylist];
+	}
+	if (event.subtype == UIEventSubtypeRemoteControlStop)
+   {
+		twlog("UIEventSubtypeRemoteControlStop");
+      [TWDataModel() pause:TWDataModel().playingPlaylist];
+	}
+	if (event.subtype == UIEventSubtypeRemoteControlNextTrack)
+   {
+		twlog("UIEventSubtypeRemoteControlNextTrack");
+      [TWDataModel() nextTrack];
+	}
+	if (event.subtype == UIEventSubtypeRemoteControlPreviousTrack)
+   {
+		twlog("UIEventSubtypeRemoteControlPreviousTrack");
+      [TWDataModel() previousTrack];
+	}
+}
+*/
 
 - (IBAction)showIntro:(id)sender
 {
@@ -92,7 +151,8 @@
 {
    (void)sender;
    
-   [self.navigationController pushViewController:[YSCreateViewController controller] animated:YES];
+   //[self.navigationController pushViewController:[YSCreateViewController controller] animated:YES];
+   [self.navigationController pushViewController:[YSCustomRecordingsViewController controller] animated:YES];
 }
 
 - (IBAction)showMoreInfo:(id)sender

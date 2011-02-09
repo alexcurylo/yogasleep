@@ -53,6 +53,8 @@
 		[self.tracksTable deselectRowAtIndexPath:selection animated:YES];
    
    NSString *description = [self.playlist objectForKey:kPlaylistDescription];
+   if (!description.length)
+      description = NSLocalizedString(@"INFOCREATE", nil);
    self.moreInfo.text = description;
    
    [self fixPlayControls];
@@ -124,7 +126,7 @@
          action:action
       ] autorelease];
        */
-      barButtonItem = [self playingBarButtonForTarget:self action:@selector(showPlayer)];
+      barButtonItem = [TWDataModel() playingBarButtonForTarget:self action:@selector(showPlayer)];
    }
    else
    {
@@ -140,16 +142,6 @@
    }
 
    self.navigationItem.rightBarButtonItem = barButtonItem;
-}
-
-- (UIBarButtonItem *)playingBarButtonForTarget:(id)target action:(SEL)action
-{
-	UIButton *nowPlayingButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 30)] autorelease];
-	[nowPlayingButton setBackgroundImage:[UIImage imageNamed:@"button_nowplaying.png"] forState:UIControlStateNormal];
-	[nowPlayingButton setBackgroundImage:[UIImage imageNamed:@"button_nowplaying-pressed.png"] forState:UIControlStateHighlighted];
-	[nowPlayingButton addTarget:target action:action forControlEvents:(UIControlEventTouchUpInside)];
-	UIBarButtonItem *result = [[[UIBarButtonItem alloc] initWithCustomView:nowPlayingButton] autorelease];
-   return result;
 }
 
 - (void)play
@@ -214,6 +206,24 @@
    
    NSInteger componentCount = [[self.playlist objectForKey:kPlaylistComponents] count];
    return componentCount;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   (void)tableView;
+   
+   CGFloat rowHeight = kStandardCellHeight;
+   
+   NSArray *components = [self.playlist objectForKey:kPlaylistComponents];
+   NSString *trackID = [components objectAtIndex:indexPath.row];
+   NSDictionary *track = [TWDataModel() trackWithID:trackID];
+   NSString *name = [track objectForKey:kTrackName];
+   UIFont *nameFont = [UIFont boldSystemFontOfSize:kCellNameSize];
+   NSInteger numberOfLines = ceilf([name sizeWithFont:nameFont constrainedToSize:CGSizeMake(kCellNameStandardWidth, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap].height/20.0);
+   if (2 < numberOfLines)
+      rowHeight += (numberOfLines - 2) * kExtraLineHeight;
+   
+   return rowHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

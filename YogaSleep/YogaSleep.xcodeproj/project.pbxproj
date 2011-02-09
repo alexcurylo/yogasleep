@@ -14,7 +14,6 @@
 		FA16AA1E12EE963F00AEE323 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AA1D12EE963F00AEE323 /* Default@2x.png */; };
 		FA16AAA112EEA36100AEE323 /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AA9D12EEA36100AEE323 /* MOButton.m */; };
 		FA16AAA212EEA36100AEE323 /* MOGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AA9F12EEA36100AEE323 /* MOGlassButton.m */; };
-		FA16AAA312EEA36100AEE323 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA16AAA012EEA36100AEE323 /* README.md */; };
 		FA16AAB112EEA37B00AEE323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */; };
 		FA16AC4012EFEF0A00AEE323 /* button_nexttrack.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3C12EFEF0A00AEE323 /* button_nexttrack.png */; };
 		FA16AC4112EFEF0A00AEE323 /* button_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3D12EFEF0A00AEE323 /* button_pause.png */; };
@@ -28,7 +27,6 @@
 		FA16AC7412EFFCE600AEE323 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */; };
 		FA16AE3612F0F8C000AEE323 /* YSAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA16AE3512F0F8C000AEE323 /* YSAddView.xib */; };
 		FA16AE3912F0F8E200AEE323 /* YSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AE3812F0F8E200AEE323 /* YSAddViewController.m */; };
-		FA30DCF8127A4F6300F8E042 /* TWBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */; };
 		FA30DCFA127A4F8200F8E042 /* TWBlankView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */; };
 		FA30DD02127A520200F8E042 /* YSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DD01127A520200F8E042 /* YSMainViewController.m */; };
 		FA30DD09127A54F000F8E042 /* YSMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD08127A54F000F8E042 /* YSMainView.xib */; };
@@ -63,6 +61,11 @@
 		FA30E2D4127D3AAD00F8E042 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */; };
 		FA30E2DC127D3AB700F8E042 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */; };
 		FA30E38A127DE55C00F8E042 /* YSCreateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E389127DE55C00F8E042 /* YSCreateCell.xib */; };
+		FA3C31A61301BEE8009FFE72 /* introduction-lite.html in Resources */ = {isa = PBXBuildFile; fileRef = FA3C31A51301BEE8009FFE72 /* introduction-lite.html */; };
+		FA3C34DC1301C8DF009FFE72 /* TWXUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C34DB1301C8DF009FFE72 /* TWXUIAlertView.m */; };
+		FA3C34FA1301C98D009FFE72 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3C34F91301C98D009FFE72 /* MessageUI.framework */; };
+		FA3C350E1301CD04009FFE72 /* YSCustomRecordingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C350D1301CD04009FFE72 /* YSCustomRecordingsViewController.m */; };
+		FA3C35121301CDAE009FFE72 /* YSCustomRecordingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C35111301CDAE009FFE72 /* YSCustomRecordingsView.xib */; };
 		FAB7D16C0FA6BF1800CBDED9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1670FA6BF1800CBDED9 /* Default.png */; };
 		FAB7D16D0FA6BF1800CBDED9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1680FA6BF1800CBDED9 /* Icon.png */; };
 		FAB7D16E0FA6BF1800CBDED9 /* TWNavigationMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */; };
@@ -70,7 +73,7 @@
 		FAB7D17D0FA6BF1F00CBDED9 /* TWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */; };
 		FAB7D17E0FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */; };
 		FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */; };
-		FAB7D1800FA6BF1F00CBDED9 /* TWRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */; };
+		FAC8656512FFD25700E8E272 /* YSRemoteControlWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */; };
 		FAD98BE1108A19CE00963F89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAD98BE0108A19CE00963F89 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -103,8 +106,6 @@
 		FA16AE3512F0F8C000AEE323 /* YSAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSAddView.xib; sourceTree = "<group>"; };
 		FA16AE3712F0F8E200AEE323 /* YSAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAddViewController.h; sourceTree = "<group>"; };
 		FA16AE3812F0F8E200AEE323 /* YSAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAddViewController.m; sourceTree = "<group>"; };
-		FA30DCF6127A4F6300F8E042 /* TWBlankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBlankViewController.h; sourceTree = "<group>"; };
-		FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBlankViewController.m; sourceTree = "<group>"; };
 		FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWBlankView.xib; sourceTree = "<group>"; };
 		FA30DD00127A520200F8E042 /* YSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMainViewController.h; sourceTree = "<group>"; };
 		FA30DD01127A520200F8E042 /* YSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMainViewController.m; sourceTree = "<group>"; };
@@ -153,6 +154,13 @@
 		FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FA30E310127D3C7100F8E042 /* TWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWGeometry.h; path = "../../../../../../Volumes/Coding/Trollwerks/YogaSleep/svn.alexcurylo.com-yogasleep/trunk/YogaSleep/source/twlib/TWGeometry.h"; sourceTree = SDKROOT; };
 		FA30E389127DE55C00F8E042 /* YSCreateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = YSCreateCell.xib; path = "../../../../../../Volumes/Coding/Trollwerks/YogaSleep/svn.alexcurylo.com-yogasleep/trunk/YogaSleep/resources/YSCreateCell.xib"; sourceTree = SDKROOT; };
+		FA3C31A51301BEE8009FFE72 /* introduction-lite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "introduction-lite.html"; sourceTree = "<group>"; };
+		FA3C34DA1301C8DF009FFE72 /* TWXUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWXUIAlertView.h; sourceTree = "<group>"; };
+		FA3C34DB1301C8DF009FFE72 /* TWXUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWXUIAlertView.m; sourceTree = "<group>"; };
+		FA3C34F91301C98D009FFE72 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		FA3C350C1301CD04009FFE72 /* YSCustomRecordingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustomRecordingsViewController.h; sourceTree = "<group>"; };
+		FA3C350D1301CD04009FFE72 /* YSCustomRecordingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCustomRecordingsViewController.m; sourceTree = "<group>"; };
+		FA3C35111301CDAE009FFE72 /* YSCustomRecordingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YSCustomRecordingsView.xib; sourceTree = "<group>"; };
 		FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectAdHoc.xcconfig; sourceTree = "<group>"; };
 		FA8C2D9D11E8E1CF009E3D00 /* TWProjectAppStore.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectAppStore.xcconfig; sourceTree = "<group>"; };
 		FA8C2D9E11E8E1CF009E3D00 /* TWProjectBase.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectBase.xcconfig; sourceTree = "<group>"; };
@@ -171,8 +179,8 @@
 		FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWNavigationAppDelegate.m; sourceTree = "<group>"; };
 		FAB7D1770FA6BF1F00CBDED9 /* TWDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWDebugging.h; sourceTree = "<group>"; };
 		FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDebugging.m; sourceTree = "<group>"; };
-		FAB7D17B0FA6BF1F00CBDED9 /* TWRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRootTableViewController.h; sourceTree = "<group>"; };
-		FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRootTableViewController.m; sourceTree = "<group>"; };
+		FAC8656312FFD25700E8E272 /* YSRemoteControlWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRemoteControlWindow.h; sourceTree = "<group>"; };
+		FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRemoteControlWindow.m; sourceTree = "<group>"; };
 		FAD98BE0108A19CE00963F89 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +197,7 @@
 				FA30E2DC127D3AB700F8E042 /* AudioToolbox.framework in Frameworks */,
 				FA16AAB112EEA37B00AEE323 /* QuartzCore.framework in Frameworks */,
 				FA16AC7412EFFCE600AEE323 /* MediaPlayer.framework in Frameworks */,
+				FA3C34FA1301C98D009FFE72 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +233,7 @@
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */,
+				FA3C34F91301C98D009FFE72 /* MessageUI.framework */,
 				FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */,
 				FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -279,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				FA30DD87127A5D2300F8E042 /* introduction.html */,
+				FA3C31A51301BEE8009FFE72 /* introduction-lite.html */,
 				FA30DD88127A5D2300F8E042 /* moreinfo.html */,
 			);
 			path = html;
@@ -299,6 +310,8 @@
 			children = (
 				FA30E26B127D2D8E00F8E042 /* CocosDenshion */,
 				FA16AA9A12EEA36100AEE323 /* GlassButtons */,
+				FAC8656312FFD25700E8E272 /* YSRemoteControlWindow.h */,
+				FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */,
 				FA16AC5312EFF0ED00AEE323 /* TWSecondsFormatter.h */,
 				FA16AC5412EFF0ED00AEE323 /* TWSecondsFormatter.m */,
 			);
@@ -354,6 +367,7 @@
 				FA30E194127D0C3500F8E042 /* YSRecordingCell.xib */,
 				FA30E125127CA15400F8E042 /* YSRecordingView.xib */,
 				FA30E1E5127D13A400F8E042 /* YSTrackCell.xib */,
+				FA3C35111301CDAE009FFE72 /* YSCustomRecordingsView.xib */,
 				FA30DDE1127A654900F8E042 /* YSCreateView.xib */,
 				FA16AE3512F0F8C000AEE323 /* YSAddView.xib */,
 				FA30E389127DE55C00F8E042 /* YSCreateCell.xib */,
@@ -404,6 +418,8 @@
 				FAB7D1770FA6BF1F00CBDED9 /* TWDebugging.h */,
 				FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */,
 				FA30E310127D3C7100F8E042 /* TWGeometry.h */,
+				FA3C34DA1301C8DF009FFE72 /* TWXUIAlertView.h */,
+				FA3C34DB1301C8DF009FFE72 /* TWXUIAlertView.m */,
 			);
 			path = twlib;
 			sourceTree = "<group>";
@@ -421,6 +437,8 @@
 				FA30E198127D0C6700F8E042 /* YSRecordingTableViewCell.m */,
 				FA30E122127CA12F00F8E042 /* YSRecordingViewController.h */,
 				FA30E123127CA12F00F8E042 /* YSRecordingViewController.m */,
+				FA3C350C1301CD04009FFE72 /* YSCustomRecordingsViewController.h */,
+				FA3C350D1301CD04009FFE72 /* YSCustomRecordingsViewController.m */,
 				FA30DDE7127A656F00F8E042 /* YSCreateViewController.h */,
 				FA30DDE8127A656F00F8E042 /* YSCreateViewController.m */,
 				FA16AE3712F0F8E200AEE323 /* YSAddViewController.h */,
@@ -429,10 +447,6 @@
 				FA30DDAC127A5FF700F8E042 /* YSMoreInfoViewController.m */,
 				FA16AC4A12EFEFC200AEE323 /* YSPlayerViewController.h */,
 				FA16AC4B12EFEFC200AEE323 /* YSPlayerViewController.m */,
-				FAB7D17B0FA6BF1F00CBDED9 /* TWRootTableViewController.h */,
-				FAB7D17C0FA6BF1F00CBDED9 /* TWRootTableViewController.m */,
-				FA30DCF6127A4F6300F8E042 /* TWBlankViewController.h */,
-				FA30DCF7127A4F6300F8E042 /* TWBlankViewController.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -516,7 +530,6 @@
 				FA30E38A127DE55C00F8E042 /* YSCreateCell.xib in Resources */,
 				FA16AA1912EE944D00AEE323 /* Icon@2x.png in Resources */,
 				FA16AA1E12EE963F00AEE323 /* Default@2x.png in Resources */,
-				FA16AAA312EEA36100AEE323 /* README.md in Resources */,
 				FA16AC4012EFEF0A00AEE323 /* button_nexttrack.png in Resources */,
 				FA16AC4112EFEF0A00AEE323 /* button_pause.png in Resources */,
 				FA16AC4212EFEF0A00AEE323 /* button_play.png in Resources */,
@@ -525,6 +538,8 @@
 				FA16AC4712EFEF6700AEE323 /* button_nowplaying.png in Resources */,
 				FA16AC4912EFEF7200AEE323 /* YSPlayerView.xib in Resources */,
 				FA16AE3612F0F8C000AEE323 /* YSAddView.xib in Resources */,
+				FA3C31A61301BEE8009FFE72 /* introduction-lite.html in Resources */,
+				FA3C35121301CDAE009FFE72 /* YSCustomRecordingsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,8 +553,6 @@
 				FAB7D17D0FA6BF1F00CBDED9 /* TWMain.m in Sources */,
 				FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */,
 				FAB7D17E0FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m in Sources */,
-				FAB7D1800FA6BF1F00CBDED9 /* TWRootTableViewController.m in Sources */,
-				FA30DCF8127A4F6300F8E042 /* TWBlankViewController.m in Sources */,
 				FA30DD02127A520200F8E042 /* YSMainViewController.m in Sources */,
 				FA30DD19127A59C200F8E042 /* YSIntroViewController.m in Sources */,
 				FA30DDAD127A5FF700F8E042 /* YSMoreInfoViewController.m in Sources */,
@@ -557,6 +570,9 @@
 				FA16AC4C12EFEFC200AEE323 /* YSPlayerViewController.m in Sources */,
 				FA16AC5512EFF0ED00AEE323 /* TWSecondsFormatter.m in Sources */,
 				FA16AE3912F0F8E200AEE323 /* YSAddViewController.m in Sources */,
+				FAC8656512FFD25700E8E272 /* YSRemoteControlWindow.m in Sources */,
+				FA3C34DC1301C8DF009FFE72 /* TWXUIAlertView.m in Sources */,
+				FA3C350E1301CD04009FFE72 /* YSCustomRecordingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

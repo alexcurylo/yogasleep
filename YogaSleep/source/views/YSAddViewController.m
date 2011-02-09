@@ -7,28 +7,71 @@
 #import "YSAddViewController.h"
 #import "TWNavigationAppDelegate.h"
 #import "YSRecordingTableViewCell.h"
+#import "YSPlayerViewController.h"
 
 @implementation YSAddViewController
 
 @synthesize moreInfo;
 @synthesize createTable;
 @synthesize templateCell;
+@synthesize playlistName;
 @synthesize playlist;
+@synthesize categoryNames;
+@synthesize categoryTracks;
 
 #pragma mark -
 #pragma mark Life cycle
 
-+ (YSAddViewController *)controller
++ (YSAddViewController *)controllerWithName:(NSString *)name
 {
    YSAddViewController *controller = [[[YSAddViewController alloc] initWithNibName:@"YSAddView" bundle:nil] autorelease];
    controller.title = NSLocalizedString(@"TITLEADD", nil);
+   //controller.title = name;
+   controller.playlistName = name;
    return controller;
 }
 
 - (void)viewDidLoad
 {
    [super viewDidLoad];
-
+   
+   self.categoryNames = [NSArray arrayWithObjects:
+      NSLocalizedString(@"CATEGORYA", nil),
+      NSLocalizedString(@"CATEGORYB", nil),
+      NSLocalizedString(@"CATEGORYC", nil),
+      NSLocalizedString(@"CATEGORYD", nil),
+      NSLocalizedString(@"CATEGORYE", nil),
+      NSLocalizedString(@"CATEGORYF", nil),
+      nil
+   ];
+   self.categoryTracks = [NSMutableArray arrayWithObjects:
+      [NSMutableArray array],
+      [NSMutableArray array],
+      [NSMutableArray array],
+      [NSMutableArray array],
+      [NSMutableArray array],
+      [NSMutableArray array],
+      nil
+   ];
+   for (NSDictionary *track in TWDataModel().tracks)
+   {
+      NSString *trackID = [track objectForKey:kTrackID];
+      NSInteger categoryIdx = 0;
+      switch ([trackID characterAtIndex:0])
+      {
+         default:
+            twlog("unexpected trackID %@!", trackID);
+         case 'A': categoryIdx = 0; break;
+         case 'B': categoryIdx = 1; break;
+         case 'C': categoryIdx = 2; break;
+         case 'D': categoryIdx = 3; break;
+         case 'E': categoryIdx = 4; break;
+         case 'F': categoryIdx = 5; break;
+      }
+      NSMutableArray *category = [self.categoryTracks objectAtIndex:categoryIdx];
+      [category addObject:track];
+   }
+   
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
    
@@ -49,7 +92,7 @@
 	if (selection)
 		[self.createTable deselectRowAtIndexPath:selection animated:YES];
    
-   self.playlist = TWDataModel().customPlaylist;
+   self.playlist = [TWDataModel() customPlaylistNamed:self.playlistName];
    [self.createTable reloadData];
 
    //NSString *description = [self.playlist objectForKey:kPlaylistDescription];
@@ -98,8 +141,11 @@
    
    twrelease(moreInfo);
    twrelease(createTable);
+   twrelease(playlistName);
    twrelease(playlist);
- 
+   twrelease(categoryNames);
+   twrelease(categoryTracks);
+
    [super dealloc];
 }
 
@@ -109,6 +155,7 @@
 
 - (void)fixPlayControls
 {
+   /*
    NSString *imageName = nil;
    SEL action = nil;
    BOOL playing = [TWDataModel() isPlayingPlaylist:self.playlist];
@@ -129,6 +176,40 @@
       action:action
    ] autorelease];
    self.navigationItem.rightBarButtonItem = barButtonItem;
+    */
+   UIBarButtonItem *barButtonItem = nil;
+   
+   BOOL playing = [TWDataModel() isPlayingPlaylist:self.playlist];
+   if (playing)
+   {
+      /*
+       NSString *imageName = nil;
+       SEL action = nil;
+       imageName = @"Pause 32x32.png";
+       action = @selector(pause);
+       barButtonItem = [[[UIBarButtonItem alloc]
+       initWithImage:[UIImage imageNamed:imageName]
+       style:UIBarButtonItemStyleBordered
+       target:self
+       action:action
+       ] autorelease];
+       */
+      barButtonItem = [TWDataModel() playingBarButtonForTarget:self action:@selector(showPlayer)];
+   }
+   else
+   {
+      //NSString *imageName = @"Play 32x32.png"; 
+      SEL action = @selector(play);
+      barButtonItem = [[[UIBarButtonItem alloc]
+                        //initWithImage:[UIImage imageNamed:imageName]
+                        //style:UIBarButtonItemStyleBordered
+                        initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                        target:self
+                        action:action
+                        ] autorelease];
+   }
+   
+   self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
 - (void)play
@@ -137,6 +218,8 @@
    
    [self fixPlayControls];
    [self.createTable reloadData];
+   
+   [self showPlayer];
 }
 
 - (void)pause
@@ -144,6 +227,12 @@
    [TWDataModel() pause:self.playlist];
    
    [self fixPlayControls];
+}
+
+- (void)showPlayer
+{
+	YSPlayerViewController *controller = [YSPlayerViewController controller];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)trackChanged:(NSNotification *)note
@@ -156,7 +245,8 @@
 
 - (void)addTrack:(NSIndexPath *)indexPath
 {
-   NSDictionary *track = [TWDataModel().tracks objectAtIndex:indexPath.row];
+   //NSDictionary *track = [TWDataModel().tracks objectAtIndex:indexPath.row];
+   NSDictionary *track = [[self.categoryTracks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
    // add track ID to components
    NSString *trackID = [track objectForKey:kTrackID];
@@ -231,19 +321,15 @@
    {
       default:
          twlog("what section is %d?", section);
-         /*
-      case kSectionCustomPlaylist:
-         {
-         NSInteger seconds = [[self.playlist objectForKey:kPlaylistTime] integerValue];
-         sectionTitle = [NSString stringWithFormat:NSLocalizedString(@"CREATELISTHEADER", nil),
-            seconds / 60,
-            seconds % 60
-         ];
-         }
-         break;
-          */
-      case kSectionAddableTracks:
-         sectionTitle = NSLocalizedString(@"CREATETRACKSHEADER", nil);
+         section = 0;
+         // FALL
+      case kAddSectionCategoryA:
+      case kAddSectionCategoryB:
+      case kAddSectionCategoryC:
+      case kAddSectionCategoryD:
+      case kAddSectionCategoryE:
+      case kAddSectionCategoryF:
+         sectionTitle = [self.categoryNames objectAtIndex:section];
          break;
    }
    
@@ -259,20 +345,36 @@
    {
       default:
          twlog("what section is %d?", section);
-         /*
-      case kSectionCustomPlaylist:
-         {
-         NSArray *components = [self.playlist objectForKey:kPlaylistComponents];
-         rows = components.count;
-         }
+         rows = 0;
          break;
-          */
-      case kSectionAddableTracks:
-         rows = TWDataModel().tracks.count;
+      case kAddSectionCategoryA:
+      case kAddSectionCategoryB:
+      case kAddSectionCategoryC:
+      case kAddSectionCategoryD:
+      case kAddSectionCategoryE:
+      case kAddSectionCategoryF:
+         rows = [[self.categoryTracks objectAtIndex:section] count];
          break;
    }
    
    return rows;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   (void)tableView;
+   
+   CGFloat rowHeight = kStandardCellHeight;
+   
+   //NSDictionary *track = [TWDataModel().tracks objectAtIndex:indexPath.row];
+   NSDictionary *track = [[self.categoryTracks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+   NSString *name = [track objectForKey:kTrackName];
+   UIFont *nameFont = [UIFont boldSystemFontOfSize:kCellNameSize];
+   NSInteger numberOfLines = ceilf([name sizeWithFont:nameFont constrainedToSize:CGSizeMake(kCellNameEditingWidth, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap].height/20.0);
+   if (2 < numberOfLines)
+      rowHeight += (numberOfLines - 2) * kExtraLineHeight;
+   
+   return rowHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -304,14 +406,28 @@
    {
       default:
          twlog("what section is %d?", indexPath.section);
-         /*
-      case kSectionCustomPlaylist:
-         [cell fillOutWithTrack:indexPath.row fromPlaylist:self.playlist];
          break;
-          */
-      case kSectionAddableTracks:
-         [cell fillOutWithDataModelTrack:indexPath.row];
-        break;
+      case kAddSectionCategoryA:
+      case kAddSectionCategoryB:
+      case kAddSectionCategoryC:
+      case kAddSectionCategoryD:
+      case kAddSectionCategoryE:
+      case kAddSectionCategoryF:
+         {
+         //[cell fillOutWithDataModelTrack:indexPath.row];
+         NSDictionary *track = [[self.categoryTracks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+         [cell fillOutWithTrackDictionary:track];
+            
+         NSMutableArray *components = [self.playlist objectForKey:kPlaylistComponents];
+         NSString *trackID = [track objectForKey:kTrackID];
+         NSUInteger idx = [components indexOfObject:trackID];
+         if (NSNotFound != idx)
+            // color of add control
+            [cell setStringsColor:[UIColor colorWithRed:0.162 green:0.611 blue:0.147 alpha:1.000]];
+         else
+            [cell setStringsColor:[UIColor blackColor]];
+         }
+         break;
    }
    
    return cell;
@@ -333,21 +449,18 @@
    NSDictionary *track = nil;
    switch (indexPath.section)
    {
-         /*
-      case kSectionCustomPlaylist:
-         {
-         NSArray *components = [self.playlist objectForKey:kPlaylistComponents];
-         NSString *trackID = [components objectAtIndex:indexPath.row];
-         track = [TWDataModel() trackWithID:trackID];
-         }
-         break;
-          */
-      case kSectionAddableTracks:
-         track = [TWDataModel().tracks objectAtIndex:indexPath.row];
-         break;
       default:
          twlog("unexpected section selected!");
          return;
+      case kAddSectionCategoryA:
+      case kAddSectionCategoryB:
+      case kAddSectionCategoryC:
+      case kAddSectionCategoryD:
+      case kAddSectionCategoryE:
+      case kAddSectionCategoryF:
+         //track = [TWDataModel().tracks objectAtIndex:indexPath.row];
+         track = [[self.categoryTracks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+         break;
    }
    
    NSString *description = [track objectForKey:kTrackDescription];
@@ -370,11 +483,12 @@
       default:
          twlog("what section is %d?", indexPath.section);
          return UITableViewCellEditingStyleNone;
-      /*
-       case kSectionCustomPlaylist:
-         return UITableViewCellEditingStyleDelete;
-       */
-      case kSectionAddableTracks:
+      case kAddSectionCategoryA:
+      case kAddSectionCategoryB:
+      case kAddSectionCategoryC:
+      case kAddSectionCategoryD:
+      case kAddSectionCategoryE:
+      case kAddSectionCategoryF:
          return UITableViewCellEditingStyleInsert;
    }
 }
@@ -388,17 +502,19 @@
    {
       default:
          twlog("what section is %d?", indexPath.section);
-         /*
-      case kSectionCustomPlaylist:
-         [self removeTrack:indexPath];
-          */
          break;
-      case kSectionAddableTracks:
+      case kAddSectionCategoryA:
+      case kAddSectionCategoryB:
+      case kAddSectionCategoryC:
+      case kAddSectionCategoryD:
+      case kAddSectionCategoryE:
+      case kAddSectionCategoryF:
          [self addTrack:indexPath];
          break;
    }
 }
 
+/*
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
    (void)tableView;
@@ -409,13 +525,10 @@
          twlog("what section is %d?", indexPath.section);
       case kSectionAddableTracks:
          return NO;
-         /*
-      case kSectionCustomPlaylist:
-         return YES;
-          */
    }
 }
-
+*/
+/*
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
    (void)tableView;
@@ -430,7 +543,8 @@
    
    return proposedDestinationIndexPath;
 }
-
+*/
+/*
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
    (void)tableView;
@@ -442,14 +556,9 @@
       case kSectionAddableTracks:
          twlog("can't move row in section %d!", sourceIndexPath.section);
          break;
-         /*
-      case kSectionCustomPlaylist:
-         twcheck(destinationIndexPath.section == sourceIndexPath.section);
-         [self moveTrack:sourceIndexPath.row to:destinationIndexPath.row];
-         break;
-          */
    }
 }
+*/
 
 @end
 

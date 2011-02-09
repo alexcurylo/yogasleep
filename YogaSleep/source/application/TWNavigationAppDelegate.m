@@ -45,7 +45,7 @@
 
    // status bar marked hidden UIStatusBarStyleBlackOpaque in Info.plist so Default.png comes up fullscreen
    application.statusBarHidden = NO;
-   
+      
    [window addSubview:navigationController.view];
    [window makeKeyAndVisible];
    
