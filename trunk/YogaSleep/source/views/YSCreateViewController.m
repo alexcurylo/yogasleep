@@ -8,21 +8,25 @@
 #import "TWNavigationAppDelegate.h"
 #import "YSRecordingTableViewCell.h"
 #import "YSAddViewController.h"
+#import "YSPlayerViewController.h"
 
 @implementation YSCreateViewController
 
 @synthesize moreInfo;
 @synthesize createTable;
 @synthesize templateCell;
+@synthesize playlistName;
 @synthesize playlist;
 
 #pragma mark -
 #pragma mark Life cycle
 
-+ (YSCreateViewController *)controller
++ (YSCreateViewController *)controllerWithName:(NSString *)name
 {
    YSCreateViewController *controller = [[[YSCreateViewController alloc] initWithNibName:@"YSCreateView" bundle:nil] autorelease];
-   controller.title = NSLocalizedString(@"TITLECREATE", nil);
+   //controller.title = NSLocalizedString(@"TITLECREATE", nil);
+   controller.title = name;
+   controller.playlistName = name;
    return controller;
 }
 
@@ -51,7 +55,7 @@
 		[self.createTable deselectRowAtIndexPath:selection animated:YES];
    
    // may have been added to by add screen
-   self.playlist = TWDataModel().customPlaylist;
+   self.playlist = [TWDataModel() customPlaylistNamed:self.playlistName];
    [self.createTable reloadData];
    
    //NSString *description = [self.playlist objectForKey:kPlaylistDescription];
@@ -102,8 +106,9 @@
    
    twrelease(moreInfo);
    twrelease(createTable);
+   twrelease(playlistName);
    twrelease(playlist);
- 
+
    [super dealloc];
 }
 
@@ -112,11 +117,12 @@
 
 - (IBAction)addTracks
 {
-   [self.navigationController pushViewController:[YSAddViewController controller] animated:YES];
+   [self.navigationController pushViewController:[YSAddViewController controllerWithName:self.playlistName] animated:YES];
 }
 
 - (void)fixPlayControls
 {
+   /*
    NSString *imageName = nil;
    SEL action = nil;
    BOOL playing = [TWDataModel() isPlayingPlaylist:self.playlist];
@@ -137,6 +143,40 @@
       action:action
    ] autorelease];
    self.navigationItem.rightBarButtonItem = barButtonItem;
+    */
+   UIBarButtonItem *barButtonItem = nil;
+   
+   BOOL playing = [TWDataModel() isPlayingPlaylist:self.playlist];
+   if (playing)
+   {
+      /*
+       NSString *imageName = nil;
+       SEL action = nil;
+       imageName = @"Pause 32x32.png";
+       action = @selector(pause);
+       barButtonItem = [[[UIBarButtonItem alloc]
+       initWithImage:[UIImage imageNamed:imageName]
+       style:UIBarButtonItemStyleBordered
+       target:self
+       action:action
+       ] autorelease];
+       */
+      barButtonItem = [TWDataModel() playingBarButtonForTarget:self action:@selector(showPlayer)];
+   }
+   else
+   {
+      //NSString *imageName = @"Play 32x32.png"; 
+      SEL action = @selector(play);
+      barButtonItem = [[[UIBarButtonItem alloc]
+                        //initWithImage:[UIImage imageNamed:imageName]
+                        //style:UIBarButtonItemStyleBordered
+                        initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                        target:self
+                        action:action
+                        ] autorelease];
+   }
+   
+   self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
 - (void)play
@@ -145,6 +185,14 @@
    
    [self fixPlayControls];
    [self.createTable reloadData];
+   
+   [self showPlayer];
+}
+
+- (void)showPlayer
+{
+	YSPlayerViewController *controller = [YSPlayerViewController controller];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)pause
@@ -281,6 +329,24 @@
    }
    
    return rows;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   (void)tableView;
+   
+   CGFloat rowHeight = kStandardCellHeight;
+   
+   NSArray *components = [self.playlist objectForKey:kPlaylistComponents];
+   NSString *trackID = [components objectAtIndex:indexPath.row];
+   NSDictionary *track = [TWDataModel() trackWithID:trackID];
+   NSString *name = [track objectForKey:kTrackName];
+   UIFont *nameFont = [UIFont boldSystemFontOfSize:kCellNameSize];
+   NSInteger numberOfLines = ceilf([name sizeWithFont:nameFont constrainedToSize:CGSizeMake(kCellNameEditingWidth, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap].height/20.0);
+   if (2 < numberOfLines)
+      rowHeight += (numberOfLines - 2) * kExtraLineHeight;
+   
+   return rowHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

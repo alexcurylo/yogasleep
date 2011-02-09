@@ -29,8 +29,10 @@
 {
    [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   if (TWDataModel().hasCustomPlaylists)
+      self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   else 
+      self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,9 +93,20 @@
 #pragma mark -
 #pragma mark Actions
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+   [super setEditing:editing animated:animated];
+   [self.recordingsTable setEditing:editing animated:animated];
+}
+
 
 #pragma mark -
 #pragma mark Table support
+
+- (NSArray *)recordingsList
+{
+   return TWDataModel().playlists;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -114,7 +127,23 @@
    (void)tableView;
  	(void)section;
    
-   return TWDataModel().playlists.count;
+   return self.recordingsList.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   (void)tableView;
+   
+   CGFloat rowHeight = kStandardCellHeight;
+   
+   NSDictionary *playlist = [self.recordingsList objectAtIndex:indexPath.row];
+   NSString *name = [playlist objectForKey:kPlaylistName];
+   UIFont *nameFont = [UIFont boldSystemFontOfSize:kCellNameSize];
+   NSInteger numberOfLines = ceilf([name sizeWithFont:nameFont constrainedToSize:CGSizeMake(kCellNameStandardWidth, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap].height/20.0);
+   if (2 < numberOfLines)
+      rowHeight += (numberOfLines - 2) * kExtraLineHeight;
+      
+   return rowHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,7 +169,9 @@
       cell.backgroundView.backgroundColor = [UIColor colorFromHexValue:0xF2F2F2];
    */
    
-   [cell fillOutWithPlaylist:indexPath.row];
+   //[cell fillOutWithPlaylist:indexPath.row];
+   NSDictionary *playlist = [self.recordingsList objectAtIndex:indexPath.row];
+   [cell fillOutWithPlaylist:playlist];
 
    return cell;
 }
@@ -157,6 +188,46 @@
  	(void)tableView;
 
    [self.navigationController pushViewController:[YSRecordingViewController controllerForRecording:indexPath.row] animated:YES];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   (void)tableView;
+   
+   NSDictionary *playlist = [self.recordingsList objectAtIndex:indexPath.row];
+
+   BOOL editable = [[playlist objectForKey:kPlaylistEditable] boolValue];
+   return editable ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
+   /*
+   switch (indexPath.section)
+   {
+      default:
+         twlog("what section is %d?", indexPath.section);
+         return UITableViewCellEditingStyleNone;
+          case kSectionCustomPlaylist:
+          return UITableViewCellEditingStyleDelete;
+      case kSectionAddableTracks:
+         return UITableViewCellEditingStyleInsert;
+   }
+    */
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (UITableViewCellEditingStyleDelete != editingStyle)
+      return;
+   
+   NSDictionary *playlist = [self.recordingsList objectAtIndex:indexPath.row];
+   [TWDataModel() removePlaylist:playlist];
+   [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+
+   if (!TWDataModel().hasCustomPlaylists)
+   {
+      self.navigationItem.rightBarButtonItem = nil;
+      
+      if (self.isEditing)
+         [self setEditing:NO animated:YES];
+   }
 }
 
 @end

@@ -6,14 +6,12 @@
 		<key>components</key>
 		<array>
 			<string>A1</string>
-			<string>A2</string>
-			<string>E3</string>
-			<string>B4</string>
-			<string>B5</string>
-			<string>C1</string>
+			<string>B1</string>
+			<string>B3</string>
+			<string>C3</string>
 			<string>D1</string>
 			<string>E1</string>
-			<string>A4</string>
+			<string>A3</string>
 		</array>
 		<key>name</key>
 		<string>Welcome to Yoga Sleep</string>
@@ -27,20 +25,14 @@
 	<dict>
 		<key>components</key>
 		<array>
-			<string>A1</string>
-			<string>A3</string>
-			<string>E3</string>
+			<string>A2</string>
 			<string>B1</string>
-			<string>B2</string>
-			<string>B2</string>
-			<string>B2</string>
+			<string>B1</string>
+			<string>C1</string>
 			<string>F2</string>
-			<string>F3</string>
 			<string>D3</string>
 			<string>D1</string>
-			<string>E3</string>
-			<string>F1</string>
-			<string>A5</string>
+			<string>A4</string>
 		</array>
 		<key>name</key>
 		<string>Welcome to Yoga Nidra</string>

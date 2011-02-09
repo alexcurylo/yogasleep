@@ -6,13 +6,13 @@
 		<key>id</key>
 		<string>A1</string>
 		<key>name</key>
-		<string>Introduction</string>
+		<string>Intro Sleep</string>
 		<key>time</key>
-		<integer>93</integer>
+		<integer>130</integer>
 		<key>category</key>
-		<string>General</string>
+		<string>Sleep</string>
 		<key>description</key>
-		<string>General introduction to the practise</string>
+		<string>Introduction for a sleep practise. Use after Introduction.</string>
 		<key>file</key>
 		<string>A1.caf</string>
 	</dict>
@@ -20,33 +20,19 @@
 		<key>id</key>
 		<string>A2</string>
 		<key>name</key>
-		<string>Intro Sleep</string>
+		<string>Intro Alert</string>
 		<key>time</key>
-		<integer>39</integer>
+		<integer>130</integer>
 		<key>category</key>
-		<string>Sleep</string>
+		<string>Alert</string>
 		<key>description</key>
-		<string>Introduction for a sleep practise. Use after Introduction.</string>
+		<string>Introduction for an alert practise. Use after Introduction.</string>
 		<key>file</key>
 		<string>A2.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>A3</string>
-		<key>name</key>
-		<string>Intro Alert</string>
-		<key>time</key>
-		<integer>33</integer>
-		<key>category</key>
-		<string>Alert</string>
-		<key>description</key>
-		<string>Introduction for an alert practise. Use after Introduction.</string>
-		<key>file</key>
-		<string>A3.caf</string>
-	</dict>
-	<dict>
-		<key>id</key>
-		<string>A4</string>
 		<key>name</key>
 		<string>Ending to Sleep</string>
 		<key>time</key>
@@ -56,11 +42,11 @@
 		<key>description</key>
 		<string>Use to flow into sleep at the end of the practise.</string>
 		<key>file</key>
-		<string>A4.caf</string>
+		<string>A3.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
-		<string>A5</string>
+		<string>A4</string>
 		<key>name</key>
 		<string>Ending to Wake</string>
 		<key>time</key>
@@ -70,25 +56,11 @@
 		<key>description</key>
 		<string>Use to wake up at the end of the practise.</string>
 		<key>file</key>
-		<string>A5.caf</string>
+		<string>A4.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<string>B1</string>
-		<key>name</key>
-		<string>Rotation of Consciousness- Intro</string>
-		<key>time</key>
-		<integer>18</integer>
-		<key>category</key>
-		<string>General</string>
-		<key>description</key>
-		<string>An introduction to be used before Rotation of Consciousness. Does not have to be included once the listener understand the technique.</string>
-		<key>file</key>
-		<string>B1.caf</string>
-	</dict>
-	<dict>
-		<key>id</key>
-		<string>B2</string>
 		<key>name</key>
 		<string>Rotation of Consciousness- Normal</string>
 		<key>time</key>
@@ -98,11 +70,11 @@
 		<key>description</key>
 		<string>A Yoga Nidra technique used to bring awareness to all parts of the body, keep the mind occupied, strengthen the mind body connection and relax the physical body. 2-3 Rotations of consciousness are advised in yoga nidra, decreasing the speed slowly. Can also be used in a sleep practise, although a conditioned association with staying alert can develop.							</string>
 		<key>file</key>
-		<string>B2.caf</string>
+		<string>B1.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
-		<string>B3</string>
+		<string>B2</string>
 		<key>name</key>
 		<string>Rotation of Consciousness- Slow</string>
 		<key>time</key>
@@ -112,25 +84,11 @@
 		<key>description</key>
 		<string>A slower version of Rotation of Consciousness. This version can be used to maximize feelings of relaxation and of progressing deeper.</string>
 		<key>file</key>
-		<string>B3.caf</string>
+		<string>B2.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
-		<string>B4</string>
-		<key>name</key>
-		<string>Tension Control- Intro</string>
-		<key>time</key>
-		<integer>62</integer>
-		<key>category</key>
-		<string>General</string>
-		<key>description</key>
-		<string>An introduction to be used before Tension Control. Does not need to be included once the technique is understood.</string>
-		<key>file</key>
-		<string>B4.caf</string>
-	</dict>
-	<dict>
-		<key>id</key>
-		<string>B5</string>
+		<string>B3</string>
 		<key>name</key>
 		<string>Tension Control</string>
 		<key>time</key>
@@ -140,7 +98,21 @@
 		<key>description</key>
 		<string>A Behavioural therapy technique where muscle groups are tensed and then relaxed deeply. This method can deliver huge benefits including very deep awareness of muscular tension. Great to use on a regular basis.</string>
 		<key>file</key>
-		<string>B5.caf</string>
+		<string>B3.caf</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>B4</string>
+		<key>name</key>
+		<string>Progressive Relaxation</string>
+		<key>time</key>
+		<integer>403</integer>
+		<key>category</key>
+		<string>General</string>
+		<key>description</key>
+		<string>Suggestions of relaxation are given from the feet moving up the body. It can sometimes help to give the sensation a colour.</string>
+		<key>file</key>
+		<string>B4.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -216,7 +188,7 @@
 		<key>id</key>
 		<string>D2</string>
 		<key>name</key>
-		<string>Meeting Your Guide</string>
+		<string>Garden Guide</string>
 		<key>time</key>
 		<integer>273</integer>
 		<key>category</key>
@@ -300,13 +272,13 @@
 		<key>id</key>
 		<string>E3</string>
 		<key>name</key>
-		<string>Intention</string>
+		<string>Deep sleep alert</string>
 		<key>time</key>
 		<integer>42</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>Used in Yoga Nidra and similar to an affirmation. It is used after the introduction and again just before the end of an alert practice The same intention should be used consistently.</string>
+		<string></string>
 		<key>file</key>
 		<string>E3.caf</string>
 	</dict>
@@ -328,20 +300,6 @@
 		<key>id</key>
 		<string>F2</string>
 		<key>name</key>
-		<string>Pairs Intro</string>
-		<key>time</key>
-		<integer>52</integer>
-		<key>category</key>
-		<string>Alert</string>
-		<key>description</key>
-		<string>An introduction to opposite sensations. </string>
-		<key>file</key>
-		<string>F2.caf</string>
-	</dict>
-	<dict>
-		<key>id</key>
-		<string>F3</string>
-		<key>name</key>
 		<string>Pair- Heavy/Light</string>
 		<key>time</key>
 		<integer>166</integer>
@@ -350,11 +308,11 @@
 		<key>description</key>
 		<string>Opposite sensations of Heaviness and Lightness.</string>
 		<key>file</key>
-		<string>F3.caf</string>
+		<string>F2.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
-		<string>F4</string>
+		<string>F3</string>
 		<key>name</key>
 		<string>Pair- Hot/Cold</string>
 		<key>time</key>
@@ -364,39 +322,11 @@
 		<key>description</key>
 		<string>Opposite sensations of Hotness and Coldness.</string>
 		<key>file</key>
-		<string>F4.caf</string>
+		<string>F3.caf</string>
 	</dict>
 	<dict>
 		<key>id</key>
-		<string>F5</string>
-		<key>name</key>
-		<string>Pair- Pain/Pleasure</string>
-		<key>time</key>
-		<integer>145</integer>
-		<key>category</key>
-		<string>Alert</string>
-		<key>description</key>
-		<string>Opposite sensations of Pain and Pleasure.</string>
-		<key>file</key>
-		<string>F5.caf</string>
-	</dict>
-	<dict>
-		<key>id</key>
-		<string>F6</string>
-		<key>name</key>
-		<string>Pair- Tense/Relaxed</string>
-		<key>time</key>
-		<integer>142</integer>
-		<key>category</key>
-		<string>Alert</string>
-		<key>description</key>
-		<string>Opposite sensations of Tension and Relaxation</string>
-		<key>file</key>
-		<string>F6.caf</string>
-	</dict>
-	<dict>
-		<key>id</key>
-		<string>F7</string>
+		<string>F4</string>
 		<key>name</key>
 		<string>Pair- Fear/Confidence</string>
 		<key>time</key>
@@ -406,7 +336,7 @@
 		<key>description</key>
 		<string>Opposite sensations of Fear and Confidence.</string>
 		<key>file</key>
-		<string>F7.caf</string>
+		<string>F4.caf</string>
 	</dict>
 </array>
 </plist>

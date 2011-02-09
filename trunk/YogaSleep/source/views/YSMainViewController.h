@@ -25,6 +25,11 @@
 #pragma mark -
 #pragma mark Actions
 
+/*
+- (BOOL)canBecomeFirstResponder;
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event;
+*/
+
 - (IBAction)showIntro:(id)sender;
 - (IBAction)showRecordings:(id)sender;
 - (IBAction)showCreate:(id)sender;
