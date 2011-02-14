@@ -8,11 +8,11 @@
 		<key>name</key>
 		<string>Intro Sleep</string>
 		<key>time</key>
-		<integer>130</integer>
+		<integer>141</integer>
 		<key>category</key>
 		<string>Sleep</string>
 		<key>description</key>
-		<string>Introduction for a sleep practise. Use after Introduction.</string>
+		<string>Introduction for a sleep practise.</string>
 		<key>file</key>
 		<string>A1.caf</string>
 	</dict>
@@ -26,7 +26,7 @@
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>
-		<string>Introduction for an alert practise. Use after Introduction.</string>
+		<string>Introduction for an alert practise.</string>
 		<key>file</key>
 		<string>A2.caf</string>
 	</dict>
@@ -36,7 +36,7 @@
 		<key>name</key>
 		<string>Ending to Sleep</string>
 		<key>time</key>
-		<integer>50</integer>
+		<integer>76</integer>
 		<key>category</key>
 		<string>Sleep</string>
 		<key>description</key>
@@ -50,7 +50,7 @@
 		<key>name</key>
 		<string>Ending to Wake</string>
 		<key>time</key>
-		<integer>88</integer>
+		<integer>69</integer>
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>
@@ -62,13 +62,13 @@
 		<key>id</key>
 		<string>B1</string>
 		<key>name</key>
-		<string>Rotation of Consciousness- Normal</string>
+		<string>Rotation of Consciousness</string>
 		<key>time</key>
-		<integer>217</integer>
+		<integer>212</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A Yoga Nidra technique used to bring awareness to all parts of the body, keep the mind occupied, strengthen the mind body connection and relax the physical body. 2-3 Rotations of consciousness are advised in yoga nidra, decreasing the speed slowly. Can also be used in a sleep practise, although a conditioned association with staying alert can develop.							</string>
+		<string>A Yoga Nidra technique used to bring awareness to all parts of the body, keep the mind occupied, strengthen the mind body connection and relax the physical body. If regularly performing a sleep and alert practise, see introduction for reccomendations.							</string>
 		<key>file</key>
 		<string>B1.caf</string>
 	</dict>
@@ -76,13 +76,13 @@
 		<key>id</key>
 		<string>B2</string>
 		<key>name</key>
-		<string>Rotation of Consciousness- Slow</string>
+		<string>Slow Rotation of Consciousness</string>
 		<key>time</key>
-		<integer>292</integer>
+		<integer>262</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A slower version of Rotation of Consciousness. This version can be used to maximize feelings of relaxation and of progressing deeper.</string>
+		<string>A slower version of Rotation of Consciousness. This version can be used to maximize feelings of relaxation and of progressing deeper after 1 or 2 rounds of the regular version.							</string>
 		<key>file</key>
 		<string>B2.caf</string>
 	</dict>
@@ -92,11 +92,11 @@
 		<key>name</key>
 		<string>Tension Control</string>
 		<key>time</key>
-		<integer>892</integer>
+		<integer>691</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A Behavioural therapy technique where muscle groups are tensed and then relaxed deeply. This method can deliver huge benefits including very deep awareness of muscular tension. Great to use on a regular basis.</string>
+		<string>A Behavioural therapy technique where muscle groups are tensed and then relaxed deeply. This method can deliver huge benefits including very deep awareness of muscular tension leading to far greater general self awreness when used on a regular basis.							</string>
 		<key>file</key>
 		<string>B3.caf</string>
 	</dict>
@@ -106,11 +106,11 @@
 		<key>name</key>
 		<string>Progressive Relaxation</string>
 		<key>time</key>
-		<integer>403</integer>
+		<integer>415</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>Suggestions of relaxation are given from the feet moving up the body. It can sometimes help to give the sensation a colour.</string>
+		<string>Suggestions of relaxation are given from the feet moving up the body. It can sometimes help to give the sensation a colour.							</string>
 		<key>file</key>
 		<string>B4.caf</string>
 	</dict>
@@ -120,7 +120,7 @@
 		<key>name</key>
 		<string>Breath Awareness</string>
 		<key>time</key>
-		<integer>186</integer>
+		<integer>162</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
@@ -134,7 +134,7 @@
 		<key>name</key>
 		<string>Alternate Nostril Breathing</string>
 		<key>time</key>
-		<integer>187</integer>
+		<integer>178</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
@@ -148,11 +148,11 @@
 		<key>name</key>
 		<string>Belly Breathing</string>
 		<key>time</key>
-		<integer>174</integer>
+		<integer>165</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>This method brings air deep to the bottom of the lungs where it is absorbed more fully. Can greatly help in eliminating shallow chest breathing.</string>
+		<string>This method brings air deep to the bottom of the lungs where it is absorbed more fully. Can greatly help in eliminating shallow chest breathing.							</string>
 		<key>file</key>
 		<string>C3.caf</string>
 	</dict>
@@ -162,11 +162,11 @@
 		<key>name</key>
 		<string>Healing Breath</string>
 		<key>time</key>
-		<integer>180</integer>
+		<integer>172</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A short inhale is followed by holding the breath then a long exhale. This technique can help improve the breathing by extending the exhale generally.</string>
+		<string>A short inhale is followed by holding the breath then a long exhale. This technique can help improve the breathing by extending the exhale generally.							</string>
 		<key>file</key>
 		<string>C4.caf</string>
 	</dict>
@@ -176,7 +176,7 @@
 		<key>name</key>
 		<string>Safe Place</string>
 		<key>time</key>
-		<integer>392</integer>
+		<integer>339</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
@@ -190,11 +190,11 @@
 		<key>name</key>
 		<string>Garden Guide</string>
 		<key>time</key>
-		<integer>273</integer>
+		<integer>246</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>Imagery of a journey up a mountain with a guide figure. The imagery has significance to our unconscious. This imagery is helpful with increasing motivation.</string>
+		<string>Imagery of being in a garden and meeting a guide figure. Can help the listener in answering questions or making decisions.							</string>
 		<key>file</key>
 		<string>D2.caf</string>
 	</dict>
@@ -204,11 +204,11 @@
 		<key>name</key>
 		<string>Quick Images</string>
 		<key>time</key>
-		<integer>193</integer>
+		<integer>123</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A yoga nidra technique of picturing a series of rapid images. This technique can greatly assist in developing the ability to vizualize. The images used can also have significant associations in our subconscious minds.</string>
+		<string>A yoga nidra technique of picturing a series of rapid images. This technique is great for focusing the mind and it is also assists in developing the ability to vizualize. The images used can also have significant associations in our subconscious minds.							</string>
 		<key>file</key>
 		<string>D3.caf</string>
 	</dict>
@@ -216,13 +216,13 @@
 		<key>id</key>
 		<string>D4</string>
 		<key>name</key>
-		<string>Guru Merging</string>
+		<string>Slow Images</string>
 		<key>time</key>
-		<integer>191</integer>
+		<integer>155</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>Imagery of an individual of greatness involving absorbing all their qualities and identifying with them fully.</string>
+		<string>Slower images</string>
 		<key>file</key>
 		<string>D4.caf</string>
 	</dict>
@@ -232,11 +232,11 @@
 		<key>name</key>
 		<string>Ideal Self Image</string>
 		<key>time</key>
-		<integer>257</integer>
+		<integer>234</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>Imagery of an ideal future self and achievement of a goal. </string>
+		<string>Imagery of an ideal future self. This imagery can be highly benefical in motivating individulas and goal setting. 							</string>
 		<key>file</key>
 		<string>D5.caf</string>
 	</dict>
@@ -244,13 +244,13 @@
 		<key>id</key>
 		<string>E1</string>
 		<key>name</key>
-		<string>Deep Sleep</string>
+		<string>Deep Sleep at night</string>
 		<key>time</key>
-		<integer>286</integer>
+		<integer>278</integer>
 		<key>category</key>
 		<string>Sleep</string>
 		<key>description</key>
-		<string>A deep sleep recording to be used at the end of a playlist.</string>
+		<string>This recording promotes deep relaxation on a physical, conscious and unsconscious level. The core of any sleep practise.							</string>
 		<key>file</key>
 		<string>E1.caf</string>
 	</dict>
@@ -260,11 +260,11 @@
 		<key>name</key>
 		<string>Ego Strengthening</string>
 		<key>time</key>
-		<integer>364</integer>
+		<integer>339</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A cognitive therapy technique for building self esteem and general development.</string>
+		<string>A highly effective cognitive therapy technique for building self esteem and general development. Reccommended as part of any alert practise, can also be used in a sleep practise.							</string>
 		<key>file</key>
 		<string>E2.caf</string>
 	</dict>
@@ -272,9 +272,9 @@
 		<key>id</key>
 		<string>E3</string>
 		<key>name</key>
-		<string>Deep sleep alert</string>
+		<string>Deep Sleep Confidence</string>
 		<key>time</key>
-		<integer>42</integer>
+		<integer>132</integer>
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
@@ -292,7 +292,7 @@
 		<key>category</key>
 		<string>General</string>
 		<key>description</key>
-		<string>A period of 1 minute of silence. Use to enjoy the after effects of a particular component where you still want to have guidance later on. Eg. To continue deep breathing then </string>
+		<string>A period of 1 minute of silence. Use to enjoy the after effects of a particular component where you still want to have guidance later on. Eg. To continue deep breathing then 							</string>
 		<key>file</key>
 		<string>F1.caf</string>
 	</dict>
@@ -302,7 +302,7 @@
 		<key>name</key>
 		<string>Pair- Heavy/Light</string>
 		<key>time</key>
-		<integer>166</integer>
+		<integer>164</integer>
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>
@@ -316,7 +316,7 @@
 		<key>name</key>
 		<string>Pair- Hot/Cold</string>
 		<key>time</key>
-		<integer>147</integer>
+		<integer>124</integer>
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>
@@ -330,7 +330,7 @@
 		<key>name</key>
 		<string>Pair- Fear/Confidence</string>
 		<key>time</key>
-		<integer>135</integer>
+		<integer>106</integer>
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>

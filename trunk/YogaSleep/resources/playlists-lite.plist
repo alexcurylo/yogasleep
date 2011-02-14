@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A1</string>
+			<string>B1</string>
+			<string>B3</string>
+			<string>C1</string>
+			<string>D1</string>
+			<string>E1</string>
+			<string>A3</string>
+		</array>
+		<key>name</key>
+		<string>Welcome to Yoga Sleep</string>
+		<key>time</key>
+		<integer>1896</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A2</string>
+			<string>B1</string>
+			<string>B1</string>
+			<string>C1</string>
+			<string>F2</string>
+			<string>D3</string>
+			<string>D2</string>
+			<string>A4</string>
+		</array>
+		<key>name</key>
+		<string>Welcome to Yoga Alert</string>
+		<key>time</key>
+		<integer>1297</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

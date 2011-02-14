@@ -265,8 +265,11 @@
    // any call to the commented out bits crashes ... why?
    //[self.createTable beginUpdates];
    //[self.createTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-   [self.createTable reloadData];
+   //[self.createTable reloadData];
    //[self.createTable endUpdates];
+
+   YSRecordingTableViewCell *cell = (YSRecordingTableViewCell *)[self.createTable cellForRowAtIndexPath:indexPath];
+   [cell animateAdd];
 }
 
 - (void)removeTrack:(NSIndexPath *)indexPath
@@ -401,6 +404,7 @@
     else
     cell.backgroundView.backgroundColor = [UIColor colorFromHexValue:0xF2F2F2];
     */
+   cell.backgroundView.backgroundColor = [UIColor whiteColor];
 
    switch (indexPath.section)
    {
@@ -422,8 +426,7 @@
          NSString *trackID = [track objectForKey:kTrackID];
          NSUInteger idx = [components indexOfObject:trackID];
          if (NSNotFound != idx)
-            // color of add control
-            [cell setStringsColor:[UIColor colorWithRed:0.162 green:0.611 blue:0.147 alpha:1.000]];
+            [cell setStringsColor:[YSRecordingTableViewCell greenSelectedColor]];
          else
             [cell setStringsColor:[UIColor blackColor]];
          }

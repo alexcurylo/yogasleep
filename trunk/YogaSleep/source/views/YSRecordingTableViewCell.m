@@ -21,6 +21,12 @@
 @synthesize textColor;
 @synthesize trackID;
 
++ (UIColor *)greenSelectedColor
+{
+   // color of add control
+  return [UIColor colorWithRed:0.162 green:0.611 blue:0.147 alpha:1.000];
+}
+
 - (void)awakeFromNib
 {
    [super awakeFromNib];
@@ -81,9 +87,42 @@
    [super dealloc];
 }
 
+- (void)animateAdd
+{
+   UIColor *stringColor = [YSRecordingTableViewCell greenSelectedColor];
+   [self setStringsColor:stringColor];
+
+    if (!self.backgroundView)
+      self.backgroundView = [[[UIView alloc] initWithFrame:self.frame] autorelease];
+ 
+   [UIView beginAnimations:NULL context:nil];
+   [UIView setAnimationDuration:0.1];
+   //[UIView setAnimationRepeatCount:2];
+   //[UIView setAnimationRepeatAutoreverses:YES];
+   //[UIView setAnimationBeginsFromCurrentState:YES];
+   [UIView setAnimationDelegate:self];
+   [UIView setAnimationDidStopSelector:@selector(phase1AnimationDidStop:finished:context:)];
+   self.backgroundView.backgroundColor = stringColor;
+   [UIView commitAnimations];
+}
+
+- (void)phase1AnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+   (void)animationID;
+   (void)finished;
+   (void)context;
+   
+   [UIView beginAnimations:NULL context:nil];
+   [UIView setAnimationDuration:0.2];
+   [UIView setAnimationDelegate:nil];
+   self.backgroundView.backgroundColor = [UIColor whiteColor];
+   [UIView commitAnimations];
+}
+
 - (void)setStringsColor:(UIColor *)color
 {
    self.textColor = color;
+   [self setSelected:self.selected animated:NO];
 }
 
 /*

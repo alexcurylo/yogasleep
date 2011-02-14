@@ -29,7 +29,8 @@
 {
    [super viewDidLoad];
 
-   if (TWDataModel().hasCustomPlaylists)
+   //if (TWDataModel().hasCustomPlaylists)
+   if (TWDataModel().customPlaylists.count)
       self.navigationItem.rightBarButtonItem = self.editButtonItem;
    else 
       self.navigationItem.rightBarButtonItem = nil;
@@ -105,7 +106,8 @@
 
 - (NSArray *)recordingsList
 {
-   return TWDataModel().playlists;
+   //return TWDataModel().playlists;
+   return TWDataModel().combinedPlaylists;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -221,7 +223,8 @@
    [TWDataModel() removePlaylist:playlist];
    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
 
-   if (!TWDataModel().hasCustomPlaylists)
+   //if (!TWDataModel().hasCustomPlaylists)
+   if (!TWDataModel().customPlaylists.count)
    {
       self.navigationItem.rightBarButtonItem = nil;
       

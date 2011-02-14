@@ -75,6 +75,102 @@
 		FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */; };
 		FAC8656512FFD25700E8E272 /* YSRemoteControlWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */; };
 		FAD98BE1108A19CE00963F89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAD98BE0108A19CE00963F89 /* Localizable.strings */; };
+		FAFDF37513088F84001152AF /* playlists-lite.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFDF37413088F84001152AF /* playlists-lite.plist */; };
+		FAFDF37B130892A5001152AF /* manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFDF37A130892A5001152AF /* manifest.plist */; };
+		FAFDF62D1308D3C9001152AF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1670FA6BF1800CBDED9 /* Default.png */; };
+		FAFDF62E1308D3C9001152AF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1680FA6BF1800CBDED9 /* Icon.png */; };
+		FAFDF62F1308D3C9001152AF /* TWNavigationMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */; };
+		FAFDF6301308D3C9001152AF /* TWRootTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB7D16A0FA6BF1800CBDED9 /* TWRootTableView.xib */; };
+		FAFDF6311308D3C9001152AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAD98BE0108A19CE00963F89 /* Localizable.strings */; };
+		FAFDF6321308D3C9001152AF /* TWBlankView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DCF9127A4F8200F8E042 /* TWBlankView.xib */; };
+		FAFDF6331308D3C9001152AF /* YSMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD08127A54F000F8E042 /* YSMainView.xib */; };
+		FAFDF6341308D3C9001152AF /* button_active.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD11127A561200F8E042 /* button_active.png */; };
+		FAFDF6351308D3C9001152AF /* introduction.html in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD87127A5D2300F8E042 /* introduction.html */; };
+		FAFDF6361308D3C9001152AF /* moreinfo.html in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD88127A5D2300F8E042 /* moreinfo.html */; };
+		FAFDF6371308D3C9001152AF /* YSIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DD90127A5E0B00F8E042 /* YSIntroView.xib */; };
+		FAFDF6381308D3C9001152AF /* YSMoreInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DDA9127A5FD600F8E042 /* YSMoreInfoView.xib */; };
+		FAFDF6391308D3C9001152AF /* YSCreateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DDE1127A654900F8E042 /* YSCreateView.xib */; };
+		FAFDF63A1308D3C9001152AF /* YSRecordingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30DDE2127A654900F8E042 /* YSRecordingsView.xib */; };
+		FAFDF63B1308D3C9001152AF /* playlists.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA30DE12127A84C000F8E042 /* playlists.plist */; };
+		FAFDF63C1308D3C9001152AF /* tracks.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA30DE13127A84C000F8E042 /* tracks.plist */; };
+		FAFDF63D1308D3C9001152AF /* tracks in Resources */ = {isa = PBXBuildFile; fileRef = FA30DE3F127A8B4A00F8E042 /* tracks */; };
+		FAFDF63E1308D3C9001152AF /* YSRecordingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E125127CA15400F8E042 /* YSRecordingView.xib */; };
+		FAFDF63F1308D3C9001152AF /* YSRecordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E194127D0C3500F8E042 /* YSRecordingCell.xib */; };
+		FAFDF6401308D3C9001152AF /* YSTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E1E5127D13A400F8E042 /* YSTrackCell.xib */; };
+		FAFDF6411308D3C9001152AF /* Pause 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30E241127D1CD500F8E042 /* Pause 32x32.png */; };
+		FAFDF6421308D3C9001152AF /* Play 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30E242127D1CD500F8E042 /* Play 32x32.png */; };
+		FAFDF6431308D3C9001152AF /* Stop 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30E243127D1CD500F8E042 /* Stop 32x32.png */; };
+		FAFDF6441308D3C9001152AF /* YSCreateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30E389127DE55C00F8E042 /* YSCreateCell.xib */; };
+		FAFDF6451308D3C9001152AF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AA1812EE944D00AEE323 /* Icon@2x.png */; };
+		FAFDF6461308D3C9001152AF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AA1D12EE963F00AEE323 /* Default@2x.png */; };
+		FAFDF6471308D3C9001152AF /* button_nexttrack.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3C12EFEF0A00AEE323 /* button_nexttrack.png */; };
+		FAFDF6481308D3C9001152AF /* button_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3D12EFEF0A00AEE323 /* button_pause.png */; };
+		FAFDF6491308D3C9001152AF /* button_play.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3E12EFEF0A00AEE323 /* button_play.png */; };
+		FAFDF64A1308D3C9001152AF /* button_prevtrack.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC3F12EFEF0A00AEE323 /* button_prevtrack.png */; };
+		FAFDF64B1308D3C9001152AF /* button_nowplaying-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC4412EFEF6700AEE323 /* button_nowplaying-pressed.png */; };
+		FAFDF64C1308D3C9001152AF /* button_nowplaying.png in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC4512EFEF6700AEE323 /* button_nowplaying.png */; };
+		FAFDF64D1308D3C9001152AF /* YSPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA16AC4812EFEF7200AEE323 /* YSPlayerView.xib */; };
+		FAFDF64E1308D3C9001152AF /* YSAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA16AE3512F0F8C000AEE323 /* YSAddView.xib */; };
+		FAFDF64F1308D3C9001152AF /* introduction-lite.html in Resources */ = {isa = PBXBuildFile; fileRef = FA3C31A51301BEE8009FFE72 /* introduction-lite.html */; };
+		FAFDF6501308D3C9001152AF /* YSCustomRecordingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C35111301CDAE009FFE72 /* YSCustomRecordingsView.xib */; };
+		FAFDF6511308D3C9001152AF /* playlists-lite.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFDF37413088F84001152AF /* playlists-lite.plist */; };
+		FAFDF6521308D3C9001152AF /* manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFDF37A130892A5001152AF /* manifest.plist */; };
+		FAFDF6541308D3C9001152AF /* TWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */; };
+		FAFDF6551308D3C9001152AF /* TWDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */; };
+		FAFDF6561308D3C9001152AF /* TWNavigationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */; };
+		FAFDF6571308D3C9001152AF /* YSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DD01127A520200F8E042 /* YSMainViewController.m */; };
+		FAFDF6581308D3C9001152AF /* YSIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DD18127A59C200F8E042 /* YSIntroViewController.m */; };
+		FAFDF6591308D3C9001152AF /* YSMoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DDAC127A5FF700F8E042 /* YSMoreInfoViewController.m */; };
+		FAFDF65A1308D3C9001152AF /* YSCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DDE8127A656F00F8E042 /* YSCreateViewController.m */; };
+		FAFDF65B1308D3C9001152AF /* YSRecordingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DDEC127A65A500F8E042 /* YSRecordingsViewController.m */; };
+		FAFDF65C1308D3C9001152AF /* YSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30DE0C127A80F400F8E042 /* YSDataModel.m */; };
+		FAFDF65D1308D3C9001152AF /* YSRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E123127CA12F00F8E042 /* YSRecordingViewController.m */; };
+		FAFDF65E1308D3C9001152AF /* YSRecordingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E198127D0C6700F8E042 /* YSRecordingTableViewCell.m */; };
+		FAFDF65F1308D3C9001152AF /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E26D127D2D8E00F8E042 /* CDAudioManager.m */; };
+		FAFDF6601308D3C9001152AF /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E270127D2D8E00F8E042 /* CDOpenALSupport.m */; };
+		FAFDF6611308D3C9001152AF /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E272127D2D8E00F8E042 /* CocosDenshion.m */; };
+		FAFDF6621308D3C9001152AF /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30E274127D2D8E00F8E042 /* SimpleAudioEngine.m */; };
+		FAFDF6631308D3C9001152AF /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AA9D12EEA36100AEE323 /* MOButton.m */; };
+		FAFDF6641308D3C9001152AF /* MOGlassButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AA9F12EEA36100AEE323 /* MOGlassButton.m */; };
+		FAFDF6651308D3C9001152AF /* YSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AC4B12EFEFC200AEE323 /* YSPlayerViewController.m */; };
+		FAFDF6661308D3C9001152AF /* TWSecondsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AC5412EFF0ED00AEE323 /* TWSecondsFormatter.m */; };
+		FAFDF6671308D3C9001152AF /* YSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA16AE3812F0F8E200AEE323 /* YSAddViewController.m */; };
+		FAFDF6681308D3C9001152AF /* YSRemoteControlWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */; };
+		FAFDF6691308D3C9001152AF /* TWXUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C34DB1301C8DF009FFE72 /* TWXUIAlertView.m */; };
+		FAFDF66A1308D3C9001152AF /* YSCustomRecordingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C350D1301CD04009FFE72 /* YSCustomRecordingsViewController.m */; };
+		FAFDF66C1308D3C9001152AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		FAFDF66D1308D3C9001152AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		FAFDF66E1308D3C9001152AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		FAFDF66F1308D3C9001152AF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */; };
+		FAFDF6701308D3C9001152AF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */; };
+		FAFDF6711308D3C9001152AF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */; };
+		FAFDF6721308D3C9001152AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */; };
+		FAFDF6731308D3C9001152AF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */; };
+		FAFDF6741308D3C9001152AF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3C34F91301C98D009FFE72 /* MessageUI.framework */; };
+		FAFDF7531308E116001152AF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7461308E116001152AF /* ASIAuthenticationDialog.m */; };
+		FAFDF7541308E116001152AF /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7491308E116001152AF /* ASIDownloadCache.m */; };
+		FAFDF7551308E116001152AF /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF74B1308E116001152AF /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-Wno-stack-protector"; }; };
+		FAFDF7561308E116001152AF /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF74F1308E116001152AF /* ASIInputStream.m */; };
+		FAFDF7571308E116001152AF /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7511308E116001152AF /* ASINetworkQueue.m */; };
+		FAFDF7631308E5F7001152AF /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7461308E116001152AF /* ASIAuthenticationDialog.m */; };
+		FAFDF7641308E5F7001152AF /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7491308E116001152AF /* ASIDownloadCache.m */; };
+		FAFDF7651308E5F7001152AF /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF74B1308E116001152AF /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-Wno-stack-protector"; }; };
+		FAFDF7661308E5F7001152AF /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF74F1308E116001152AF /* ASIInputStream.m */; };
+		FAFDF7671308E5F7001152AF /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7511308E116001152AF /* ASINetworkQueue.m */; };
+		FAFDF77B1308E6E7001152AF /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7781308E6E7001152AF /* ASIDataCompressor.m */; };
+		FAFDF77C1308E6E7001152AF /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF77A1308E6E7001152AF /* ASIDataDecompressor.m */; };
+		FAFDF77D1308E6E7001152AF /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7781308E6E7001152AF /* ASIDataCompressor.m */; };
+		FAFDF77E1308E6E7001152AF /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF77A1308E6E7001152AF /* ASIDataDecompressor.m */; };
+		FAFDF7961308E839001152AF /* TWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7951308E839001152AF /* TWReachability.m */; };
+		FAFDF7971308E839001152AF /* TWReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDF7951308E839001152AF /* TWReachability.m */; };
+		FAFDF7AF1308E86F001152AF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7AE1308E86F001152AF /* CFNetwork.framework */; };
+		FAFDF7B01308E86F001152AF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7AE1308E86F001152AF /* CFNetwork.framework */; };
+		FAFDF7B61308E87A001152AF /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7B51308E87A001152AF /* libz.1.2.3.dylib */; };
+		FAFDF7B71308E87A001152AF /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7B51308E87A001152AF /* libz.1.2.3.dylib */; };
+		FAFDF7BB1308E88F001152AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7BA1308E88F001152AF /* SystemConfiguration.framework */; };
+		FAFDF7BC1308E88F001152AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7BA1308E88F001152AF /* SystemConfiguration.framework */; };
+		FAFDF7C41308E89F001152AF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7C31308E89F001152AF /* MobileCoreServices.framework */; };
+		FAFDF7C51308E89F001152AF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFDF7C31308E89F001152AF /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,13 +263,12 @@
 		FA8C2D9F11E8E1CF009E3D00 /* TWProjectDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectDebug.xcconfig; sourceTree = "<group>"; };
 		FA8C2DA011E8E1CF009E3D00 /* TWProjectPrefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWProjectPrefix.h; sourceTree = "<group>"; };
 		FA8C2DA111E8E1CF009E3D00 /* TWProjectRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWProjectRelease.xcconfig; sourceTree = "<group>"; };
-		FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWTarget.xcconfig; sourceTree = "<group>"; };
 		FAB7D15E0FA6BEFF00CBDED9 /* notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = notes.rtf; sourceTree = "<group>"; };
 		FAB7D1670FA6BF1800CBDED9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FAB7D1680FA6BF1800CBDED9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FAB7D1690FA6BF1800CBDED9 /* TWNavigationMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWNavigationMainWindow.xib; sourceTree = "<group>"; };
 		FAB7D16A0FA6BF1800CBDED9 /* TWRootTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TWRootTableView.xib; sourceTree = "<group>"; };
-		FAB7D16B0FA6BF1800CBDED9 /* TWApplicationInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWApplicationInfo.plist; sourceTree = "<group>"; };
+		FAB7D16B0FA6BF1800CBDED9 /* YSApplicationInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YSApplicationInfo.plist; sourceTree = "<group>"; };
 		FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMain.m; sourceTree = "<group>"; };
 		FAB7D1740FA6BF1F00CBDED9 /* TWNavigationAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWNavigationAppDelegate.h; sourceTree = "<group>"; };
 		FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWNavigationAppDelegate.m; sourceTree = "<group>"; };
@@ -182,6 +277,36 @@
 		FAC8656312FFD25700E8E272 /* YSRemoteControlWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRemoteControlWindow.h; sourceTree = "<group>"; };
 		FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRemoteControlWindow.m; sourceTree = "<group>"; };
 		FAD98BE0108A19CE00963F89 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FAFDF37413088F84001152AF /* playlists-lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "playlists-lite.plist"; sourceTree = "<group>"; };
+		FAFDF37A130892A5001152AF /* manifest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = manifest.plist; sourceTree = "<group>"; };
+		FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWTargetYogaSleepFull.xcconfig; sourceTree = "<group>"; };
+		FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = TWTargetYogaSleepLite.xcconfig; sourceTree = "<group>"; };
+		FAFDF6261308D357001152AF /* YSLiteApplicationInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YSLiteApplicationInfo.plist; sourceTree = "<group>"; };
+		FAFDF6791308D3C9001152AF /* YogaSleepLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaSleepLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFDF7451308E116001152AF /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		FAFDF7461308E116001152AF /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		FAFDF7471308E116001152AF /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		FAFDF7481308E116001152AF /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		FAFDF7491308E116001152AF /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		FAFDF74A1308E116001152AF /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		FAFDF74B1308E116001152AF /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		FAFDF74C1308E116001152AF /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		FAFDF74D1308E116001152AF /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		FAFDF74E1308E116001152AF /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		FAFDF74F1308E116001152AF /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		FAFDF7501308E116001152AF /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		FAFDF7511308E116001152AF /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		FAFDF7521308E116001152AF /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		FAFDF7771308E6E7001152AF /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		FAFDF7781308E6E7001152AF /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		FAFDF7791308E6E7001152AF /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		FAFDF77A1308E6E7001152AF /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		FAFDF7941308E839001152AF /* TWReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWReachability.h; sourceTree = "<group>"; };
+		FAFDF7951308E839001152AF /* TWReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWReachability.m; sourceTree = "<group>"; };
+		FAFDF7AE1308E86F001152AF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FAFDF7B51308E87A001152AF /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		FAFDF7BA1308E88F001152AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FAFDF7C31308E89F001152AF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +323,30 @@
 				FA16AAB112EEA37B00AEE323 /* QuartzCore.framework in Frameworks */,
 				FA16AC7412EFFCE600AEE323 /* MediaPlayer.framework in Frameworks */,
 				FA3C34FA1301C98D009FFE72 /* MessageUI.framework in Frameworks */,
+				FAFDF7AF1308E86F001152AF /* CFNetwork.framework in Frameworks */,
+				FAFDF7B61308E87A001152AF /* libz.1.2.3.dylib in Frameworks */,
+				FAFDF7BB1308E88F001152AF /* SystemConfiguration.framework in Frameworks */,
+				FAFDF7C41308E89F001152AF /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFDF66B1308D3C9001152AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFDF66C1308D3C9001152AF /* Foundation.framework in Frameworks */,
+				FAFDF66D1308D3C9001152AF /* UIKit.framework in Frameworks */,
+				FAFDF66E1308D3C9001152AF /* CoreGraphics.framework in Frameworks */,
+				FAFDF66F1308D3C9001152AF /* OpenAL.framework in Frameworks */,
+				FAFDF6701308D3C9001152AF /* AVFoundation.framework in Frameworks */,
+				FAFDF6711308D3C9001152AF /* AudioToolbox.framework in Frameworks */,
+				FAFDF6721308D3C9001152AF /* QuartzCore.framework in Frameworks */,
+				FAFDF6731308D3C9001152AF /* MediaPlayer.framework in Frameworks */,
+				FAFDF6741308D3C9001152AF /* MessageUI.framework in Frameworks */,
+				FAFDF7B01308E86F001152AF /* CFNetwork.framework in Frameworks */,
+				FAFDF7B71308E87A001152AF /* libz.1.2.3.dylib in Frameworks */,
+				FAFDF7BC1308E88F001152AF /* SystemConfiguration.framework in Frameworks */,
+				FAFDF7C51308E89F001152AF /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* Yoga Sleep.app */,
+				FAFDF6791308D3C9001152AF /* YogaSleepLite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,13 +380,17 @@
 			children = (
 				FA30E2DB127D3AB700F8E042 /* AudioToolbox.framework */,
 				FA30E2D3127D3AAD00F8E042 /* AVFoundation.framework */,
+				FAFDF7AE1308E86F001152AF /* CFNetwork.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				FA16AC7312EFFCE600AEE323 /* MediaPlayer.framework */,
 				FA3C34F91301C98D009FFE72 /* MessageUI.framework */,
+				FAFDF7C31308E89F001152AF /* MobileCoreServices.framework */,
 				FA30E2CE127D3A8F00F8E042 /* OpenAL.framework */,
 				FA16AAB012EEA37B00AEE323 /* QuartzCore.framework */,
+				FAFDF7BA1308E88F001152AF /* SystemConfiguration.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				FAFDF7B51308E87A001152AF /* libz.1.2.3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -308,6 +462,7 @@
 		FA30E26A127D2D8E00F8E042 /* support */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDF7441308E116001152AF /* ASIHTTPRequest */,
 				FA30E26B127D2D8E00F8E042 /* CocosDenshion */,
 				FA16AA9A12EEA36100AEE323 /* GlassButtons */,
 				FAC8656312FFD25700E8E272 /* YSRemoteControlWindow.h */,
@@ -343,7 +498,8 @@
 				FA8C2D9F11E8E1CF009E3D00 /* TWProjectDebug.xcconfig */,
 				FA8C2DA011E8E1CF009E3D00 /* TWProjectPrefix.h */,
 				FA8C2DA111E8E1CF009E3D00 /* TWProjectRelease.xcconfig */,
-				FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */,
+				FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */,
+				FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -359,7 +515,8 @@
 		FAB7D1660FA6BF1800CBDED9 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				FAB7D16B0FA6BF1800CBDED9 /* TWApplicationInfo.plist */,
+				FAB7D16B0FA6BF1800CBDED9 /* YSApplicationInfo.plist */,
+				FAFDF6261308D357001152AF /* YSLiteApplicationInfo.plist */,
 				FAD98BE0108A19CE00963F89 /* Localizable.strings */,
 				FA30DD08127A54F000F8E042 /* YSMainView.xib */,
 				FA30DD90127A5E0B00F8E042 /* YSIntroView.xib */,
@@ -379,7 +536,9 @@
 				FA30DD0F127A561200F8E042 /* images */,
 				FA30DD86127A5D2300F8E042 /* html */,
 				FA30DE12127A84C000F8E042 /* playlists.plist */,
+				FAFDF37413088F84001152AF /* playlists-lite.plist */,
 				FA30DE13127A84C000F8E042 /* tracks.plist */,
+				FAFDF37A130892A5001152AF /* manifest.plist */,
 				FA30DE3F127A8B4A00F8E042 /* tracks */,
 				FAB7D1670FA6BF1800CBDED9 /* Default.png */,
 				FA16AA1D12EE963F00AEE323 /* Default@2x.png */,
@@ -406,6 +565,8 @@
 				FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */,
 				FAB7D1740FA6BF1F00CBDED9 /* TWNavigationAppDelegate.h */,
 				FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */,
+				FAFDF7941308E839001152AF /* TWReachability.h */,
+				FAFDF7951308E839001152AF /* TWReachability.m */,
 				FA30DE0B127A80F400F8E042 /* YSDataModel.h */,
 				FA30DE0C127A80F400F8E042 /* YSDataModel.m */,
 			);
@@ -451,6 +612,31 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		FAFDF7441308E116001152AF /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				FAFDF7451308E116001152AF /* ASIAuthenticationDialog.h */,
+				FAFDF7461308E116001152AF /* ASIAuthenticationDialog.m */,
+				FAFDF7471308E116001152AF /* ASICacheDelegate.h */,
+				FAFDF7771308E6E7001152AF /* ASIDataCompressor.h */,
+				FAFDF7781308E6E7001152AF /* ASIDataCompressor.m */,
+				FAFDF7791308E6E7001152AF /* ASIDataDecompressor.h */,
+				FAFDF77A1308E6E7001152AF /* ASIDataDecompressor.m */,
+				FAFDF7481308E116001152AF /* ASIDownloadCache.h */,
+				FAFDF7491308E116001152AF /* ASIDownloadCache.m */,
+				FAFDF74A1308E116001152AF /* ASIHTTPRequest.h */,
+				FAFDF74B1308E116001152AF /* ASIHTTPRequest.m */,
+				FAFDF74C1308E116001152AF /* ASIHTTPRequestConfig.h */,
+				FAFDF74D1308E116001152AF /* ASIHTTPRequestDelegate.h */,
+				FAFDF74E1308E116001152AF /* ASIInputStream.h */,
+				FAFDF74F1308E116001152AF /* ASIInputStream.m */,
+				FAFDF7501308E116001152AF /* ASINetworkQueue.h */,
+				FAFDF7511308E116001152AF /* ASINetworkQueue.m */,
+				FAFDF7521308E116001152AF /* ASIProgressDelegate.h */,
+			);
+			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -469,6 +655,23 @@
 			name = YogaSleep;
 			productName = Navigation;
 			productReference = 1D6058910D05DD3D006BFB54 /* Yoga Sleep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAFDF62B1308D3C9001152AF /* YogaSleepLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFDF6751308D3C9001152AF /* Build configuration list for PBXNativeTarget "YogaSleepLite" */;
+			buildPhases = (
+				FAFDF62C1308D3C9001152AF /* Resources */,
+				FAFDF6531308D3C9001152AF /* Sources */,
+				FAFDF66B1308D3C9001152AF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YogaSleepLite;
+			productName = Navigation;
+			productReference = FAFDF6791308D3C9001152AF /* YogaSleepLite.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -495,6 +698,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* YogaSleep */,
+				FAFDF62B1308D3C9001152AF /* YogaSleepLite */,
 			);
 		};
 /* End PBXProject section */
@@ -540,6 +744,53 @@
 				FA16AE3612F0F8C000AEE323 /* YSAddView.xib in Resources */,
 				FA3C31A61301BEE8009FFE72 /* introduction-lite.html in Resources */,
 				FA3C35121301CDAE009FFE72 /* YSCustomRecordingsView.xib in Resources */,
+				FAFDF37513088F84001152AF /* playlists-lite.plist in Resources */,
+				FAFDF37B130892A5001152AF /* manifest.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFDF62C1308D3C9001152AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFDF62D1308D3C9001152AF /* Default.png in Resources */,
+				FAFDF62E1308D3C9001152AF /* Icon.png in Resources */,
+				FAFDF62F1308D3C9001152AF /* TWNavigationMainWindow.xib in Resources */,
+				FAFDF6301308D3C9001152AF /* TWRootTableView.xib in Resources */,
+				FAFDF6311308D3C9001152AF /* Localizable.strings in Resources */,
+				FAFDF6321308D3C9001152AF /* TWBlankView.xib in Resources */,
+				FAFDF6331308D3C9001152AF /* YSMainView.xib in Resources */,
+				FAFDF6341308D3C9001152AF /* button_active.png in Resources */,
+				FAFDF6351308D3C9001152AF /* introduction.html in Resources */,
+				FAFDF6361308D3C9001152AF /* moreinfo.html in Resources */,
+				FAFDF6371308D3C9001152AF /* YSIntroView.xib in Resources */,
+				FAFDF6381308D3C9001152AF /* YSMoreInfoView.xib in Resources */,
+				FAFDF6391308D3C9001152AF /* YSCreateView.xib in Resources */,
+				FAFDF63A1308D3C9001152AF /* YSRecordingsView.xib in Resources */,
+				FAFDF63B1308D3C9001152AF /* playlists.plist in Resources */,
+				FAFDF63C1308D3C9001152AF /* tracks.plist in Resources */,
+				FAFDF63D1308D3C9001152AF /* tracks in Resources */,
+				FAFDF63E1308D3C9001152AF /* YSRecordingView.xib in Resources */,
+				FAFDF63F1308D3C9001152AF /* YSRecordingCell.xib in Resources */,
+				FAFDF6401308D3C9001152AF /* YSTrackCell.xib in Resources */,
+				FAFDF6411308D3C9001152AF /* Pause 32x32.png in Resources */,
+				FAFDF6421308D3C9001152AF /* Play 32x32.png in Resources */,
+				FAFDF6431308D3C9001152AF /* Stop 32x32.png in Resources */,
+				FAFDF6441308D3C9001152AF /* YSCreateCell.xib in Resources */,
+				FAFDF6451308D3C9001152AF /* Icon@2x.png in Resources */,
+				FAFDF6461308D3C9001152AF /* Default@2x.png in Resources */,
+				FAFDF6471308D3C9001152AF /* button_nexttrack.png in Resources */,
+				FAFDF6481308D3C9001152AF /* button_pause.png in Resources */,
+				FAFDF6491308D3C9001152AF /* button_play.png in Resources */,
+				FAFDF64A1308D3C9001152AF /* button_prevtrack.png in Resources */,
+				FAFDF64B1308D3C9001152AF /* button_nowplaying-pressed.png in Resources */,
+				FAFDF64C1308D3C9001152AF /* button_nowplaying.png in Resources */,
+				FAFDF64D1308D3C9001152AF /* YSPlayerView.xib in Resources */,
+				FAFDF64E1308D3C9001152AF /* YSAddView.xib in Resources */,
+				FAFDF64F1308D3C9001152AF /* introduction-lite.html in Resources */,
+				FAFDF6501308D3C9001152AF /* YSCustomRecordingsView.xib in Resources */,
+				FAFDF6511308D3C9001152AF /* playlists-lite.plist in Resources */,
+				FAFDF6521308D3C9001152AF /* manifest.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +824,52 @@
 				FAC8656512FFD25700E8E272 /* YSRemoteControlWindow.m in Sources */,
 				FA3C34DC1301C8DF009FFE72 /* TWXUIAlertView.m in Sources */,
 				FA3C350E1301CD04009FFE72 /* YSCustomRecordingsViewController.m in Sources */,
+				FAFDF7531308E116001152AF /* ASIAuthenticationDialog.m in Sources */,
+				FAFDF7541308E116001152AF /* ASIDownloadCache.m in Sources */,
+				FAFDF7551308E116001152AF /* ASIHTTPRequest.m in Sources */,
+				FAFDF7561308E116001152AF /* ASIInputStream.m in Sources */,
+				FAFDF7571308E116001152AF /* ASINetworkQueue.m in Sources */,
+				FAFDF77B1308E6E7001152AF /* ASIDataCompressor.m in Sources */,
+				FAFDF77C1308E6E7001152AF /* ASIDataDecompressor.m in Sources */,
+				FAFDF7961308E839001152AF /* TWReachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFDF6531308D3C9001152AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFDF6541308D3C9001152AF /* TWMain.m in Sources */,
+				FAFDF6551308D3C9001152AF /* TWDebugging.m in Sources */,
+				FAFDF6561308D3C9001152AF /* TWNavigationAppDelegate.m in Sources */,
+				FAFDF6571308D3C9001152AF /* YSMainViewController.m in Sources */,
+				FAFDF6581308D3C9001152AF /* YSIntroViewController.m in Sources */,
+				FAFDF6591308D3C9001152AF /* YSMoreInfoViewController.m in Sources */,
+				FAFDF65A1308D3C9001152AF /* YSCreateViewController.m in Sources */,
+				FAFDF65B1308D3C9001152AF /* YSRecordingsViewController.m in Sources */,
+				FAFDF65C1308D3C9001152AF /* YSDataModel.m in Sources */,
+				FAFDF65D1308D3C9001152AF /* YSRecordingViewController.m in Sources */,
+				FAFDF65E1308D3C9001152AF /* YSRecordingTableViewCell.m in Sources */,
+				FAFDF65F1308D3C9001152AF /* CDAudioManager.m in Sources */,
+				FAFDF6601308D3C9001152AF /* CDOpenALSupport.m in Sources */,
+				FAFDF6611308D3C9001152AF /* CocosDenshion.m in Sources */,
+				FAFDF6621308D3C9001152AF /* SimpleAudioEngine.m in Sources */,
+				FAFDF6631308D3C9001152AF /* MOButton.m in Sources */,
+				FAFDF6641308D3C9001152AF /* MOGlassButton.m in Sources */,
+				FAFDF6651308D3C9001152AF /* YSPlayerViewController.m in Sources */,
+				FAFDF6661308D3C9001152AF /* TWSecondsFormatter.m in Sources */,
+				FAFDF6671308D3C9001152AF /* YSAddViewController.m in Sources */,
+				FAFDF6681308D3C9001152AF /* YSRemoteControlWindow.m in Sources */,
+				FAFDF6691308D3C9001152AF /* TWXUIAlertView.m in Sources */,
+				FAFDF66A1308D3C9001152AF /* YSCustomRecordingsViewController.m in Sources */,
+				FAFDF7631308E5F7001152AF /* ASIAuthenticationDialog.m in Sources */,
+				FAFDF7641308E5F7001152AF /* ASIDownloadCache.m in Sources */,
+				FAFDF7651308E5F7001152AF /* ASIHTTPRequest.m in Sources */,
+				FAFDF7661308E5F7001152AF /* ASIInputStream.m in Sources */,
+				FAFDF7671308E5F7001152AF /* ASINetworkQueue.m in Sources */,
+				FAFDF77D1308E6E7001152AF /* ASIDataCompressor.m in Sources */,
+				FAFDF77E1308E6E7001152AF /* ASIDataDecompressor.m in Sources */,
+				FAFDF7971308E839001152AF /* TWReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,15 +878,17 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */;
+			baseConfigurationReference = FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release-AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */;
+			baseConfigurationReference = FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
+				PROVISIONING_PROFILE = "18C4A2CC-ACF7-45DE-A1FD-8614C1096D74";
 			};
 			name = "Release-AdHoc";
 		};
@@ -604,8 +903,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
-				PROVISIONING_PROFILE = "18C4A2CC-ACF7-45DE-A1FD-8614C1096D74";
 			};
 			name = "Release-AdHoc";
 		};
@@ -618,7 +915,30 @@
 		};
 		FA417B6E11176341008AC4E1 /* Release-AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA8C2DA211E8E1CF009E3D00 /* TWTarget.xcconfig */;
+			baseConfigurationReference = FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */;
+			buildSettings = {
+			};
+			name = "Release-AppStore";
+		};
+		FAFDF6761308D3C9001152AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		FAFDF6771308D3C9001152AF /* Release-AdHoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
+				PROVISIONING_PROFILE = "5BB111A2-9448-4434-91E4-E865AE50C1A0";
+			};
+			name = "Release-AdHoc";
+		};
+		FAFDF6781308D3C9001152AF /* Release-AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */;
 			buildSettings = {
 			};
 			name = "Release-AppStore";
@@ -642,6 +962,16 @@
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release-AdHoc */,
 				FA417B6D11176341008AC4E1 /* Release-AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release-AdHoc";
+		};
+		FAFDF6751308D3C9001152AF /* Build configuration list for PBXNativeTarget "YogaSleepLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFDF6761308D3C9001152AF /* Debug */,
+				FAFDF6771308D3C9001152AF /* Release-AdHoc */,
+				FAFDF6781308D3C9001152AF /* Release-AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release-AdHoc";

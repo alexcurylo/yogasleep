@@ -5,6 +5,7 @@
 //
 
 #import "YSMoreInfoViewController.h"
+#import "TWNavigationAppDelegate.h"
 #import "TWXUIAlertView.h"
 
 @implementation YSMoreInfoViewController
@@ -25,7 +26,8 @@
 {
    [super viewDidLoad];
    
-   NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"moreinfo" ofType:@"html"];
+   //NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"moreinfo" ofType:@"html"];
+   NSString *dataPath = [TWDataModel() pathForUpdatableFile:@"moreinfo.html"];
    NSData *displayData = [NSData dataWithContentsOfFile:dataPath];
    [self.display loadData:displayData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:nil];
 }

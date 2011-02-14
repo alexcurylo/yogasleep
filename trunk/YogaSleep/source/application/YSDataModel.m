@@ -9,6 +9,8 @@
 //#import "TWXNSObject.h"
 //#import "TWXNSString.h"
 #import "SimpleAudioEngine.h"
+#import "ASIHTTPRequest.h"
+#import "TWXUIAlertView.h"
 
 NSString *kTrackName = @"name";
 NSString *kTrackID = @"id";
@@ -25,6 +27,14 @@ NSString *kPlaylistDescription = @"description";
 NSString *kPlaylistComponents = @"components";
 
 NSString *kTrackChangeNotification = @"TrackChange";
+
+NSString *kDropboxBaseLink = @"http://dl.dropbox.com/u/11015966/yogasleep/";
+NSString *kLocalBasePath = @"yogasleep";
+NSString *kLocalDownloadsPath = @"downloads";
+NSString *kTracksSubfolder = @"tracks";
+NSString *kManifestPlist = @"manifest.plist";
+NSString *kManifestFile = @"file";
+NSString *kManifestVersion = @"version";
 
 /*
 @implementation NSString(ValueSort)
@@ -57,11 +67,16 @@ NSString *kTrackChangeNotification = @"TrackChange";
 @implementation YSDataModel
 
 @synthesize tracks;
-@synthesize playlists;
+@synthesize basePlaylists;
+@synthesize customPlaylists;
+@synthesize combinedPlaylists;
+@synthesize installedManifest;
+@synthesize latestManifest;
 @synthesize documentDirectory;
+@synthesize downloadsDirectory;
 @synthesize playingPlaylist;
-//@synthesize currentTrackID;
 @synthesize playingIndex;
+@synthesize downloadQueue;
 
 #pragma mark -
 #pragma mark Life cycle
@@ -77,31 +92,73 @@ NSString *kTrackChangeNotification = @"TrackChange";
       [SimpleAudioEngine sharedEngine];
       [[CDAudioManager sharedManager] setMode:kAMM_MediaPlayback]; // AVAudioSessionCategoryPlayback -- Use audio exclusively, ignore mute switch and sleep
       [[CDAudioManager sharedManager] setBackgroundMusicCompletionListener:self selector:@selector(trackFinished)];
-            
-      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-      self.documentDirectory = [paths objectAtIndex:0];
       
-      NSString *path = [[NSBundle mainBundle] pathForResource:@"tracks" ofType:@"plist"];
-      self.tracks = [NSMutableArray arrayWithContentsOfFile:path];
-      twcheck(self.tracks);
+      NSFileManager *fileManager = [NSFileManager defaultManager];
+      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+      self.documentDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:kLocalBasePath];
+      if (![fileManager fileExistsAtPath:self.documentDirectory])
+      {
+         NSString *docsAndTracks = [self.documentDirectory stringByAppendingPathComponent:kTracksSubfolder];
+			[fileManager createDirectoryAtPath:docsAndTracks withIntermediateDirectories:YES attributes:nil error:nil];
+      }
+      self.downloadsDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:kLocalDownloadsPath];
+      if (![fileManager fileExistsAtPath:self.downloadsDirectory])
+      {
+         NSString *downsAndTracks = [self.downloadsDirectory stringByAppendingPathComponent:kTracksSubfolder];
+			[fileManager createDirectoryAtPath:downsAndTracks withIntermediateDirectories:YES attributes:nil error:nil];
+      }
+      
+      [self loadManifest];
+
+      [self loadTracks];
  
       [self loadPlaylists];
-      
+            
       //twlog("%@", self.tracks);
       //twlog("%@", self.playlists);
+
+      [self initDownloadQueue];
    }
    
    return self;
 }
 
+- (void)initDownloadQueue
+{
+   //self.downloadQueue = [[[NSOperationQueue alloc] init] autorelease];
+   self.downloadQueue = [ASINetworkQueue queue];
+   // setShouldCancelAllRequestsOnFailure:YES
+   // setMaxConcurrentOperationCount:4
+   [self.downloadQueue setMaxConcurrentOperationCount:4];
+   //[self.downloadQueue setDelegate:self];
+   //[self.downloadQueue setRequestDidFinishSelector:@selector(poseRequestFinished:)];
+   //[self.downloadQueue setRequestDidFailSelector:@selector(poseRequestFailed:)];
+   //[self.downloadQueue setQueueDidFinishSelector:@selector(poseQueueFinished:)];
+   [self.downloadQueue go]; // we won't use its progress functionality
+}
+
+- (void)cleanDownloadQueue
+{
+   [self.downloadQueue setDelegate:nil];
+   [self.downloadQueue reset];
+}
+
 - (void)dealloc
 {
+   [self cleanDownloadQueue];
+   twrelease(downloadQueue);
+
    twrelease(playingPlaylist);
    //twrelease(currentTrackID);
 
    twrelease(tracks);
-   twrelease(playlists);
+   twrelease(basePlaylists);
+   twrelease(customPlaylists);
+   twrelease(combinedPlaylists);
+   twrelease(installedManifest);
+   twrelease(latestManifest);
    twrelease(documentDirectory);
+   twrelease(downloadsDirectory);
 
    [super dealloc];
 }
@@ -123,18 +180,251 @@ NSString *kTrackChangeNotification = @"TrackChange";
    return result;
 }
 
-- (NSString *)tracksPath
+- (NSString *)pathForUpdatableFile:(NSString *)file
+{
+   NSString *path = nil;
+   
+   path = [self.documentDirectory stringByAppendingPathComponent:file];
+   BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+   if (exists)
+   {
+      twlog("updatable file %@ in document directory", file);
+      return path;
+   }
+   
+   //NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"moreinfo" ofType:@"html"];
+   path = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:file];
+   exists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+   if (exists)
+   {
+      twlog("updatable file %@ in main bundle", file);
+      return path;
+   }
+   
+   twlog("updatable file %@ NOT FOUND!!", file);
+   return nil;
+}
+
+- (void)loadManifest
+{
+   NSString *path = [self pathForUpdatableFile:kManifestPlist];
+   self.installedManifest = [NSMutableArray arrayWithContentsOfFile:path];
+   twcheck(self.installedManifest);
+   self.latestManifest = [self.installedManifest mutableCopy];
+}
+
+- (void)loadTracks
+{
+   //NSString *path = [[NSBundle mainBundle] pathForResource:@"tracks" ofType:@"plist"];
+   NSString *path = [self pathForUpdatableFile:@"tracks.plist"];
+   self.tracks = [NSMutableArray arrayWithContentsOfFile:path];
+   twcheck(self.tracks);
+}
+
+- (void)loadPlaylists
+{
+#if YOGASLEEPFULL
+   NSString *basePlaylistsPath = [self pathForUpdatableFile:@"playlists.plist"];
+#elif YOGASLEEPLITE
+   NSString *basePlaylistsPath = [self pathForUpdatableFile:@"playlists-lite.plist"];
+#else
+#error version not set!
+#endif YOGASLEEPFULL
+   self.basePlaylists = [NSArray arrayWithContentsOfFile:basePlaylistsPath];
+   twcheck(self.basePlaylists.count);
+   
+   self.customPlaylists = [NSMutableArray arrayWithContentsOfFile:self.customPlaylistsPath];
+   if (!self.customPlaylists)
+      self.customPlaylists = [NSMutableArray array];
+   twlog("%d custom playlists found", self.customPlaylists.count);
+   
+   [self combinePlaylists];
+}
+
+- (void)combinePlaylists
+{
+   self.combinedPlaylists = [self.basePlaylists mutableCopy];
+   [self.combinedPlaylists addObjectsFromArray:self.customPlaylists];
+}
+
+- (void)updateManifest
+{
+//#warning simulating network fail
+   //return;
+   
+   //if (manifestUpdating)
+   if (self.downloadQueue.operations.count)
+   {
+      twlog("updateManifest: self.downloadQueue.operations.count exists, ignoring...");
+      return;
+   }
+   
+   //manifestUpdating = YES;   
+   // note that stringByAppendingPathComponent will change // after http:// to single slash, 
+   // giving the uninformative "ASIHTTPRequestErrorDomain Code=6 "Unable to start HTTP connection"" error
+   NSString *link = [kDropboxBaseLink stringByAppendingString:kManifestPlist];
+  // twlog("updateManifest: %@", link);
+   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:link]];
+   [request setDelegate:self];
+   request.didFinishSelector = @selector(manifestRequestFinished:);
+   request.didFailSelector = @selector(manifestRequestFailed:);
+   [self.downloadQueue addOperation:request];
+   //[request startAsynchronous];
+}
+
+- (void)manifestRequestFinished:(ASIHTTPRequest *)request
+{
+   NSData *fileData = request.responseData;
+   if (!fileData.length)
+   {
+      twlog("manifestRequestFinished -- no data!");
+      //manifestUpdating = NO;   
+      return;
+   }
+   
+   NSString *fileString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
+   NSArray *manifest = [fileString propertyList];
+   if (!manifest || ![manifest isKindOfClass:[NSArray class]] || !manifest.count)
+   {
+      twlog("manifestRequestFinished -- bogus data! -- %@", manifest);
+      //manifestUpdating = NO;   
+      return;
+   }
+
+   if ([manifest isEqual:self.latestManifest])
+   {
+      twlog("manifestRequestFinished, no changes needed");
+      //manifestUpdating = NO;   
+      return;
+   }
+   
+   twlog("manifestRequestFinished: got something to update...");
+   self.latestManifest = [manifest mutableCopy];
+
+   for (NSDictionary *entry in self.installedManifest)
+   {
+      NSString *file = [entry objectForKey:kManifestFile];
+      NSInteger version = [[entry objectForKey:kManifestVersion] integerValue];
+      NSDictionary *latestEntry = [self latestEntry:file];
+      NSInteger latestVersion = [[latestEntry objectForKey:kManifestVersion] integerValue];
+      if (latestVersion <= version)
+      {
+         twlog("manifestRequestFinished: version %d <= %d of %@", latestVersion, version, file);
+         continue;
+      }
+      
+#if YOGASLEEPLITE
+      if ([file hasSuffix:@"caf"])
+         if (![self isDownloadableTrack:file])
+         {
+            twlog("manifestRequestFinished: %@ is not a downloadable track", file);
+            continue;
+         }
+#endif YOGASLEEPLITE
+      
+      NSString *link = [kDropboxBaseLink stringByAppendingString:file];
+      twlog("manifestRequestFinished: downloading %@ version %d update to %d: %@", file, latestVersion, version, link);
+      ASIHTTPRequest *fileRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:link]];
+      fileRequest.userInfo = [latestEntry copy];
+      NSString *downloadPath = [self.downloadsDirectory stringByAppendingPathComponent:file];
+      [fileRequest setDownloadDestinationPath:downloadPath];
+      [fileRequest setDelegate:self];
+      fileRequest.didFinishSelector = @selector(fileRequestFinished:);
+      fileRequest.didFailSelector = @selector(fileRequestFailed:);
+      [self.downloadQueue addOperation:fileRequest];
+   }
+   //manifestUpdating = NO;
+}
+
+- (BOOL)isDownloadableTrack:(NSString *)file
+{
+   NSString *track = [[file lastPathComponent] stringByDeletingPathExtension];
+   for (NSDictionary *playlist in self.basePlaylists)
+   {
+      NSArray *components = [playlist objectForKey:kPlaylistComponents];
+      for (NSString *component in components)
+         if ([component isEqual:track])
+            return YES;
+   }
+   
+   return NO;
+}
+
+- (NSDictionary *)latestEntry:(NSString *)file
+//- (NSInteger)latestVersion:(NSString *)file
+{
+   for (NSDictionary *latestEntry in self.latestManifest)
+      if ([file isEqual:[latestEntry objectForKey:kManifestFile]])
+         //return [[latestEntry objectForKey:kManifestVersion] integerValue];
+         return latestEntry;
+
+   twlog("couldn't find latestVersion of %@!", file);
+   return nil;
+}
+
+- (void)manifestRequestFailed:(ASIHTTPRequest *)request
+{
+   (void)request;
+   twlog("manifestRequestFailed! -- %@", [request error]);
+   //manifestUpdating = NO;   
+}
+
+- (void)fileRequestFinished:(ASIHTTPRequest *)request
+{
+   NSString *file = [request.userInfo objectForKey:kManifestFile];
+   NSInteger version = [[request.userInfo objectForKey:kManifestVersion] integerValue];
+  
+   //NSString *file = [request.downloadDestinationPath lastPathComponent];
+   //if ([file hasSuffix:@"caf"])
+      //file = [kTracksSubfolder stringByAppendingPathComponent:file];
+   NSString *finalPath = [self.documentDirectory stringByAppendingPathComponent:file];
+   NSError *error = nil;
+   BOOL copied = [[NSFileManager defaultManager] copyItemAtPath:request.downloadDestinationPath toPath:finalPath error:&error];
+   
+   if (!copied)
+   {
+      twlogif(!copied, "fileRequestFinished %@ copy err! -- %@", file, error);
+      return;
+   }
+   
+   for (NSMutableDictionary *entry in self.installedManifest)
+      if ([file isEqual:[entry objectForKey:kManifestFile]])
+      {
+         twlog("updating saved file %@ to version %d", file, version);
+         [entry setObject:[NSNumber numberWithInteger:version] forKey:kManifestVersion];
+         
+         NSString *manifestPath = [self.documentDirectory stringByAppendingPathComponent:kManifestPlist];
+         BOOL wroteOK = [self.installedManifest writeToFile:manifestPath atomically:NO];
+         twlogif(!wroteOK, "saving updated manifest failed!"); (void)wroteOK;
+
+         break;
+      }
+}
+
+- (void)fileRequestFailed:(ASIHTTPRequest *)request
+{
+   (void)request;
+   twlog("fileRequestFailed! -- %@", [request error]);
+}
+
+/*
+ - (NSString *)tracksPath
 {
    NSString *tracksPath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"tracks"];
    return tracksPath;
 }
+ */
 
 - (NSString *)pathForTrack:(NSString *)track
 {
    if (!track.length)
       return nil;
    
-   NSString *pathForTrack = [self.tracksPath stringByAppendingPathComponent:track];
+   //NSString *pathForTrack = [self.tracksPath stringByAppendingPathComponent:track];
+   NSString *subpath = [kTracksSubfolder stringByAppendingPathComponent:track];
+   NSString *pathForTrack = [self pathForUpdatableFile:subpath];
+   twcheck(pathForTrack.length);
+   
    return pathForTrack;
 }
 
@@ -165,41 +455,23 @@ NSString *kTrackChangeNotification = @"TrackChange";
    return pathForTrackID;
 }
 
-- (NSString *)playlistsPath
+- (NSString *)customPlaylistsPath
 {
-   NSString *playlistsPath = [self.documentDirectory stringByAppendingPathComponent:@"playlists.plist"];
-   return playlistsPath;
+   NSString *customPlaylistsPath = [self.documentDirectory stringByAppendingPathComponent:@"customplaylists.plist"];
+   return customPlaylistsPath;
 }
 
-- (void)savePlaylists
+- (void)saveCustomPlaylists
 {
-   BOOL wroteOK = [self.playlists writeToFile:self.playlistsPath atomically:NO];
-   twlogif(!wroteOK, "saving playlists failed!"); (void)wroteOK;
-}
-
-- (void)loadPlaylists
-{
-   NSString *path = self.playlistsPath;
-   self.playlists = [NSMutableArray arrayWithContentsOfFile:path];
-   if (!self.playlists)
-   {
-      twlog("loading default playlists...");
-      path = [[NSBundle mainBundle] pathForResource:@"playlists" ofType:@"plist"];
-      self.playlists = [NSMutableArray arrayWithContentsOfFile:path];
-   }
-   else
-   {
-      twlog("loading cached playlists...");
-   }
-
-   twcheck(self.playlists);
+   BOOL wroteOK = [self.customPlaylists writeToFile:self.customPlaylistsPath atomically:NO];
+   twlogif(!wroteOK, "saving custom playlists failed!"); (void)wroteOK;
 }
 
 - (NSMutableDictionary *)customPlaylistNamed:(NSString *)name
 {
    //NSString *name = NSLocalizedString(@"CUSTOMPLAYLIST", nil);
    NSMutableDictionary *customPlaylist = nil;
-   for (NSMutableDictionary *playlist in self.playlists)
+   for (NSMutableDictionary *playlist in self.customPlaylists)
    {
       NSString *playlistName = [playlist objectForKey:kPlaylistName];
       if ([playlistName isEqual:name])
@@ -234,7 +506,7 @@ NSString *kTrackChangeNotification = @"TrackChange";
    //NSString *customName = NSLocalizedString(@"CUSTOMPLAYLIST", nil);
    NSString *customName = [customPlaylist objectForKey:kPlaylistName];
    NSMutableDictionary *oldCustomPlaylist = nil;
-   for (NSMutableDictionary *playlist in self.playlists)
+   for (NSMutableDictionary *playlist in self.customPlaylists)
    {
       NSString *playlistName = [playlist objectForKey:kPlaylistName];
       if ([playlistName isEqual:customName])
@@ -246,7 +518,7 @@ NSString *kTrackChangeNotification = @"TrackChange";
    if (oldCustomPlaylist)
    {
       [[oldCustomPlaylist retain] autorelease]; // in case it's the same one
-      [self.playlists removeObject:oldCustomPlaylist];
+      [self.customPlaylists removeObject:oldCustomPlaylist];
       playlistsChanged = YES;
    }
    
@@ -255,16 +527,20 @@ NSString *kTrackChangeNotification = @"TrackChange";
    NSArray *components = [customPlaylist objectForKey:kPlaylistComponents];
    if (components.count)
    {
-      [self.playlists addObject:customPlaylist];
+      [self.customPlaylists addObject:customPlaylist];
       playlistsChanged = YES;
    }
    
    // save if changed
    
    if (playlistsChanged)
-      [self savePlaylists];
+   {
+      [self combinePlaylists];
+      [self saveCustomPlaylists];
+   }
 }
 
+/*
 - (BOOL)hasCustomPlaylists
 {
    BOOL hasCustomPlaylists = NO;
@@ -280,7 +556,8 @@ NSString *kTrackChangeNotification = @"TrackChange";
    
    return hasCustomPlaylists;
 }
-
+*/
+/*
 - (NSArray *)customPlaylists
 {
    NSMutableArray *customPlaylists = [NSMutableArray array];
@@ -293,6 +570,7 @@ NSString *kTrackChangeNotification = @"TrackChange";
    
    return customPlaylists;
 }
+*/
 
 //- (void)removePlaylist:(NSUInteger)idx
 - (void)removePlaylist:(NSDictionary *)playlist
@@ -306,8 +584,9 @@ NSString *kTrackChangeNotification = @"TrackChange";
       [self play:nil];
    
    //[self.playlists removeObjectAtIndex:idx];
-   [self.playlists removeObject:playlist];
-   [self savePlaylists];
+   [self.customPlaylists removeObject:playlist];
+   [self combinePlaylists];
+   [self saveCustomPlaylists];
 }
 
 - (BOOL)isPlayingPlaylist:(NSDictionary *)playlist
@@ -399,6 +678,11 @@ NSString *kTrackChangeNotification = @"TrackChange";
    {
       [[SimpleAudioEngine sharedEngine] playBackgroundMusic:filePath loop:NO];
       playingPaused = NO;
+   }
+   else
+   {
+      NSString *message = self.downloadQueue.operations.count ? @"FILEWAIT" : @"FILEFAIL";
+      [UIAlertView twxOKAlert:@"SORRY" withMessage:message];
    }
 }
 

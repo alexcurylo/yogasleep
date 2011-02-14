@@ -1,0 +1,14 @@
+//
+//  TWTargetYogaSleepLite.xcconfig
+//
+//  Copyright 2010 Trollwerks Inc. All rights reserved.
+//
+
+PRODUCT_NAME = YogaSleepLite
+
+// note that this will pick up the Project settings in $(inherited)
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) YOGASLEEPLITE=1
+
+GCC_PREFIX_HEADER = config/TWProjectPrefix.h
+INFOPLIST_FILE = resources/YSLiteApplicationInfo.plist
+//INFOPLIST_PREFIX_HEADER = resources/version.h

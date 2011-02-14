@@ -8,7 +8,7 @@
 			<string>A1</string>
 			<string>B1</string>
 			<string>B3</string>
-			<string>C3</string>
+			<string>C1</string>
 			<string>D1</string>
 			<string>E1</string>
 			<string>A3</string>
@@ -16,7 +16,7 @@
 		<key>name</key>
 		<string>Welcome to Yoga Sleep</string>
 		<key>time</key>
-		<integer>2060</integer>
+		<integer>1896</integer>
 		<key>category</key>
 		<string>Sleep</string>
 		<key>description</key>
@@ -31,13 +31,139 @@
 			<string>C1</string>
 			<string>F2</string>
 			<string>D3</string>
+			<string>D2</string>
+			<string>A4</string>
+		</array>
+		<key>name</key>
+		<string>Welcome to Yoga Alert</string>
+		<key>time</key>
+		<integer>1297</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A1</string>
+			<string>B4</string>
+			<string>C3</string>
+			<string>D2</string>
+			<string>E1</string>
+			<string>A3</string>
+		</array>
+		<key>name</key>
+		<string>Sleep 2</string>
+		<key>time</key>
+		<integer>1315</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A1</string>
+			<string>B3</string>
+			<string>C4</string>
+			<string>D4</string>
+			<string>E1</string>
+			<string>A3</string>
+		</array>
+		<key>name</key>
+		<string>Sleep 3</string>
+		<key>time</key>
+		<integer>1506</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A1</string>
+			<string>B1</string>
+			<string>C1</string>
+			<string>D2</string>
+			<string>E2</string>
+			<string>A3</string>
+		</array>
+		<key>name</key>
+		<string>Sleep 4</string>
+		<key>time</key>
+		<integer>1170</integer>
+		<key>category</key>
+		<string>Sleep</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A2</string>
+			<string>B1</string>
+			<string>B4</string>
+			<string>C4</string>
+			<string>D4</string>
+			<string>E3</string>
+			<string>E2</string>
+			<string>A4</string>
+		</array>
+		<key>name</key>
+		<string>Alert 2</string>
+		<key>time</key>
+		<integer>1613</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A2</string>
+			<string>B1</string>
+			<string>B1</string>
+			<string>C1</string>
+			<string>F3</string>
+			<string>D3</string>
+			<string>D5</string>
+			<string>F1</string>
+			<string>A4</string>
+		</array>
+		<key>name</key>
+		<string>Alert 3</string>
+		<key>time</key>
+		<integer>1326</integer>
+		<key>category</key>
+		<string>Alert</string>
+		<key>description</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>components</key>
+		<array>
+			<string>A2</string>
+			<string>B1</string>
+			<string>B1</string>
+			<string>B2</string>
+			<string>C2</string>
+			<string>F2</string>
+			<string>D3</string>
+			<string>D4</string>
+			<string>D2</string>
 			<string>D1</string>
+			<string>F1</string>
+			<string>F1</string>
 			<string>A4</string>
 		</array>
 		<key>name</key>
 		<string>Welcome to Yoga Nidra</string>
 		<key>time</key>
-		<integer>1770</integer>
+		<integer>2189</integer>
 		<key>category</key>
 		<string>Alert</string>
 		<key>description</key>

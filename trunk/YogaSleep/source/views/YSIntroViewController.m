@@ -5,6 +5,7 @@
 //
 
 #import "YSIntroViewController.h"
+#import "TWNavigationAppDelegate.h"
 
 @implementation YSIntroViewController
 
@@ -24,7 +25,14 @@
 {
    [super viewDidLoad];
    
-   NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"introduction" ofType:@"html"];
+   //NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"introduction" ofType:@"html"];
+#if YOGASLEEPFULL
+   NSString *dataPath = [TWDataModel() pathForUpdatableFile:@"introduction.html"];
+#elif YOGASLEEPLITE
+   NSString *dataPath = [TWDataModel() pathForUpdatableFile:@"introduction-lite.html"];
+#else
+#error version not set!
+#endif YOGASLEEPFULL
    NSData *displayData = [NSData dataWithContentsOfFile:dataPath];
    [self.display loadData:displayData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:nil];
 }

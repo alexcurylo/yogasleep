@@ -26,3 +26,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #endif __OBJC__
+
+// ASIHTTPRequest debugging
+//#define DEBUG_REQUEST_STATUS 1
+//#define DEBUG_FORM_DATA_REQUEST 1
+//#define DEBUG_THROTTLING 1
+//#define DEBUG_PERSISTENT_CONNECTIONS 1

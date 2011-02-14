@@ -4,6 +4,9 @@
 //  Copyright Trollwerks Inc 2010. All rights reserved.
 //
 
+#import "ASIHTTPRequestDelegate.h"
+#import "ASINetworkQueue.h"
+
 extern NSString *kTrackName; // = @"name";
 extern NSString *kTrackID; // = @"id";
 extern NSString *kTrackTime; // = @"time";
@@ -25,29 +28,43 @@ enum
    kNoTrackPlaying = -1,
 };
 
-@interface YSDataModel : NSObject
+@interface YSDataModel : NSObject < ASIHTTPRequestDelegate >
 {
    NSArray *tracks;
-   NSMutableArray *playlists;
+   NSArray *basePlaylists;
+   NSMutableArray *customPlaylists;
+   NSMutableArray *combinedPlaylists;
+   NSMutableArray *installedManifest;
+   NSMutableArray *latestManifest;
    NSString *documentDirectory;
-   
+   NSString *downloadsDirectory;
+
    NSDictionary *playingPlaylist;
-   //NSString *currentTrackID;
    NSInteger playingIndex;
    BOOL playingPaused;
- }
+   
+   //BOOL manifestUpdating;
+   ASINetworkQueue *downloadQueue;
+}
 
 @property (nonatomic, retain) NSArray *tracks;
-@property (nonatomic, retain) NSMutableArray *playlists;
+@property (nonatomic, retain) NSArray *basePlaylists;
+@property (nonatomic, retain) NSMutableArray *customPlaylists;
+@property (nonatomic, retain) NSMutableArray *combinedPlaylists;
+@property (nonatomic, retain) NSMutableArray *installedManifest;
+@property (nonatomic, retain) NSMutableArray *latestManifest;
 @property (nonatomic, copy) NSString *documentDirectory;
+@property (nonatomic, copy) NSString *downloadsDirectory;
 @property (nonatomic, retain) NSDictionary *playingPlaylist;
 @property (nonatomic, assign) NSInteger playingIndex;
-//@property (nonatomic, copy) NSString *currentTrackID;
+@property (retain) ASINetworkQueue *downloadQueue;
 
 #pragma mark -
 #pragma mark Life cycle
 
 - (id)init;
+- (void)initDownloadQueue;
+- (void)cleanDownloadQueue;
 - (void)dealloc;
 
 #pragma mark -
@@ -55,20 +72,33 @@ enum
 
 - (UIBarButtonItem *)playingBarButtonForTarget:(id)target action:(SEL)action;
 
-- (NSString *)tracksPath;
-- (NSString *)pathForTrack:(NSString *)track;
+- (NSString *)pathForUpdatableFile:(NSString *)file;
+- (void)loadManifest;
+- (void)loadTracks;
+- (void)loadPlaylists;
+- (void)combinePlaylists;
 
+- (void)updateManifest;
+- (void)manifestRequestFinished:(ASIHTTPRequest *)request;
+- (BOOL)isDownloadableTrack:(NSString *)file;
+- (NSDictionary *)latestEntry:(NSString *)file;
+//- (NSInteger)latestVersion:(NSString *)file;
+- (void)manifestRequestFailed:(ASIHTTPRequest *)request;
+- (void)fileRequestFinished:(ASIHTTPRequest *)request;
+- (void)fileRequestFailed:(ASIHTTPRequest *)request;
+
+//- (NSString *)tracksPath;
+- (NSString *)pathForTrack:(NSString *)track;
 - (NSDictionary *)trackWithID:(NSString *)trackID;
 - (NSString *)pathForTrackID:(NSString *)trackID;
 
-- (NSString *)playlistsPath;
-- (void)savePlaylists;
-- (void)loadPlaylists;
+- (NSString *)customPlaylistsPath;
+- (void)saveCustomPlaylists;
 
 - (NSMutableDictionary *)customPlaylistNamed:(NSString *)name;
 - (void)setCustomPlaylist:(NSMutableDictionary *)customPlaylist;
-- (BOOL)hasCustomPlaylists;
-- (NSArray *)customPlaylists;
+//- (BOOL)hasCustomPlaylists;
+//- (NSArray *)customPlaylists;
 
 //- (void)removePlaylist:(NSUInteger)idx;
 - (void)removePlaylist:(NSDictionary *)playlist;
