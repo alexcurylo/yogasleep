@@ -21,7 +21,8 @@
 
 + (YSRecordingViewController *)controllerForRecording:(NSInteger)idx
 {
-   NSDictionary *playlist = [TWDataModel().playlists objectAtIndex:idx];
+   //NSDictionary *playlist = [TWDataModel().playlists objectAtIndex:idx];
+   NSDictionary *playlist = [TWDataModel().combinedPlaylists objectAtIndex:idx];
    NSString *name = [playlist objectForKey:kPlaylistName];
 
    YSRecordingViewController *controller = [[[YSRecordingViewController alloc] initWithNibName:@"YSRecordingView" bundle:nil] autorelease];

@@ -30,7 +30,8 @@
    
    [self.recordingsTable reloadData];
    
-   if (TWDataModel().hasCustomPlaylists)
+   //if (TWDataModel().hasCustomPlaylists)
+   if (TWDataModel().customPlaylists.count)
       self.moreInfo.text = NSLocalizedString(@"INFOCUSTOM", nil);
    else
       self.moreInfo.text = NSLocalizedString(@"INFONOCUSTOM", nil);

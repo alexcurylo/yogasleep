@@ -27,6 +27,8 @@ enum
    NSString *trackID;
 }
 
++ (UIColor *)greenSelectedColor;
+ 
 //@property (nonatomic, retain) IBOutlet UILabel *headlineLabel;
 //@property (nonatomic, retain) IBOutlet UILabel *detailLabel;
 //@property (nonatomic, retain) IBOutlet UIImageView *typeImage;
@@ -39,6 +41,9 @@ enum
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (void)dealloc;
+
+- (void)animateAdd;
+- (void)phase1AnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 
 - (void)setStringsColor:(UIColor *)color;
 

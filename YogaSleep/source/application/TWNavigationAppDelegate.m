@@ -63,6 +63,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
    (void)application;
+   
+   [self.dataModel updateManifest];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

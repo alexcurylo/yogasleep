@@ -1,0 +1,14 @@
+//
+//  TWTargetYogaSleepFull.xcconfig
+//
+//  Copyright 2011 Trollwerks Inc. All rights reserved.
+//
+
+PRODUCT_NAME = Yoga Sleep
+
+// note that this will pick up the Project settings in $(inherited)
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) YOGASLEEPFULL=1
+
+GCC_PREFIX_HEADER = config/TWProjectPrefix.h
+INFOPLIST_FILE = resources/YSApplicationInfo.plist
+//INFOPLIST_PREFIX_HEADER = resources/version.h
