@@ -74,6 +74,8 @@
 		FAB7D17E0FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */; };
 		FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */; };
 		FAC8656512FFD25700E8E272 /* YSRemoteControlWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */; };
+		FAD124F4130F87F5006EA462 /* TWURLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD124F3130F87F5006EA462 /* TWURLFetcher.m */; };
+		FAD124F5130F87F5006EA462 /* TWURLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD124F3130F87F5006EA462 /* TWURLFetcher.m */; };
 		FAD98BE1108A19CE00963F89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAD98BE0108A19CE00963F89 /* Localizable.strings */; };
 		FAFDF37513088F84001152AF /* playlists-lite.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFDF37413088F84001152AF /* playlists-lite.plist */; };
 		FAFDF37B130892A5001152AF /* manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFDF37A130892A5001152AF /* manifest.plist */; };
@@ -276,6 +278,8 @@
 		FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDebugging.m; sourceTree = "<group>"; };
 		FAC8656312FFD25700E8E272 /* YSRemoteControlWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRemoteControlWindow.h; sourceTree = "<group>"; };
 		FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRemoteControlWindow.m; sourceTree = "<group>"; };
+		FAD124F2130F87F5006EA462 /* TWURLFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWURLFetcher.h; sourceTree = "<group>"; };
+		FAD124F3130F87F5006EA462 /* TWURLFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWURLFetcher.m; sourceTree = "<group>"; };
 		FAD98BE0108A19CE00963F89 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FAFDF37413088F84001152AF /* playlists-lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "playlists-lite.plist"; sourceTree = "<group>"; };
 		FAFDF37A130892A5001152AF /* manifest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = manifest.plist; sourceTree = "<group>"; };
@@ -579,6 +583,8 @@
 				FAB7D1770FA6BF1F00CBDED9 /* TWDebugging.h */,
 				FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */,
 				FA30E310127D3C7100F8E042 /* TWGeometry.h */,
+				FAD124F2130F87F5006EA462 /* TWURLFetcher.h */,
+				FAD124F3130F87F5006EA462 /* TWURLFetcher.m */,
 				FA3C34DA1301C8DF009FFE72 /* TWXUIAlertView.h */,
 				FA3C34DB1301C8DF009FFE72 /* TWXUIAlertView.m */,
 			);
@@ -832,6 +838,7 @@
 				FAFDF77B1308E6E7001152AF /* ASIDataCompressor.m in Sources */,
 				FAFDF77C1308E6E7001152AF /* ASIDataDecompressor.m in Sources */,
 				FAFDF7961308E839001152AF /* TWReachability.m in Sources */,
+				FAD124F4130F87F5006EA462 /* TWURLFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +877,7 @@
 				FAFDF77D1308E6E7001152AF /* ASIDataCompressor.m in Sources */,
 				FAFDF77E1308E6E7001152AF /* ASIDataDecompressor.m in Sources */,
 				FAFDF7971308E839001152AF /* TWReachability.m in Sources */,
+				FAD124F5130F87F5006EA462 /* TWURLFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

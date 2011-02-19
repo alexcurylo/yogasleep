@@ -7,6 +7,7 @@
 #import "YSDataModel.h"
 
 @class YSMainViewController;
+@class TWReachability;
 
 @interface TWNavigationAppDelegate : NSObject <
    UIApplicationDelegate,
@@ -18,12 +19,18 @@
    IBOutlet YSMainViewController *mainViewController;
 
    YSDataModel *dataModel;
+
+   TWReachability* hostReach;
+   TWReachability* internetReach;
+   TWReachability* wifiReach;
+   UIAlertView *noInternetAlert;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) IBOutlet YSMainViewController *mainViewController;
 @property (nonatomic, retain) YSDataModel *dataModel;
+@property (nonatomic, retain) UIAlertView *noInternetAlert;
 
 #pragma mark -
 #pragma mark Life cycle
@@ -42,6 +49,11 @@
 
 #pragma mark -
 #pragma mark Application support
+
+- (void)startReachabilityChecks;
+- (void)reachabilityChanged:(NSNotification *)note;
+- (BOOL)isInternetAvailable:(BOOL)alertIfNot;
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
 
 #pragma mark -
 #pragma mark UINavigationControllerDelegate

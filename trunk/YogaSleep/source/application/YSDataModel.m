@@ -263,21 +263,48 @@ NSString *kManifestVersion = @"version";
    // note that stringByAppendingPathComponent will change // after http:// to single slash, 
    // giving the uninformative "ASIHTTPRequestErrorDomain Code=6 "Unable to start HTTP connection"" error
    NSString *link = [kDropboxBaseLink stringByAppendingString:kManifestPlist];
-  // twlog("updateManifest: %@", link);
+
+   
+#if REQUEST_MANIFEST_NSURLCONNECTION
+   twlog("fetching manifest with TWURLFetcher: %@", link);
+   TWURLFetcher *manifestFetcher = [TWURLFetcher urlFetcher:link target:self selector:@selector(fetchedManifest:)];
+   twcheck(manifestFetcher); (void)manifestFetcher;
+#else
+   twlog("fetching manifest with ASIHTTPRequest: %@", link);
    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:link]];
    [request setDelegate:self];
    request.didFinishSelector = @selector(manifestRequestFinished:);
    request.didFailSelector = @selector(manifestRequestFailed:);
    [self.downloadQueue addOperation:request];
    //[request startAsynchronous];
+#endif REQUEST_MANIFEST_NSURLCONNECTION
 }
 
+#if REQUEST_MANIFEST_NSURLCONNECTION
+- (void)fetchedManifest:(TWURLFetcher *)fetcher
+{
+   if (!fetcher.succeeded)
+   {
+      twlog("fetchedManifest FAIL!");
+      return;
+   }
+   
+   NSData *fileData = fetcher.connectionData;
+   [self parseManifestData:fileData];
+}
+#else
 - (void)manifestRequestFinished:(ASIHTTPRequest *)request
 {
    NSData *fileData = request.responseData;
+   [self parseManifestData:fileData;
+}
+#endif REQUEST_MANIFEST_NSURLCONNECTION
+
+- (void)parseManifestData:(NSData *)fileData
+{
    if (!fileData.length)
    {
-      twlog("manifestRequestFinished -- no data!");
+      twlog("parseManifestData -- no data!");
       //manifestUpdating = NO;   
       return;
    }
@@ -286,19 +313,19 @@ NSString *kManifestVersion = @"version";
    NSArray *manifest = [fileString propertyList];
    if (!manifest || ![manifest isKindOfClass:[NSArray class]] || !manifest.count)
    {
-      twlog("manifestRequestFinished -- bogus data! -- %@", manifest);
+      twlog("parseManifestData -- bogus data! -- %@", manifest);
       //manifestUpdating = NO;   
       return;
    }
 
    if ([manifest isEqual:self.latestManifest])
    {
-      twlog("manifestRequestFinished, no changes needed");
+      twlog("parseManifestData, no changes needed");
       //manifestUpdating = NO;   
       return;
    }
    
-   twlog("manifestRequestFinished: got something to update...");
+   twlog("parseManifestData: got something to update...");
    self.latestManifest = [manifest mutableCopy];
 
    for (NSDictionary *entry in self.installedManifest)
@@ -309,7 +336,7 @@ NSString *kManifestVersion = @"version";
       NSInteger latestVersion = [[latestEntry objectForKey:kManifestVersion] integerValue];
       if (latestVersion <= version)
       {
-         twlog("manifestRequestFinished: version %d <= %d of %@", latestVersion, version, file);
+         twlog("parseManifestData: version %d <= %d of %@", latestVersion, version, file);
          continue;
       }
       
@@ -317,13 +344,13 @@ NSString *kManifestVersion = @"version";
       if ([file hasSuffix:@"caf"])
          if (![self isDownloadableTrack:file])
          {
-            twlog("manifestRequestFinished: %@ is not a downloadable track", file);
+            twlog("parseManifestData: %@ is not a downloadable track", file);
             continue;
          }
 #endif YOGASLEEPLITE
       
       NSString *link = [kDropboxBaseLink stringByAppendingString:file];
-      twlog("manifestRequestFinished: downloading %@ version %d update to %d: %@", file, latestVersion, version, link);
+      twlog("parseManifestData: downloading %@ version %d update to %d: %@", file, latestVersion, version, link);
       ASIHTTPRequest *fileRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:link]];
       fileRequest.userInfo = [latestEntry copy];
       NSString *downloadPath = [self.downloadsDirectory stringByAppendingPathComponent:file];
@@ -676,6 +703,7 @@ NSString *kManifestVersion = @"version";
    twcheck(filePath.length);
    if(filePath.length)
    {
+      twlog("playing %@", filePath);
       [[SimpleAudioEngine sharedEngine] playBackgroundMusic:filePath loop:NO];
       playingPaused = NO;
    }
