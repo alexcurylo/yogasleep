@@ -5,6 +5,7 @@
 //
 
 #import "TWNavigationAppDelegate.h"
+#import "TWReachability.h"
 
 @implementation TWNavigationAppDelegate
 
@@ -12,6 +13,7 @@
 @synthesize navigationController;
 @synthesize mainViewController;
 @synthesize dataModel;
+@synthesize noInternetAlert;
 
 #pragma mark -
 #pragma mark Life cycle
@@ -41,6 +43,8 @@
       launchOptions
    );
   
+   [self startReachabilityChecks];
+
    self.dataModel = [[[YSDataModel alloc] init] autorelease];
 
    // status bar marked hidden UIStatusBarStyleBlackOpaque in Info.plist so Default.png comes up fullscreen
@@ -121,6 +125,98 @@
 
 #pragma mark -
 #pragma mark Application support
+
+- (void)startReachabilityChecks
+{
+   // Observe the kReachabilityChangedNotification. When that notification is posted, the
+   // method "reachabilityChanged" will be called. 
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+   
+   //Change the host name here to change the server your monitoring
+   hostReach = [[TWReachability reachabilityWithHostName: @"www.dropbox.com"] retain];
+   [hostReach startNotifier];
+   
+   internetReach = [[TWReachability reachabilityForInternetConnection] retain];
+   [internetReach startNotifier];
+   
+   wifiReach = [[TWReachability reachabilityForLocalWiFi] retain];
+   [wifiReach startNotifier];
+}
+
+- (void)reachabilityChanged:(NSNotification *)note
+{
+   (void)note;
+#if DEBUG
+   TWReachability* curReach = [note object];
+   NSParameterAssert([curReach isKindOfClass: [TWReachability class]]);
+   
+   NSString *reacher = @"unknown";
+   NSString *status = @"unknown";
+   
+   if (curReach == hostReach) reacher = @"hostReach";
+   else if (curReach == internetReach) reacher = @"internetReach";
+   else if (curReach == wifiReach) reacher = @"wifiReach";
+
+   switch (curReach.currentReachabilityStatus)
+   {
+      case kNotReachable: status = @"kNotReachable"; break;
+      case kReachableViaWWAN: status = @"kReachableViaWWAN"; break;
+      case kReachableViaWiFi: status = @"kReachableViaWiFi"; break;
+      default: status = [NSString stringWithFormat:@"%d", curReach.currentReachabilityStatus]; break;
+   }
+   
+   twlog("reachabilityChanged -- %@: %@", reacher, status);
+#endif DEBUG
+   
+   //[self isInternetAvailable:YES];
+}
+
+- (BOOL)isInternetAvailable:(BOOL)alertIfNot
+{
+   BOOL result = NO;
+   
+   NetworkStatus internetStatus = [internetReach currentReachabilityStatus];
+   switch (internetStatus)
+   {
+      default:
+         twlog("isInternetAvailable unexpected internetStatus status %d!", internetStatus);
+         // FALL
+      case kNotReachable:
+         result = NO;
+         if (alertIfNot && !self.noInternetAlert)
+         {
+            self.noInternetAlert = [[[UIAlertView alloc]
+                initWithTitle:NSLocalizedString(@"NOINTERNETTITLE", nil)
+                message:NSLocalizedString(@"NOINTERNETMESSAGE", nil)
+                delegate:self
+                cancelButtonTitle:nil 
+                otherButtonTitles:NSLocalizedString(@"OK", nil),
+                nil
+             ] autorelease];
+            [self.noInternetAlert show];
+         }
+         break;
+         
+      case kReachableViaWWAN:
+      case kReachableViaWiFi:
+         result = YES;
+         if (self.noInternetAlert)
+            [self.noInternetAlert dismissWithClickedButtonIndex:0 animated:YES];
+         self.noInternetAlert = nil;
+         break;
+   }
+   
+   return result;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+   (void)alertView;
+   (void)buttonIndex;
+   
+   self.noInternetAlert = nil;
+   
+}
 
 #pragma mark -
 #pragma mark UINavigationControllerDelegate
