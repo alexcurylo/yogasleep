@@ -215,7 +215,24 @@
    (void)buttonIndex;
    
    self.noInternetAlert = nil;
+}
+
+- (void)bogusDataOffNet
+{
+   // for now we'll just quietly ignore problems
+   return;
    
+   if (self.noInternetAlert)
+      [self.noInternetAlert dismissWithClickedButtonIndex:0 animated:NO];
+   self.noInternetAlert = [[[UIAlertView alloc]
+      initWithTitle:NSLocalizedString(@"BOGUSINTERNETTITLE", nil)
+      message:NSLocalizedString(@"BOGUSINTERNETMESSAGE", nil)
+      delegate:self
+      cancelButtonTitle:nil 
+      otherButtonTitles:NSLocalizedString(@"OK", nil),
+      nil
+   ] autorelease];
+   [self.noInternetAlert show];
 }
 
 #pragma mark -

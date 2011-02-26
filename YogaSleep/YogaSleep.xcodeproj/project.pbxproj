@@ -73,6 +73,8 @@
 		FAB7D17D0FA6BF1F00CBDED9 /* TWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1730FA6BF1F00CBDED9 /* TWMain.m */; };
 		FAB7D17E0FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */; };
 		FAB7D17F0FA6BF1F00CBDED9 /* TWDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */; };
+		FABB11701318CDF7004176E2 /* TWXNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = FABB116F1318CDF7004176E2 /* TWXNSString.m */; };
+		FABB11711318CDF7004176E2 /* TWXNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = FABB116F1318CDF7004176E2 /* TWXNSString.m */; };
 		FAC8656512FFD25700E8E272 /* YSRemoteControlWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */; };
 		FAD124F4130F87F5006EA462 /* TWURLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD124F3130F87F5006EA462 /* TWURLFetcher.m */; };
 		FAD124F5130F87F5006EA462 /* TWURLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD124F3130F87F5006EA462 /* TWURLFetcher.m */; };
@@ -276,6 +278,8 @@
 		FAB7D1750FA6BF1F00CBDED9 /* TWNavigationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWNavigationAppDelegate.m; sourceTree = "<group>"; };
 		FAB7D1770FA6BF1F00CBDED9 /* TWDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWDebugging.h; sourceTree = "<group>"; };
 		FAB7D1780FA6BF1F00CBDED9 /* TWDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDebugging.m; sourceTree = "<group>"; };
+		FABB116E1318CDF7004176E2 /* TWXNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWXNSString.h; sourceTree = "<group>"; };
+		FABB116F1318CDF7004176E2 /* TWXNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWXNSString.m; sourceTree = "<group>"; };
 		FAC8656312FFD25700E8E272 /* YSRemoteControlWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRemoteControlWindow.h; sourceTree = "<group>"; };
 		FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRemoteControlWindow.m; sourceTree = "<group>"; };
 		FAD124F2130F87F5006EA462 /* TWURLFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWURLFetcher.h; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 				FAC8656412FFD25700E8E272 /* YSRemoteControlWindow.m */,
 				FA16AC5312EFF0ED00AEE323 /* TWSecondsFormatter.h */,
 				FA16AC5412EFF0ED00AEE323 /* TWSecondsFormatter.m */,
+				FABB116E1318CDF7004176E2 /* TWXNSString.h */,
+				FABB116F1318CDF7004176E2 /* TWXNSString.m */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -839,6 +845,7 @@
 				FAFDF77C1308E6E7001152AF /* ASIDataDecompressor.m in Sources */,
 				FAFDF7961308E839001152AF /* TWReachability.m in Sources */,
 				FAD124F4130F87F5006EA462 /* TWURLFetcher.m in Sources */,
+				FABB11701318CDF7004176E2 /* TWXNSString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,6 +885,7 @@
 				FAFDF77E1308E6E7001152AF /* ASIDataDecompressor.m in Sources */,
 				FAFDF7971308E839001152AF /* TWReachability.m in Sources */,
 				FAD124F5130F87F5006EA462 /* TWURLFetcher.m in Sources */,
+				FABB11711318CDF7004176E2 /* TWXNSString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +919,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
+				PROVISIONING_PROFILE = "18C4A2CC-ACF7-45DE-A1FD-8614C1096D74";
 			};
 			name = "Release-AdHoc";
 		};

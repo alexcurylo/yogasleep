@@ -11,6 +11,8 @@
 #import "SimpleAudioEngine.h"
 #import "ASIHTTPRequest.h"
 #import "TWXUIAlertView.h"
+#import "TWXNSString.h"
+#import "TWNavigationAppDelegate.h"
 
 NSString *kTrackName = @"name";
 NSString *kTrackID = @"id";
@@ -266,6 +268,12 @@ NSString *kManifestVersion = @"version";
 
    
 #if REQUEST_MANIFEST_NSURLCONNECTION
+   if ([TWURLFetcher activeFetchersCount])
+   {
+      twlog("%d active fetchers, not updating manifest", [TWURLFetcher activeFetchersCount]);
+      return;
+   }
+   
    twlog("fetching manifest with TWURLFetcher: %@", link);
    TWURLFetcher *manifestFetcher = [TWURLFetcher urlFetcher:link target:self selector:@selector(fetchedManifest:)];
    twcheck(manifestFetcher); (void)manifestFetcher;
@@ -309,7 +317,18 @@ NSString *kManifestVersion = @"version";
       return;
    }
    
+   
    NSString *fileString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
+   // that came back as an HTML page on Nick's dataless phone!
+   //twlog("parse manifest result:%@", fileString);
+   NSString *plistID = @"<!DOCTYPE plist PUBLIC";
+   if (![fileString contains:plistID])
+   {
+      twlog("parseManifestData -- bogus data!");
+      [TWAppDelegate() bogusDataOffNet];
+      return;
+   }
+   
    NSArray *manifest = [fileString propertyList];
    if (!manifest || ![manifest isKindOfClass:[NSArray class]] || !manifest.count)
    {

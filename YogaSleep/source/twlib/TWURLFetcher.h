@@ -68,9 +68,9 @@
 #pragma mark -
 #pragma mark Utilities
 
-
 + (TWURLFetcher *)urlFetcher:(NSString *)urlLink target:(id)target selector:(SEL)selector;
 + (TWURLFetcher *)urlFetcherRetry:(TWURLFetcher *)failure;
++ (NSInteger)activeFetchersCount;
 
 #pragma mark -
 #pragma mark Life cycle
