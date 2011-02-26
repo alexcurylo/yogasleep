@@ -55,6 +55,8 @@
 - (BOOL)isInternetAvailable:(BOOL)alertIfNot;
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
 
+- (void)bogusDataOffNet;
+
 #pragma mark -
 #pragma mark UINavigationControllerDelegate
 

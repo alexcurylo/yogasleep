@@ -72,6 +72,12 @@ static NSMutableArray *sActiveFetchers = nil;
    return [fetcher autorelease];
 }
 
++ (NSInteger)activeFetchersCount
+{
+   NSInteger activeFetchersCount = sActiveFetchers.count;
+   return activeFetchersCount;
+}
+
 #pragma mark -
 #pragma mark Life cycle
 
