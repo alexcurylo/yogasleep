@@ -32,7 +32,7 @@
    NSString *dataPath = [TWDataModel() pathForUpdatableFile:@"introduction-lite.html"];
 #else
 #error version not set!
-#endif YOGASLEEPFULL
+#endif //YOGASLEEPFULL
    NSData *displayData = [NSData dataWithContentsOfFile:dataPath];
    [self.display loadData:displayData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:nil];
 }

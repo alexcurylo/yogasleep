@@ -1,7 +1,7 @@
 //
 //  TWProjectBase.xcconfig
 //
-//  Copyright 2010 Trollwerks Inc. All rights reserved.
+//  Copyright 2011 Trollwerks Inc. All rights reserved.
 //
 
 SDKROOT = iphoneos
@@ -14,11 +14,9 @@ ARCHS = $(ARCHS_STANDARD_32_BIT)
 // "Optimized (arm7)" -- cannot use with 3.0 deployment
 //ARCHS = $(ARCHS_UNIVERSAL_IPHONE_OS);
 // on armv7 want thumb always on; on armv6 makes floating point slower
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 GCC_THUMB_SUPPORT = YES
 GCC_THUMB_SUPPORT[arch=armv6] = NO
-
-// this kills Code Sense! (as of Xcode 3.2.2)
-//RUN_CLANG_STATIC_ANALYZER = YES
 
 ALWAYS_SEARCH_USER_PATHS = NO
 GCC_PRECOMPILE_PREFIX_HEADER = YES
@@ -29,8 +27,6 @@ GCC_OBJC_CALL_CXX_CDTORS = YES
 GCC_FAST_OBJC_DISPATCH = YES
 GCC_ENABLE_CPP_EXCEPTIONS = YES
 GCC_ENABLE_CPP_RTTI = YES
-PREBINDING = NO
-GCC_DYNAMIC_NO_PIC = YES
 // if you do not set this to NO, then your dynamic_cast will break, because gcc 4.0 is stupid
 GCC_SYMBOLS_PRIVATE_EXTERN = NO
 //GCC_FAST_MATH = YES; -- may affect rounding

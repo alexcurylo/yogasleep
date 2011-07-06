@@ -6,175 +6,157 @@
 		<key>file</key>
 		<string>tracks.plist</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
 		<string>playlists.plist</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
 		<string>playlists-lite.plist</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
 		<string>introduction.html</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
 		<string>introduction-lite.html</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
 		<string>moreinfo.html</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/A1.caf</string>
+		<string>tracks/1endalert.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/A2.caf</string>
+		<string>tracks/1endsleep.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/A3.caf</string>
+		<string>tracks/1introalert.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/A4.caf</string>
+		<string>tracks/1introsleep.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/B1.caf</string>
+		<string>tracks/2prorelax.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/B2.caf</string>
+		<string>tracks/2roc.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/B3.caf</string>
+		<string>tracks/2rocslow.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/B4.caf</string>
+		<string>tracks/2tc.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/C1.caf</string>
+		<string>tracks/3belly.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/C2.caf</string>
+		<string>tracks/3breathaware.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/C3.caf</string>
+		<string>tracks/3heal.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/C4.caf</string>
+		<string>tracks/4gardenguide.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/D1.caf</string>
+		<string>tracks/4quickimages.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/D2.caf</string>
+		<string>tracks/4safeplace.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/D3.caf</string>
+		<string>tracks/4slowimages.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/D4.caf</string>
+		<string>tracks/4underocean.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/E1.caf</string>
+		<string>tracks/5daysleep.caf</string>
 		<key>version</key>
-		<integer>1</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/E2.caf</string>
+		<string>tracks/5deepsleep.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/E3.caf</string>
+		<string>tracks/5ego.caf</string>
 		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>file</key>
-		<string>tracks/F1.caf</string>
+		<string>tracks/5mindexpand.caf</string>
 		<key>version</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>file</key>
-		<string>tracks/F2.caf</string>
-		<key>version</key>
-		<integer>1</integer>
-	</dict>
-	<dict>
-		<key>file</key>
-		<string>tracks/F3.caf</string>
-		<key>version</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>file</key>
-		<string>tracks/F4.caf</string>
-		<key>version</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 </array>
 </plist>

@@ -78,7 +78,7 @@ typedef char twcompileassertsymbol(__LINE__, msg) [ ((test) ? 1 : -1) ]
 #define twcheck(...)
 #define twcheck_noerr(x) (void)(x)
 
-#endif DEBUG
+#endif //DEBUG
 
 #undef DEBUG_ASSERT_MESSAGE
 #define DEBUG_ASSERT_MESSAGE TWAssertMessage
@@ -91,7 +91,7 @@ typedef char twcompileassertsymbol(__LINE__, msg) [ ((test) ? 1 : -1) ]
 
 #ifdef __cplusplus
 extern "C" {
-#endif __cplusplus
+#endif //__cplusplus
 
 // can be called transparently from .c/.cpp/.m/.mm files
 void TWLog(const char* format, ...);
@@ -110,7 +110,7 @@ void TWAssertMessage(
 
 #ifdef __cplusplus
 }
-#endif __cplusplus
+#endif //__cplusplus
 
 #pragma mark *** Cocoa/iPhone specific logging
 
@@ -124,6 +124,6 @@ void TWAssertMessage(
 
 void TWLogTouchSet(const char* action, NSSet* set, UIEvent* event);
 
-#endif TARGET_OS_IPHONE
+#endif //TARGET_OS_IPHONE
 
-#endif __OBJC__
+#endif //__OBJC__

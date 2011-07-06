@@ -103,6 +103,6 @@
         result = [[NSAttributedString alloc] initWithString:[self stringForObjectValue:object] attributes:attributes];
         return [result autorelease];
 }
-#endif !TARGET_OS_IPHONE
+#endif //!TARGET_OS_IPHONE
 
 @end

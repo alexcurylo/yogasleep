@@ -69,6 +69,7 @@
    (void)application;
    
    [self.dataModel updateManifest];
+   [self.dataModel checkForDownloadableTracks];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -86,11 +87,13 @@
    [self cleanup];
 }
 
-- (void)applicationSignificantTimeChange:(UIApplication *)application;
+- (void)applicationSignificantTimeChange:(UIApplication *)application
 // midnight, carrier time update, daylight savings time change
 {
    (void)application;
    twlog("applicationSignificantTimeChange");
+
+   [self.dataModel updateManifest];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
@@ -166,7 +169,7 @@
    }
    
    twlog("reachabilityChanged -- %@: %@", reacher, status);
-#endif DEBUG
+#endif //DEBUG
    
    //[self isInternetAvailable:YES];
 }

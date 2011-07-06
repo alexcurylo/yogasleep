@@ -899,14 +899,14 @@
 			};
 			name = Debug;
 		};
-		1D6058950D05DD3E006BFB54 /* Release-AdHoc */ = {
+		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
 				PROVISIONING_PROFILE = "18C4A2CC-ACF7-45DE-A1FD-8614C1096D74";
 			};
-			name = "Release-AdHoc";
+			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -915,28 +915,14 @@
 			};
 			name = Debug;
 		};
-		C01FCF5008A954540054247B /* Release-AdHoc */ = {
+		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA8C2D9C11E8E1CF009E3D00 /* TWProjectAdHoc.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
 				PROVISIONING_PROFILE = "18C4A2CC-ACF7-45DE-A1FD-8614C1096D74";
 			};
-			name = "Release-AdHoc";
-		};
-		FA417B6D11176341008AC4E1 /* Release-AppStore */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA8C2D9D11E8E1CF009E3D00 /* TWProjectAppStore.xcconfig */;
-			buildSettings = {
-			};
-			name = "Release-AppStore";
-		};
-		FA417B6E11176341008AC4E1 /* Release-AppStore */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAFDF6081308D0EB001152AF /* TWTargetYogaSleepFull.xcconfig */;
-			buildSettings = {
-			};
-			name = "Release-AppStore";
+			name = Release;
 		};
 		FAFDF6761308D3C9001152AF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -945,21 +931,14 @@
 			};
 			name = Debug;
 		};
-		FAFDF6771308D3C9001152AF /* Release-AdHoc */ = {
+		FAFDF6771308D3C9001152AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nick Cole";
 				PROVISIONING_PROFILE = "5BB111A2-9448-4434-91E4-E865AE50C1A0";
 			};
-			name = "Release-AdHoc";
-		};
-		FAFDF6781308D3C9001152AF /* Release-AppStore */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAFDF6091308D0EB001152AF /* TWTargetYogaSleepLite.xcconfig */;
-			buildSettings = {
-			};
-			name = "Release-AppStore";
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -968,31 +947,28 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
-				1D6058950D05DD3E006BFB54 /* Release-AdHoc */,
-				FA417B6E11176341008AC4E1 /* Release-AppStore */,
+				1D6058950D05DD3E006BFB54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-AdHoc";
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "YogaSleep" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
-				C01FCF5008A954540054247B /* Release-AdHoc */,
-				FA417B6D11176341008AC4E1 /* Release-AppStore */,
+				C01FCF5008A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-AdHoc";
+			defaultConfigurationName = Release;
 		};
 		FAFDF6751308D3C9001152AF /* Build configuration list for PBXNativeTarget "YogaSleepLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAFDF6761308D3C9001152AF /* Debug */,
-				FAFDF6771308D3C9001152AF /* Release-AdHoc */,
-				FAFDF6781308D3C9001152AF /* Release-AppStore */,
+				FAFDF6771308D3C9001152AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-AdHoc";
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

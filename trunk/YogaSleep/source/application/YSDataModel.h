@@ -11,7 +11,7 @@
 // perhaps NSURLConnection will handle Nick's no data plan 3G phone and not crash with no wifi
 #if REQUEST_MANIFEST_NSURLCONNECTION
 #import "TWURLFetcher.h"
-#endif REQUEST_MANIFEST_NSURLCONNECTION
+#endif //REQUEST_MANIFEST_NSURLCONNECTION
 
 extern NSString *kTrackName; // = @"name";
 extern NSString *kTrackID; // = @"id";
@@ -84,12 +84,14 @@ enum
 - (void)loadPlaylists;
 - (void)combinePlaylists;
 
+- (void)checkForDownloadableTracks;
+
 - (void)updateManifest;
 #if REQUEST_MANIFEST_NSURLCONNECTION
 - (void)fetchedManifest:(TWURLFetcher *)fetcher;
 #else
 - (void)manifestRequestFinished:(ASIHTTPRequest *)request;
-#endif REQUEST_MANIFEST_NSURLCONNECTION
+#endif //REQUEST_MANIFEST_NSURLCONNECTION
 - (void)parseManifestData:(NSData *)fileData;
 - (BOOL)isDownloadableTrack:(NSString *)file;
 - (NSDictionary *)latestEntry:(NSString *)file;

@@ -16,6 +16,6 @@
 // no NSAttributedString on iPhone!
 #if !TARGET_OS_IPHONE
 - (NSAttributedString *) attributedStringForObjectValue:(id)object withDefaultAttributes:(NSDictionary *)attributes;
-#endif !TARGET_OS_IPHONE
+#endif //!TARGET_OS_IPHONE
 
 @end

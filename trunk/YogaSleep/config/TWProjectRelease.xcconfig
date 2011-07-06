@@ -1,16 +1,20 @@
 //
 //  TWProjectRelease.xcconfig
 //
-//  Copyright 2010 Trollwerks Inc. All rights reserved.
+//  Copyright 2011 Trollwerks Inc. All rights reserved.
 //
 
 VALIDATE_PRODUCT = YES
 CODE_SIGN_IDENTITY = iPhone Distribution 
+CODE_SIGN_ENTITLEMENTS = config/TWEntitlementsRelease.plist
+
+TW_CONFIGURATION_GCC_PREPROCESSOR_DEFINITIONS = NDEBUG=1 NS_BLOCK_ASSERTIONS=1
 
 ONLY_ACTIVE_ARCH = NO
 
 GCC_OPTIMIZATION_LEVEL = s
 GCC_WARN_UNINITIALIZED_AUTOS = YES
+GCC_DYNAMIC_NO_PIC = YES
 
 GCC_TREAT_WARNINGS_AS_ERRORS = YES
 
