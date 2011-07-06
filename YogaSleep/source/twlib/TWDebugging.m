@@ -87,7 +87,7 @@ void TWLogTouchSet(const char* action, NSSet* set, UIEvent* event)
    }
 }
 
-#endif TARGET_OS_IPHONE
+#endif //TARGET_OS_IPHONE
 
 // implements DEBUG_ASSERT_MESSAGE in AssertMacros.h
 

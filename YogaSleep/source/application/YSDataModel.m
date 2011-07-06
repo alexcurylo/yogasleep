@@ -37,6 +37,9 @@ NSString *kTracksSubfolder = @"tracks";
 NSString *kManifestPlist = @"manifest.plist";
 NSString *kManifestFile = @"file";
 NSString *kManifestVersion = @"version";
+NSString *kTracksPlist = @"tracks.plist";
+NSString *kPlaylistsPlist = @"playlists.plist";
+NSString *kPlaylistsLitePlist = @"playlists-lite.plist";
 
 /*
 @implementation NSString(ValueSort)
@@ -209,16 +212,72 @@ NSString *kManifestVersion = @"version";
 
 - (void)loadManifest
 {
+   /*
    NSString *path = [self pathForUpdatableFile:kManifestPlist];
    self.installedManifest = [NSMutableArray arrayWithContentsOfFile:path];
    twcheck(self.installedManifest);
+   self.latestManifest = [self.installedManifest mutableCopy];
+    */
+   NSString *installedPath = [self pathForUpdatableFile:kManifestPlist];
+   NSString *bundlePath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:kManifestPlist];
+   if ([installedPath isEqualToString:bundlePath])
+   {
+      self.installedManifest = [NSMutableArray arrayWithContentsOfFile:installedPath];
+      twcheck(self.installedManifest);
+   }
+   else
+   {
+      // check to see if bundle is later than installed
+      
+      self.installedManifest = [NSMutableArray arrayWithContentsOfFile:installedPath];
+      NSInteger installedVersion = 0;
+      for (NSDictionary *installedEntry in self.installedManifest)
+         if ([kTracksPlist isEqual:[installedEntry objectForKey:kManifestFile]])
+            installedVersion = [[installedEntry objectForKey:kManifestVersion] integerValue];
+      
+      NSMutableArray *bundleManifest = [NSMutableArray arrayWithContentsOfFile:bundlePath];
+      NSInteger bundleVersion = 0;
+      for (NSDictionary *bundleEntry in bundleManifest)
+         if ([kTracksPlist isEqual:[bundleEntry objectForKey:kManifestFile]])
+            bundleVersion = [[bundleEntry objectForKey:kManifestVersion] integerValue];
+      
+      if (installedVersion < bundleVersion)
+      {
+         twlog("later bundled version of tracks.plist -- removing downloaded files!");
+         self.installedManifest = bundleManifest;
+         
+         NSError *error = nil;
+         BOOL removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+         installedPath = [self.documentDirectory stringByAppendingPathComponent:kTracksPlist];
+         removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+         installedPath = [self.documentDirectory stringByAppendingPathComponent:kPlaylistsPlist];
+         removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+         installedPath = [self.documentDirectory stringByAppendingPathComponent:kPlaylistsLitePlist];
+         removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+
+         installedPath = [self.documentDirectory stringByAppendingPathComponent:@"introduction.html"];
+         removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+         installedPath = [self.documentDirectory stringByAppendingPathComponent:@"introduction-lite.html"];
+         removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+         installedPath = [self.documentDirectory stringByAppendingPathComponent:@"moreinfo.html"];
+         removed = [[NSFileManager defaultManager] removeItemAtPath:installedPath error:&error];
+         twcheck(removed && !error);
+      }
+   }
+   
    self.latestManifest = [self.installedManifest mutableCopy];
 }
 
 - (void)loadTracks
 {
    //NSString *path = [[NSBundle mainBundle] pathForResource:@"tracks" ofType:@"plist"];
-   NSString *path = [self pathForUpdatableFile:@"tracks.plist"];
+   NSString *path = [self pathForUpdatableFile:kTracksPlist];
    self.tracks = [NSMutableArray arrayWithContentsOfFile:path];
    twcheck(self.tracks);
 }
@@ -226,12 +285,12 @@ NSString *kManifestVersion = @"version";
 - (void)loadPlaylists
 {
 #if YOGASLEEPFULL
-   NSString *basePlaylistsPath = [self pathForUpdatableFile:@"playlists.plist"];
+   NSString *basePlaylistsPath = [self pathForUpdatableFile:kPlaylistsPlist];
 #elif YOGASLEEPLITE
-   NSString *basePlaylistsPath = [self pathForUpdatableFile:@"playlists-lite.plist"];
+   NSString *basePlaylistsPath = [self pathForUpdatableFile:kPlaylistsLitePlist];
 #else
 #error version not set!
-#endif YOGASLEEPFULL
+#endif //YOGASLEEPFULL
    self.basePlaylists = [NSArray arrayWithContentsOfFile:basePlaylistsPath];
    twcheck(self.basePlaylists.count);
    
@@ -249,6 +308,49 @@ NSString *kManifestVersion = @"version";
    [self.combinedPlaylists addObjectsFromArray:self.customPlaylists];
 }
 
+- (void)checkForDownloadableTracks
+{
+   if (self.downloadQueue.operations.count)
+      return;
+   
+   for (NSDictionary *entry in self.tracks)
+   {
+      NSString *file = [entry objectForKey:kTrackFile];
+      NSString *path = [self pathForTrack:file];
+      if (path.length)
+      {
+         twlog("checkForDownloadableTracks: file %@ is present", file);
+         continue;
+      }
+ 
+#if YOGASLEEPLITE
+      if (![self isDownloadableTrack:file])
+      {
+         twlog("checkForDownloadableTracks: %@ not downloadable", file);
+         continue;
+      }
+#endif //YOGASLEEPLITE
+
+      file = [@"tracks/" stringByAppendingString:file];
+      NSDictionary *manifestEntry = [self latestEntry:file];
+      if (!manifestEntry)
+      {
+         twlog("checkForDownloadableTracks: %@ has no manifest entry?", file);
+         continue;
+      }
+      NSString *fileLink = [kDropboxBaseLink stringByAppendingString:file];
+      twlog("checkForDownloadableTracks: downloading %@: %@", file, fileLink);
+      ASIHTTPRequest *fileRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:fileLink]];
+      fileRequest.userInfo = [manifestEntry copy];
+      NSString *downloadPath = [self.downloadsDirectory stringByAppendingPathComponent:file];
+      [fileRequest setDownloadDestinationPath:downloadPath];
+      [fileRequest setDelegate:self];
+      fileRequest.didFinishSelector = @selector(fileRequestFinished:);
+      fileRequest.didFailSelector = @selector(fileRequestFailed:);
+      [self.downloadQueue addOperation:fileRequest];
+   }
+}
+
 - (void)updateManifest
 {
 //#warning simulating network fail
@@ -264,7 +366,7 @@ NSString *kManifestVersion = @"version";
    //manifestUpdating = YES;   
    // note that stringByAppendingPathComponent will change // after http:// to single slash, 
    // giving the uninformative "ASIHTTPRequestErrorDomain Code=6 "Unable to start HTTP connection"" error
-   NSString *link = [kDropboxBaseLink stringByAppendingString:kManifestPlist];
+   NSString *manifestLink = [kDropboxBaseLink stringByAppendingString:kManifestPlist];
 
    
 #if REQUEST_MANIFEST_NSURLCONNECTION
@@ -274,18 +376,18 @@ NSString *kManifestVersion = @"version";
       return;
    }
    
-   twlog("fetching manifest with TWURLFetcher: %@", link);
-   TWURLFetcher *manifestFetcher = [TWURLFetcher urlFetcher:link target:self selector:@selector(fetchedManifest:)];
+   twlog("fetching manifest with TWURLFetcher: %@", manifestLink);
+   TWURLFetcher *manifestFetcher = [TWURLFetcher urlFetcher:manifestLink target:self selector:@selector(fetchedManifest:)];
    twcheck(manifestFetcher); (void)manifestFetcher;
 #else
-   twlog("fetching manifest with ASIHTTPRequest: %@", link);
-   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:link]];
+   twlog("fetching manifest with ASIHTTPRequest: %@", manifestLink);
+   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:manifestLink]];
    [request setDelegate:self];
    request.didFinishSelector = @selector(manifestRequestFinished:);
    request.didFailSelector = @selector(manifestRequestFailed:);
    [self.downloadQueue addOperation:request];
    //[request startAsynchronous];
-#endif REQUEST_MANIFEST_NSURLCONNECTION
+#endif //REQUEST_MANIFEST_NSURLCONNECTION
 }
 
 #if REQUEST_MANIFEST_NSURLCONNECTION
@@ -306,7 +408,7 @@ NSString *kManifestVersion = @"version";
    NSData *fileData = request.responseData;
    [self parseManifestData:fileData;
 }
-#endif REQUEST_MANIFEST_NSURLCONNECTION
+#endif //REQUEST_MANIFEST_NSURLCONNECTION
 
 - (void)parseManifestData:(NSData *)fileData
 {
@@ -317,8 +419,7 @@ NSString *kManifestVersion = @"version";
       return;
    }
    
-   
-   NSString *fileString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
+   NSString *fileString = [[[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding] autorelease];
    // that came back as an HTML page on Nick's dataless phone!
    //twlog("parse manifest result:%@", fileString);
    NSString *plistID = @"<!DOCTYPE plist PUBLIC";
@@ -339,7 +440,28 @@ NSString *kManifestVersion = @"version";
 
    if ([manifest isEqual:self.latestManifest])
    {
-      twlog("parseManifestData, no changes needed");
+      twlog("parseManifestData -- equal, no changes needed");
+      //manifestUpdating = NO;   
+      return;
+   }
+   
+   NSInteger currentVersion = 0;
+   for (NSDictionary *currentEntry in self.latestManifest)
+      if ([kTracksPlist isEqual:[currentEntry objectForKey:kManifestFile]])
+      {
+         currentVersion = [[currentEntry objectForKey:kManifestVersion] integerValue];
+         break;
+      }
+   NSInteger onlineVersion = 0;
+   for (NSDictionary *onlineEntry in manifest)
+      if ([kTracksPlist isEqual:[onlineEntry objectForKey:kManifestFile]])
+      {
+         onlineVersion = [[onlineEntry objectForKey:kManifestVersion] integerValue];
+         break;
+      }
+   if (onlineVersion < currentVersion)
+   {
+      twlog("parseManifestData -- online version older than bundle version!");
       //manifestUpdating = NO;   
       return;
    }
@@ -366,11 +488,11 @@ NSString *kManifestVersion = @"version";
             twlog("parseManifestData: %@ is not a downloadable track", file);
             continue;
          }
-#endif YOGASLEEPLITE
+#endif //YOGASLEEPLITE
       
-      NSString *link = [kDropboxBaseLink stringByAppendingString:file];
-      twlog("parseManifestData: downloading %@ version %d update to %d: %@", file, latestVersion, version, link);
-      ASIHTTPRequest *fileRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:link]];
+      NSString *fileLink = [kDropboxBaseLink stringByAppendingString:file];
+      twlog("parseManifestData: downloading %@ version %d update to %d: %@", file, latestVersion, version, fileLink);
+      ASIHTTPRequest *fileRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:fileLink]];
       fileRequest.userInfo = [latestEntry copy];
       NSString *downloadPath = [self.downloadsDirectory stringByAppendingPathComponent:file];
       [fileRequest setDownloadDestinationPath:downloadPath];

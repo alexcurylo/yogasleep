@@ -1,11 +1,12 @@
 //
 //  TWProjectDebug.xcconfig
 //
-//  Copyright 2010 Trollwerks Inc. All rights reserved.
+//  Copyright 2011 Trollwerks Inc. All rights reserved.
 //
 
 VALIDATE_PRODUCT = NO
 CODE_SIGN_IDENTITY = iPhone Developer 
+CODE_SIGN_ENTITLEMENTS = config/TWEntitlementsDebug.plist
 
 TW_CONFIGURATION_GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
 
@@ -13,6 +14,7 @@ ONLY_ACTIVE_ARCH = YES
 
 GCC_OPTIMIZATION_LEVEL = 0
 GCC_WARN_UNINITIALIZED_AUTOS = NO
+GCC_DYNAMIC_NO_PIC = NO
 
 GCC_TREAT_WARNINGS_AS_ERRORS = NO
 

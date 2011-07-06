@@ -14,10 +14,10 @@
 #define TWTARGET_RT_SIMULATOR 1
 #else
 #define TWTARGET_RT_DEVICE 1
-#endif TARGET_IPHONE_SIMULATOR
+#endif //TARGET_IPHONE_SIMULATOR
 #else
 #define TWTARGET_SDK_MAC 1
-#endif TARGET_OS_IPHONE
+#endif //TARGET_OS_IPHONE
 
 #import <TWDebugging.h>
 #import <TWGeometry.h>
@@ -25,7 +25,7 @@
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#endif __OBJC__
+#endif //__OBJC__
 
 // ASIHTTPRequest debugging
 //#define DEBUG_REQUEST_STATUS 1
